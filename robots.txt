@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://brainvader.github.io/sitemap.xml
+Sitemap: https://brainvader.github.io/brain-space/sitemap.xml
