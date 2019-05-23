@@ -1,0 +1,56 @@
+@import "./normalize.css";
+
+:root {
+  --main-colour: #c05b4d;
+  --body-width: 800px;
+}
+
+
+html {
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+  color: #34495e;
+  background: #fefefe;
+  /* border-top: 3px solid var(--main-colour); */
+}
+
+pre {
+  padding: 1em;
+  overflow: auto;
+}
+
+.container {
+  width: var(--body-width);
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 2em;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.menu ul li {
+  padding-left: 2em;
+}

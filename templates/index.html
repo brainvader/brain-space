@@ -1,0 +1,82 @@
+{% import "post_macros.html" as post_macros %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{{ config.title }}{% endblock %}</title>
+
+    {% block js %}
+          {% if config.extra.katex_enable %}
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              {% if config.extra.katex_auto_render %}
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              {% endif %}
+          {% endif %}
+    {% endblock js %}
+
+    {% block css %}
+    <link rel="stylesheet" href="{{ get_url(path="css/base.css", trailing_slash=false) }}">
+    {% endblock css %}
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.home_title }}</a></div>
+        <nav class="menu">
+          <ul>
+            {% for item in config.extra.even_menu %}
+            <li>
+              <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
+                {{ item.name }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          {% block content %}
+          <div class="posts">
+            {% for page in paginator.pages %}
+            <article class="post">
+              <p>{{ page.title }}</p>
+              {{ post_macros::title(page=page) }}
+              <div class="post__summary">
+                {{ page.summary | safe }}
+              </div>
+              <div class="read-more">
+                <a href="{{ page.permalink }}">Read more...</a>
+              </div>
+            </article>
+            {% endfor %}
+          </div>
+          {% endblock content %}
+        </div>
+      </main>
+      <footer>
+        {% block footer %}
+        <nav class="pagination">
+          {% if paginator.previous %}
+          <a class="previous" href="{{ paginator.previous }}">‹ Previous</a>
+          {% endif %}
+          {% if paginator.next %}
+          <a class="next" href="{{ paginator.next }}">Next ›</a>
+          {% endif %}
+        </nav>
+        {% endblock footer %}
+      </footer>
+    </div>
+  </body>
+
+</html>
