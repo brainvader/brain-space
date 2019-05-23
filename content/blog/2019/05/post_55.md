@@ -618,6 +618,22 @@ katex_auto_render = true
 
 ## Githubページへのデプロイ
 
+　Githubに公開リポジトリを作ります. 作成したリモート・リポジトリを登録し, アップストリームブランチを設定します.
+
+```bash
+git remote add origin https://github.com/user-name/repository-name.git
+git push -u origin master
+```
+
+　これ以降は同じプロジェクトからはgit pushでmasterリポジトリが更新されます. デフォルトではgh-pagesリポジトリ以下のindex.htmlが公開されます. それ用のコマンドがあってgh-pagesと言います. 以下のようにするとgh-pagesリポジトリが作られます.
+
+```js
+zola build
+npm install -g gh-pages
+```
+
+　公開されたページのULRはhttps://user-name.github.io/project-name/です. リポジトリからリンクが生えたりはしないのでreadme.mdにでも書いておきましょう. 注意点としてZolaはREADME.mdを作らないので, 
+
 ## 注釈
 {{ anchor(id=1)}} [Summary](https://www.getzola.org/documentation/content/page/#summary)
 {{ anchor(id=2) }} [Built-ins](https://tera.netlify.com/docs/templates/#built-ins)
