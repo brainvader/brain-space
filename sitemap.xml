@@ -1,0 +1,96 @@
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+        <url>
+            <loc>https://brainvader.github.io/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/about/</loc>
+            
+                <lastmod>2019-05-18T03:11:09Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/blog/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/blog/2019/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/blog/2019/05/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/blog/2019/05/post-55/</loc>
+            
+                <lastmod>2019-05-16T23:17:46Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/blog/2019/05/post-56/</loc>
+            
+                <lastmod>2019-05-16T23:20:58Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/blog/2019/05/post-57/</loc>
+            
+                <lastmod>2019-05-17T23:42:04Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/categories/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/categories/programming/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/pages/1/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/tags/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/tags/cg/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/tags/opengl/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/tags/python/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/tags/rust/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://brainvader.github.io/tags/ssg/</loc>
+            
+        </url>
+    
+</urlset>

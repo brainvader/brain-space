@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - Zola入門</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;05&#x2f;post-55&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-55&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/blog/2019/05/post-55/#zolatoha" class="toc-link">Zolaとは?</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/blog/2019/05/post-55/#gai-yao" class="toc-link">概要</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#she-ding" class="toc-link">設定</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#zolakomando" class="toc-link">zolaコマンド</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#puroziekutonohuairugou-zao" class="toc-link">プロジェクトのファイル構造</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/blog/2019/05/post-55/#markdownniyorukontentuguan-li" class="toc-link">Markdownによるコンテンツ管理</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/blog/2019/05/post-55/#sekusiyontopezi" class="toc-link">セクションとページ</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#qian-fu-front-matter" class="toc-link">前付 (front-matter)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#slugtopermalink" class="toc-link">SlugとPermalink</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#asset-colocation" class="toc-link">Asset colocation</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/blog/2019/05/post-55/#teratenpuretoenzin" class="toc-link">Teraテンプレート・エンジン</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#sutandadotenpureto-biao-zhun-tenpureto" class="toc-link">スタンダード・テンプレート (標準テンプレート)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#bian-shu" class="toc-link">変数</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#teranogou-wen" class="toc-link">Teraの構文</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#ifburotuku" class="toc-link">ifブロック</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#forburotuku" class="toc-link">forブロック</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#wai-bu-tenpuretonodu-miip-mitomakuro" class="toc-link">外部テンプレートの読み込みとマクロ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#burotuku" class="toc-link">ブロック</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#huiruta-tesuto-guan-shu" class="toc-link">フィルタ, テスト, 関数</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#zolabirutoinhuiruta" class="toc-link">Zolaビルトイン・フィルタ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#zolanobirutoingurobaruguan-shu" class="toc-link">Zolaのビルトイン・グローバル関数</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/blog/2019/05/post-55/#taxonomies" class="toc-link">Taxonomies</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#taxonomiestutesomosomohe" class="toc-link">Taxonomiesってそもそも何?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#takusonominoshe-ding" class="toc-link">タクソノミーの設定</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/blog/2019/05/post-55/#sutairingu" class="toc-link">スタイリング</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#zhi-kichang-suo" class="toc-link">置き場所</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#css-noxin-gou-wen" class="toc-link">CSSの新構文</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/blog/2019/05/post-55/#sintatukusuhairaito" class="toc-link">シンタックス・ハイライト</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/blog/2019/05/post-55/#tips" class="toc-link">Tips</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#cao-gao-pezi" class="toc-link">草稿ページ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#toc-table-of-content" class="toc-link">TOC (Table Of Content)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#nei-bu-rinku-internal-links" class="toc-link">内部リンク (Internal Links)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#anchor-links" class="toc-link">Anchor Links</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#read-moreji-neng" class="toc-link">Read-more機能</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#hua-xiang-tohua-xiang-chu-li" class="toc-link">画像と画像処理</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#pezinesiyon" class="toc-link">ページネーション</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#siyotokodo-shortcodes" class="toc-link">ショート・コード (Shortcodes)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/blog/2019/05/post-55/#auto-render-extension" class="toc-link">auto-render extension</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/blog/2019/05/post-55/#githubpezihenodepuroi" class="toc-link">Githubページへのデプロイ</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/blog/2019/05/post-55/#zhu-shi" class="toc-link">注釈</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/blog/2019/05/post-55/#reference" class="toc-link">Reference</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-55&#x2f;">Zola入門</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-05-16</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h2 id="zolatoha">Zolaとは?</h2>
+<p>　このサイトはRust製の静的サイトジェネレータZolaによって開発されています. Zolaの導入はRustとCLI(CommandLine Interface)を導入するだけです. プラグイなどもなく簡潔で, Rust製だけあって高速です. 一方でAugmented MarkdownというMarkdownの拡張構文が用意されているため柔軟性も兼ね備えています. 本記事ではRust製の静的サイト・ジェネレータであるZolaの基本的な機能について解説しようと思います.</p>
+<p id="zola-continue-reading"><a name="continue-reading"></a></p>
+<h2 id="gai-yao">概要</h2>
+<h3 id="she-ding">設定</h3>
+<p>　config.tomlというファイルで管理します.</p>
+<h3 id="zolakomando">zolaコマンド</h3>
+<p>　Zolaはシングル・バイナリなSSG(Static Site Generator)でコマンドライン・ツールでプロジェクトを管理します. その名もzolaと言います. zolaコマンドはシンプルなインターフェースでサブコマンドは３つしかありません.</p>
+<ul>
+<li>init: プロジェクトの雛形生成</li>
+<li>serve: 開発サーバー上での起動</li>
+<li>build: 静的サイトの生成</li>
+</ul>
+<h3 id="puroziekutonohuairugou-zao">プロジェクトのファイル構造</h3>
+<p>　プロジェクトはinitサブコマンドで生成します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">zola</span><span style="color:#c0c5ce;"> init test-blog
+</span></pre>
+<p>　この後インタラクティブ・セッションでいくつかの質問がされます. とりあえず全部Yesでいいと思います. 設定はconfig.tomlで設定できます. 以下はzola init test-blogで生成される雛形です.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#96b5b4;">.
+</span><span style="color:#bf616a;">└──</span><span style="color:#c0c5ce;"> test-blog
+    </span><span style="color:#bf616a;">├──</span><span style="color:#c0c5ce;"> config.toml
+    </span><span style="color:#bf616a;">├──</span><span style="color:#c0c5ce;"> content
+    </span><span style="color:#bf616a;">├──</span><span style="color:#c0c5ce;"> sass
+    </span><span style="color:#bf616a;">├──</span><span style="color:#c0c5ce;"> static
+    </span><span style="color:#bf616a;">├──</span><span style="color:#c0c5ce;"> templates
+    </span><span style="color:#bf616a;">└──</span><span style="color:#c0c5ce;"> themes
+</span></pre><h2 id="markdownniyorukontentuguan-li">Markdownによるコンテンツ管理</h2>
+<p>　コンテンツはmd形式(Markdownのファイル拡張子)で記述し, contentフォルダ以下に保存します. config.tomlで指定したbase_urlに続く形でファイル名を付加されパスが生成されます. 区切り文字はハイフンに変更されます. </p>
+<h2 id="sekusiyontopezi">セクションとページ</h2>
+<p>　コンテンツは階層化できます. やることは通常のプロジェクトと同じフォルダで階層を作るだけなのですが, Zolaのフォルダはセクションと呼ばれsection.htmlというテンプレートと結合して画面に表示することができます. その内容は_index.mdというファイルに記述します. セクションは非表示にすることもできます. あるフォルダが１つのコンテンツを表す場合はindex.mdというファイルを使います. 例えばaboutページを作成する場合about.mdとしてもいいですが, aboutフォルダの中にindex.mdを入れることもできます. この場合_index.mdがないページを孤児ページ(orphan page)と呼びます.</p>
+<!-- TODO: 孤児ページへURLをハードコードする以外でもアクセスできる? -->
+<h3 id="qian-fu-front-matter">前付 (front-matter)</h3>
+<p>　Zolaの全てのMarkdownファイルには前付けと呼ばれる部分があり, ここに設定などを書きます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">+++
+</span><span style="color:#8fa1b3;"># front-matter
+# here specify metadata
+</span><span style="color:#c0c5ce;">+++
+</span><span style="color:#8fa1b3;"># start page content from here
+</span></pre><h3 id="slugtopermalink">SlugとPermalink</h3>
+<p>　パーマリンクはページのULR全体のことを指します. このURLの末尾のページの識別子をSlugと呼びます. 以下はsectionフォルダがある場合とない場合のパーマリンクにおけるslugの違いです. すでに述べましたが, ページ名やセクション名の区切り文字は全てハイフンに置き換えられます.</p>
+<ul>
+<li>base_url/page-name/</li>
+<li>base_url/section-name/</li>
+</ul>
+<p>　もう少し具体的にいうとfirst_post.mdかpost/index.mdならhttps://example.com/first-postとなります.</p>
+<h3 id="asset-colocation">Asset colocation</h3>
+<p>　それぞれのページには画像やJavaScriptのような固有のアセットが必要な場合があります. sectionフォルダを使うとこれらを<strong>asset colocation</strong>として同一のファイルで管理できます. ちなみにアセットは全て使う必要ははなくビルドの際に除外設定することもできます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;"># config.tomlに指定する!
+</span><span style="color:#bf616a;">ignored_content </span><span style="color:#c0c5ce;">= [&quot;</span><span style="color:#a3be8c;">*.hoge</span><span style="color:#c0c5ce;">&quot;]
+</span></pre>
+<p>　アセットはもう１つstaticというフォルダにも置けます.</p>
+<h4 id="index-md">_index.md</h4>
+<p>　_index.mdはセクション・ビュ(section.html)のデータ・ソースになります. renderとかtransparentという設定項目によって表示/非表示などを管理できます.</p>
+<h2 id="teratenpuretoenzin">Teraテンプレート・エンジン</h2>
+<p>　Zolaの内部では<a href="https://tera.netlify.com/">Tera</a>と呼ばれるテンプレート・エンジンが使われています.<a href="#ref-3"><sup>3</sup></a> Teraも当然Rust製です. Markdownに記述したコンテンツをビューと結合し生成物として静的ファイルを出力します. テンプレートはプロジェクト直下のtemplatesというそのままの名前のフォルダに保存します.</p>
+<h3 id="sutandadotenpureto-biao-zhun-tenpureto">スタンダード・テンプレート (標準テンプレート)</h3>
+<p>　ページの前付にはtemplateといってどのファイルをテンプレートとして用いるか指定するオプションがあります. しかし一部のコンテンツはデフォルのテンプレート名が決まっています.</p>
+<ul>
+<li>index.html</li>
+<li>section.html</li>
+<li>page.html</li>
+<li>カスタム・テンプレート</li>
+</ul>
+<p>　上の３つは標準テンプレートと呼ばれファイルを作るとZolaが勝手にコンテンツと結びつけてくれます. index.htmlはホームページのためのテンプレートで, page.htmlはMarkdownと結合されてブログのページになります. section.htmlは主に_index.mdの内容と結合します.これ以外のテンプレートで表示したい場合はカスタム・テンプレートを作ってページ側で指定する必要があります.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">template = &quot;custom.html&quot;
+</span></pre><h3 id="bian-shu">変数</h3>
+<p>　テンプレートでは変数を用いてMarkdownの内容にアクセスできます. 定義もしていないしTeraのキーワードでも無いのでぱっと見はどこから来たのか分からなくて驚くかもしれませんが, 変数というやつです.</p>
+<ul>
+<li>config</li>
+<li>current_path</li>
+<li>current_url</li>
+<li>lang</li>
+<li>section</li>
+<li>page</li>
+<li>paginator</li>
+<li>toc</li>
+<li>translations</li>
+</ul>
+<p>　などがあります(他にもあるかもしれませんが). 例えばページの本文などをテンプレートに埋め込みたい場合は以下のようになります.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">div </span><span style="color:#d08770;">class</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">post-content</span><span style="color:#c0c5ce;">&quot;&gt;
+</span><span style="color:#c0c5ce;">  {{ </span><span style="color:#bf616a;">page</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">content </span><span style="color:#c0c5ce;">| </span><span style="color:#bf616a;">safe </span><span style="color:#c0c5ce;">}}
+&lt;/</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+</span></pre>
+<p>セクションの場合(section.html)はsectionという変数が使えます.</p>
+<h3 id="teranogou-wen">Teraの構文</h3>
+<p>　ここではZolaで必要な程度のTeraの構文を紹介します. 実際はRustのデータとやりとりしたりするのですが, ZolaではMarkdownの内容を読み取るのが基本ですのでそこまで難しくありません.</p>
+<h4 id="qu-qie-riwen-zi">区切り文字</h4>
+<p>　3種類の区切り文字(delimiter)がある.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">{# Expressions #}
+</span><span style="color:#c0c5ce;">{{ }} 
+
+</span><span style="color:#65737e;">{# Statements #}
+</span><span style="color:#c0c5ce;">{% %}
+
+</span><span style="color:#65737e;">{# Comment #}
+{# #}
+</span></pre><h3 id="ifburotuku">ifブロック</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">age </span><span style="color:#c0c5ce;">&gt; 9 </span><span style="color:#b48ead;">or  </span><span style="color:#bf616a;">num </span><span style="color:#c0c5ce;">&lt; 20 %}
+    {{ </span><span style="color:#bf616a;">name </span><span style="color:#c0c5ce;">}} is a teenager.
+{% </span><span style="color:#b48ead;">elif </span><span style="color:#bf616a;">age </span><span style="color:#c0c5ce;">&gt; 19 </span><span style="color:#b48ead;">and </span><span style="color:#bf616a;">age </span><span style="color:#c0c5ce;">&lt; 61 %}
+　  {{ </span><span style="color:#bf616a;">name </span><span style="color:#c0c5ce;">}} is an adult.
+{% </span><span style="color:#b48ead;">else </span><span style="color:#c0c5ce;">%}
+    {{ </span><span style="color:#bf616a;">name </span><span style="color:#c0c5ce;">}} is an elder or a child.
+{% </span><span style="color:#b48ead;">endif </span><span style="color:#c0c5ce;">%}
+</span></pre><h3 id="forburotuku">forブロック</h3>
+<p>forループの構文もあります. このブロックではloopという特殊な変数が使えます.</p>
+<ul>
+<li>loop.index</li>
+<li>loopindex0</li>
+<li>loop.first</li>
+<li>loop.last</li>
+</ul>
+<p>　リストなどを使うのに使えるでしょう. </p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">for </span><span style="color:#bf616a;">item </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">list </span><span style="color:#c0c5ce;">%}
+    &lt;</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;{{ </span><span style="color:#bf616a;">loop</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">index </span><span style="color:#c0c5ce;">}}: {{ </span><span style="color:#bf616a;">item </span><span style="color:#c0c5ce;">}}&lt;/</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;
+{% </span><span style="color:#b48ead;">endfor　</span><span style="color:#c0c5ce;">%}
+</span></pre>
+<p>　配列はよく有る角括弧(square brackets)を使った記法でも可能です.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">for </span><span style="color:#bf616a;">i </span><span style="color:#b48ead;">in </span><span style="color:#c0c5ce;">[1,2,3] %}
+  num: {{ </span><span style="color:#bf616a;">i </span><span style="color:#c0c5ce;">}}
+{% </span><span style="color:#b48ead;">endfor </span><span style="color:#c0c5ce;">%}
+</span></pre>
+<p>　forループははマップにも使えます. この場合はkey-valueペアを取り出します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">for </span><span style="color:#bf616a;">key</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">value </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">a_map </span><span style="color:#c0c5ce;">%}
+</span><span style="color:#c0c5ce;">  map {{ </span><span style="color:#bf616a;">key </span><span style="color:#c0c5ce;">}} to {{ </span><span style="color:#bf616a;">value </span><span style="color:#c0c5ce;">}}
+</span><span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">endfor </span><span style="color:#c0c5ce;">%}
+</span></pre>
+<p>continueとかbreakも使えます.</p>
+<h3 id="wai-bu-tenpuretonodu-miip-mitomakuro">外部テンプレートの読み込みとマクロ</h3>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">./path/to/another_template.hteml</span><span style="color:#c0c5ce;">&quot; %}
+</span></pre>
+<p>マクロの読み込みも基本的には同じですが, パスの指定ができません. マクロは関数のようなもので引数を指定することができます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">{# Macro Definition in#}
+</span><span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">macro </span><span style="color:#bf616a;">factorial</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">n</span><span style="color:#c0c5ce;">) %}
+   {% </span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">n </span><span style="color:#c0c5ce;">&gt; 1 %}{{ </span><span style="color:#bf616a;">n </span><span style="color:#c0c5ce;">}} - {{ </span><span style="color:#bf616a;">self</span><span style="color:#c0c5ce;">::</span><span style="color:#bf616a;">factorial</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">n</span><span style="color:#c0c5ce;">=</span><span style="color:#bf616a;">n</span><span style="color:#c0c5ce;">-1) }}{% </span><span style="color:#b48ead;">else </span><span style="color:#c0c5ce;">%}1{% </span><span style="color:#b48ead;">endif </span><span style="color:#c0c5ce;">%}
+{% </span><span style="color:#b48ead;">endmacro </span><span style="color:#bf616a;">factorial </span><span style="color:#c0c5ce;">%}
+
+</span><span style="color:#65737e;">{# Macro Call #}
+</span><span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">factorial_macros.html</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#bf616a;">as factorial_macros </span><span style="color:#c0c5ce;">%}
+{{ </span><span style="color:#bf616a;">factorial_macros</span><span style="color:#c0c5ce;">::</span><span style="color:#bf616a;">factorial</span><span style="color:#c0c5ce;">(5) }}
+</span></pre><h3 id="burotuku">ブロック</h3>
+<p>ブロック・タグで囲んだ領域は継承先で上書きすることができます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">{# parent.html #}
+</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;{% </span><span style="color:#b48ead;">block </span><span style="color:#bf616a;">title </span><span style="color:#c0c5ce;">%} {% </span><span style="color:#b48ead;">endblock </span><span style="color:#bf616a;">title </span><span style="color:#c0c5ce;">%}&lt;/</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;
+
+</span><span style="color:#65737e;">{# child.html #}
+</span><span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">extends </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">parent.html</span><span style="color:#c0c5ce;">&quot; %}
+&lt;</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;{% </span><span style="color:#b48ead;">block </span><span style="color:#bf616a;">title </span><span style="color:#c0c5ce;">%} Real Title {% </span><span style="color:#b48ead;">endblock </span><span style="color:#bf616a;">title </span><span style="color:#c0c5ce;">%}&lt;/</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;
+</span></pre>
+<p>　なお継承元の内容はsuper()で読み込むことができます.</p>
+<h3 id="huiruta-tesuto-guan-shu">フィルタ, テスト, 関数</h3>
+<!-- NOTE: テストと関数の違いは? -->
+<p>　いくつかTeraのビルトインの機能を紹介します. <a href="#ref-2"><sup>2</sup></a></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">{# filter #}
+</span><span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">for </span><span style="color:#bf616a;">product </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">products </span><span style="color:#c0c5ce;">| </span><span style="color:#bf616a;">reverse </span><span style="color:#c0c5ce;">%}
+  {{</span><span style="color:#bf616a;">loop</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">index</span><span style="color:#c0c5ce;">}}. {{</span><span style="color:#bf616a;">product</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">}}
+{% </span><span style="color:#b48ead;">endfor </span><span style="color:#c0c5ce;">%}
+
+</span><span style="color:#65737e;">{# test #}
+</span><span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">rating </span><span style="color:#b48ead;">is </span><span style="color:#bf616a;">divisibleby</span><span style="color:#c0c5ce;">(2) %}
+    Divisible
+{% </span><span style="color:#b48ead;">endif </span><span style="color:#c0c5ce;">%}
+
+</span><span style="color:#65737e;">{# function #}
+</span></pre><h3 id="zolabirutoinhuiruta">Zolaビルトイン・フィルタ</h3>
+<p>　いくつか機能がありますがドキュメントを見た方が早いと思います. <a href="#ref-4"><sup>4</sup></a></p>
+<h3 id="zolanobirutoingurobaruguan-shu">Zolaのビルトイン・グローバル関数</h3>
+<p>　こちらも公式を見た方が早いです. <a href="#ref-5"><sup>5</sup></a> 一応いくつか紹介しておきましょう.</p>
+<ul>
+<li>get_page: path引数に渡したページの内容を取得する. 値はkey-valueペーアで, 本文以外にも前付やwordcountなど変数の情報も含んでいる</li>
+<li>get_sectin: get_pageのセクション版</li>
+<li>get_url: 指定したファイルのパーマリンクを取得する. CSSや動的にページのパーマリンクを挿入したい場合に使う.</li>
+<li>get_taxonomy: kind引数で指定した全てのtaxonomy取得する・・・と書いてあるが, 内部の構造が良く分からない.</li>
+<li>load_data: 指定したファイルからデータを読み込む. pathでファイルのパス指定して, formatでフィイル形式を指定する. tomlがデフォルト.</li>
+<li>trans: 指定した言語への変換. 日本語は対応していないっぽいです.</li>
+<li>resize_image: 画像のスケールなどができる.</li>
+</ul>
+<h4 id="load-data">load_data</h4>
+<p>load_dataはurlを指定するとAjaxのようにJSONを取得することもできます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">set </span><span style="color:#bf616a;">response </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">load_data</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">url</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">https://api.github.com/repos/getzola/zola</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#bf616a;">format</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">json</span><span style="color:#c0c5ce;">&quot;) %}
+{{ </span><span style="color:#bf616a;">response </span><span style="color:#c0c5ce;">}}
+</span></pre><h2 id="taxonomies">Taxonomies</h2>
+<h3 id="taxonomiestutesomosomohe">Taxonomiesってそもそも何?</h3>
+<p>　Taxonomyを辞書で調べると分類法という意味があるようです. ブログをタグやカテゴリごとに分類する場合に使われる用語のようです. Zolaでは任意の分類法が指定できます(と言ってもただの文字列を指定するだけですが).</p>
+<h3 id="takusonominoshe-ding">タクソノミーの設定</h3>
+<p>　好きな分類名が使えますがタグとかカテゴリとかにしておくのがいいかもしれません. config.tomlにタクソノミーを定義します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">taxonomies </span><span style="color:#c0c5ce;">= [
+    {</span><span style="color:#bf616a;">name </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">categories</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#bf616a;">rss </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">false</span><span style="color:#c0c5ce;">},
+    {</span><span style="color:#bf616a;">name </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">tags</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#bf616a;">rss </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">false</span><span style="color:#c0c5ce;">},
+]
+</span></pre>
+<p>　ここで設定した名前がMarkdownの前付で利用できるようになります.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">+++
+[taxonomies]
+categories = [&quot;programming&quot;]
+tags = [&quot;rust&quot;, &quot;SSG&quot;, &quot;Zola&quot;]
++++
+</span></pre>
+<p>　テンプレート側ではpage変数にtaxonomiesというプロパティがあるので, そこから名前が取得できます. 以下はブログで良くあるタグを表示するコードです. <a href="https://www.getzola.org/documentation/templates/overview/#get-taxonomy-url">get_taxonomy_url</a>でタグが指定されたブログ・ポストの一覧画面へのパーマリンクを取得します. </p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">for </span><span style="color:#bf616a;">tag </span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">page</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">taxonomies</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">tags </span><span style="color:#c0c5ce;">%}
+    &lt;</span><span style="color:#bf616a;">a </span><span style="color:#d08770;">href</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">{{ get_taxonomy_url(kind=</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#d08770;">tags</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#d08770;">, name</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">tag) </span><span style="color:#d08770;">}}</span><span style="color:#c0c5ce;">&quot;&gt;#{{ </span><span style="color:#bf616a;">tag </span><span style="color:#c0c5ce;">}}&lt;/</span><span style="color:#bf616a;">a</span><span style="color:#c0c5ce;">&gt;
+{% </span><span style="color:#b48ead;">endfor </span><span style="color:#c0c5ce;">%}
+</span></pre>
+<p>　この場合#rustならrustでタグ付けされた記事一覧が表示されるということです. getとついていますがcreateというプレフィックスの方がいいのかもしれません. なぜならbase_url/tagとかbase_url/categoryとかbase_urlに続く形でカテゴリやタグの名前をくっつけてパーマリンクを作っているだけだからです.</p>
+<h2 id="sutairingu">スタイリング</h2>
+<p>　スタイリングはSassが標準です. CSSを使う場合はstaticフォルダにcssというフォルダを作って起きます. cssしか使わない場合は, config.tomlのcompile_sass設定を無効にしておくといいかもしれません. その場合zola initを実行してもSassフォルダは生成されませんのでCSSファイルはstatic/css以下に置くことになります.</p>
+<h3 id="zhi-kichang-suo">置き場所</h3>
+<p>　スタイル・ファイルは以下のどちらかに置きます.</p>
+<ul>
+<li>staticフォルダ直下のcssフォルダ</li>
+<li>sassフォルダ</li>
+</ul>
+<p>　static以下のファイルはそのままコピーされます. css/base.cssというファイルがあって, これをビルドするとpublic以下にcss/base.cssがコピーされます. 一方, Sassはcssへ変換されpublic直下へ格納されます. この場合懸念されるのがSassファイルが大量にある場合どうなるのかという問題です. publicフォルダ自体をいじることはないですがすっきりとさせたい場合, もしくはモジューラな単位に分割したい場合は<strong>Partial Sass</strong>を使います. やることは単純で_patial.sassのようにプレフィックスとしてアンダースコアをつけるだけです.</p>
+<p>　標準はSassフォルダなのですが僕はSassが分かりません. またCSSも変数の導入など便利になってきているのでそちらを勉強したいというのもありSassは使いませんのでstaticに基本的に置いときます. このCSSにアクセスするにはTeraグローバル関数を使います. 例えばstatic/css/base.cssへのURLを取得するなら, </p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">set </span><span style="color:#bf616a;">css </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">get_url</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">path</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">css/base.css</span><span style="color:#c0c5ce;">&quot;) %}
+{{ </span><span style="color:#bf616a;">css </span><span style="color:#c0c5ce;">}}
+</span></pre>
+<p>のようになります.</p>
+<h3 id="css-noxin-gou-wen">CSSの新構文</h3>
+<ul>
+<li>変数</li>
+<li>インポート</li>
+<li>グリッド</li>
+</ul>
+<h4 id="bian-shu-kasutamupuropatei">変数 (カスタム・プロパティ)</h4>
+<p>　変数は:root内に定義するグローバル変数とローカルに定義するローカル変数があります. 変数名はハイフン２つで始まり, 呼び出す時はvar関数を使います.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">/* 変数の定義 */
+</span><span style="color:#8fa1b3;">:</span><span style="color:#b48ead;">root </span><span style="color:#c0c5ce;">{
+  --div-width: </span><span style="color:#d08770;">800px</span><span style="color:#c0c5ce;">;
+}
+
+</span><span style="color:#8fa1b3;">.</span><span style="color:#d08770;">theme-dark </span><span style="color:#c0c5ce;">{
+  --bg-color: </span><span style="color:#96b5b4;">#000000</span><span style="color:#c0c5ce;">;
+  --text-color: </span><span style="color:#96b5b4;">#ffffff</span><span style="color:#c0c5ce;">;
+}
+
+</span><span style="color:#65737e;">/* 変数の利用 */
+</span><span style="color:#bf616a;">div </span><span style="color:#c0c5ce;">{
+  width: </span><span style="color:#96b5b4;">var</span><span style="color:#c0c5ce;">(--div-width);
+  background: </span><span style="color:#96b5b4;">var</span><span style="color:#c0c5ce;">(--bg-color);
+  color: </span><span style="color:#96b5b4;">var</span><span style="color:#c0c5ce;">(--text-color);
+}
+</span></pre><h2 id="sintatukusuhairaito">シンタックス・ハイライト</h2>
+<p>　ブログの機能としてシンタックス・ハイライトは欠かせません. Zolaはビルトインでシンタックス・ハイライトにも対応しています. config.tomlで有効にできます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">highlight_code </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">true
+</span><span style="color:#65737e;"># highlight_theme = &quot;&quot;
+</span></pre>
+<p>　Rust製ということで, 当然Rustは対応しています.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">() {
+  println!(&quot;</span><span style="color:#a3be8c;">Hello World!</span><span style="color:#c0c5ce;">&quot;);
+}
+</span></pre>
+<p>そしてTomlも標準で対応しています.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">toml </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">Yes</span><span style="color:#c0c5ce;">&quot;
+</span></pre>
+<p>Markdownもいけます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;"># Heading1
+
+</span><span style="color:#bf616a;">1. item
+2. item
+3. item
+
+</span><span style="color:#d08770;">&gt; 引用
+</span></pre>
+<p>　TeraのシンタックスはJinja2とほぼ同じっぽい(ちゃんと確認はしてません)ので, Jinja2用のテーマが</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">block </span><span style="color:#c0c5ce;">%} {% </span><span style="color:#b48ead;">endblock </span><span style="color:#c0c5ce;">%}
+</span></pre>
+<p>　Pythonも大丈夫です.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">__name__ == &#39;</span><span style="color:#a3be8c;">__main__</span><span style="color:#c0c5ce;">&#39;:
+    </span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">Hello World!</span><span style="color:#c0c5ce;">&quot;)
+</span></pre>
+<p>その他の対応言語は公式ドキュメントを参考にしてください. <a href="#ref-8"><sup>8</sup></a></p>
+<h2 id="tips">Tips</h2>
+<h3 id="cao-gao-pezi">草稿ページ</h3>
+<p>書きかけのページは非表示にできます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">draft </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">false
+</span></pre>
+<p>　テンプレート側ではブール値として取り出せますのでチェックするといいと思います. </p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">page</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">draft </span><span style="color:#c0c5ce;">%}
+{% </span><span style="color:#b48ead;">endif </span><span style="color:#c0c5ce;">%}
+</span></pre>
+<p>　テンプレートの構成によってはエラーが出たりします.</p>
+<h3 id="toc-table-of-content">TOC (Table Of Content)</h3>
+<h3 id="nei-bu-rinku-internal-links">内部リンク (Internal Links)</h3>
+<p>　Markdownはテンプレートに結合されてHTMLになります. そのため内部リンクの記法は存在しません(たぶん). Zolaでは特別な記法が定義されているようです. 指定するパスはcontentフォルダからの相対パスです. 公式の説明そのままですが, content/pages/about.mdなら以下のようになります. GatsbyJSではできなかった(プラグインがある?)ので一発でできるのはありがたいです.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#d08770;">[awesome-link](./pages/about.html)
+</span></pre>
+<p><a href="../post_57.md">third post</a></p>
+<h3 id="anchor-links">Anchor Links</h3>
+<p>　アンカー・リンクを有効にするにはconfig.tomlとセクションの前付に以下を付け足します. ただデフォルでは見栄えはあまり良くないです.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">insert_anchor_links </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">left</span><span style="color:#c0c5ce;">&quot;
+</span></pre><pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">+++
+</span><span style="color:#8fa1b3;"># left, right, or none
+</span><span style="color:#c0c5ce;">insert_anchor_links = &quot;none&quot;
++++
+</span></pre><h3 id="read-moreji-neng">Read-more機能</h3>
+<p>　ブログでさらに読む(Reading More)のような機能があります.<a href="#ref-1"><sup>1</sup></a> ZolaではMarkdown内に以下のようなタグを仕込むと勝手にやってくれます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">&lt;!-- more --&gt;
+</span></pre><pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">div </span><span style="color:#d08770;">class</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">read-more</span><span style="color:#c0c5ce;">&quot;&gt;
+  &lt;</span><span style="color:#bf616a;">a </span><span style="color:#d08770;">href</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">{{ page.permalink }}</span><span style="color:#c0c5ce;">&quot;&gt;Read more...&lt;/</span><span style="color:#bf616a;">a</span><span style="color:#c0c5ce;">&gt;
+&lt;/</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+</span></pre><h3 id="hua-xiang-tohua-xiang-chu-li">画像と画像処理</h3>
+<p>　画像には保存場所によりいくつかの設定の仕方があります.<a href="#ref-6"><sup>6</sup></a> 基本的にはブログの記事(Markdownファイル)と同じフォルダに入れるのがいいですが, 共有されるもの(ページのロゴとかfavicon, そしてJavaScriptなど)はstaticに配置するのがいいようです.{{ ref=(id=7)}}</p>
+<p>　ファイルサイズの変更にはresize_image関数が便利です. これは直接使えませんがshortcodes内で使用してやると, Markdownでも利用できます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">img </span><span style="color:#d08770;">src</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">{{ resize_image(path=path, width=width, height=height, op=op) }}</span><span style="color:#c0c5ce;">&quot; /&gt;
+</span></pre><img src="https:&#x2f;&#x2f;brainvader.github.io&#x2f;processed_images&#x2f;2124d1007691913b00.jpg" />
+<h3 id="pezinesiyon">ページネーション</h3>
+<p>　前のページ(previous)や次のページ(next)をつける機能です.</p>
+<h3 id="siyotokodo-shortcodes">ショート・コード (Shortcodes)</h3>
+<p>　ショートコードを使うとMarkdownを拡張できます. そもそもMarkdownではHTMLのタグが利用できますが, 混在すると少し読みにくいです. そこでショートコードと呼ばれる, コード片を定義しそれをMarkdownでテンプレートの用に利用できます. <del>たとえばZolaは~~で打ち消し線に変換されません(たぶん). そこでdelタグで文章を囲むことになります. </del> そこでstrike.htmlというショートコードを定義してみましょう. templates以下にshortcodesというファイルを作り, strike.htmlというファイルを作り以下のように定義します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">del</span><span style="color:#c0c5ce;">&gt;{{ </span><span style="color:#bf616a;">sentence </span><span style="color:#c0c5ce;">}}&lt;/</span><span style="color:#bf616a;">del</span><span style="color:#c0c5ce;">&gt;
+</span></pre>
+<p>　二重波括弧内部は関数の名前付き引数のように利用できます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{{ strike(sentence=&quot;ダメ出し!!&quot;) }}
+</span></pre>
+<p>　個人的な注意点ですが, 文字列の場合は二重引用符で囲むのを忘れないようにしましょう!! 後上の表示されているコードをコピペしてZolaのシンタックス・ハイライターにかけると展開されてしまいます. 二重波括弧の中をコメントにすると展開を防げます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">/* */
+</span></pre><h4 id="anchor-links-1">Anchor Links</h4>
+<p>　アンカー・リンクはMarkdownにはありませんのでそれを作ってみようと思います(ページ内リンクとも呼ぶようですが正式名称がよく分かりません). まずtemplates以下にshortcodesというフォルダを作成しさらに２つのファイルを作ります.</p>
+<ul>
+<li>ref.html</li>
+<li>anchor.html</li>
+</ul>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">{# ref.html #}
+</span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">a </span><span style="color:#d08770;">href</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">#ref-{{id}}</span><span style="color:#c0c5ce;">&quot;&gt;&lt;</span><span style="color:#bf616a;">sup</span><span style="color:#c0c5ce;">&gt;{{ </span><span style="color:#bf616a;">id </span><span style="color:#c0c5ce;">}}&lt;/</span><span style="color:#bf616a;">sup</span><span style="color:#c0c5ce;">&gt;&lt;/</span><span style="color:#bf616a;">a</span><span style="color:#c0c5ce;">&gt;
+
+</span><span style="color:#65737e;">{# anchor.html #}
+</span><span style="color:#c0c5ce;">{{ </span><span style="color:#bf616a;">id </span><span style="color:#c0c5ce;">}}. &lt;</span><span style="color:#bf616a;">a </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">ref-{{ id }}</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">a</span><span style="color:#c0c5ce;">&gt;
+</span></pre>
+<p>　shortcodesフォルダのファイルは自動的にZolaが認識します. これをMarkdown側で後は読み込みます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{{ ref(id=2) }}
+{{ anchor(id=2) }}
+</span></pre><h4 id="katex">Katex</h4>
+<p>　数式も記述する場合が有ると思います. Zolaのテーマの１つで有る<a href="https://www.getzola.org/themes/even/">even</a>に対応していますのでそれを参考にしたいと思います. evenテーマではまずkatexの有効無効をコントロールできます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">[extra]
+</span><span style="color:#bf616a;">katex_enable </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">true
+</span><span style="color:#bf616a;">katex_auto_render </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">true
+</span></pre>
+<p>　後はテンプレートのヘッダーでkatexのJSファイルやCSSをインストールすればいけます. この記事を書いている時点でのKatexのバージョンは0.10.2です.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">block </span><span style="color:#bf616a;">js </span><span style="color:#c0c5ce;">%}
+      {% </span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">config</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">extra</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">katex_enable </span><span style="color:#c0c5ce;">%}
+      &lt;</span><span style="color:#bf616a;">link </span><span style="color:#d08770;">rel</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">stylesheet</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">href</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">integrity</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">crossorigin</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">anonymous</span><span style="color:#c0c5ce;">&quot;&gt;
+
+      &lt;</span><span style="color:#bf616a;">script </span><span style="color:#d08770;">defer src</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">integrity</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">crossorigin</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">anonymous</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
+      &lt;</span><span style="color:#bf616a;">script </span><span style="color:#d08770;">defer src</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/mathtex-script-type.min.js</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">integrity</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">crossorigin</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">anonymous</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
+          {% </span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">config</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">extra</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">katex_auto_render </span><span style="color:#c0c5ce;">%}
+          &lt;</span><span style="color:#bf616a;">script </span><span style="color:#d08770;">defer src</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">integrity</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">crossorigin</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">anonymous</span><span style="color:#c0c5ce;">&quot;
+              </span><span style="color:#d08770;">onload</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#bf616a;">renderMathInElement</span><span style="color:#c0c5ce;">(document.body);&quot;&gt;&lt;/</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
+          {% </span><span style="color:#b48ead;">endif </span><span style="color:#c0c5ce;">%}
+      {% </span><span style="color:#b48ead;">endif </span><span style="color:#c0c5ce;">%}
+{% </span><span style="color:#b48ead;">endblock </span><span style="color:#bf616a;">js </span><span style="color:#c0c5ce;">%}
+</span></pre><h4 id="katexwoli-yong-suru">katexを利用する.</h4>
+<p>　Katexを埋め込むには以下のようなショートコードを使います.<a href="#ref-9"><sup>9</sup></a></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">script </span><span style="color:#d08770;">type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">math/tex{% if block %};mode=display{% endif %}</span><span style="color:#c0c5ce;">&quot;&gt;{{body}}&lt;/</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
+</span></pre>
+<p>　ここで注意点はalignedやmatrixなどで複数業の数式を記述する場合です. Katexではこれらの記法はサポートされていますが, この場合&amp;や改行のバックスラッシュなどが使えません. その場合はTeraのフィルタのsafeを使います.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">script </span><span style="color:#d08770;">type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">math/tex{% if block %};mode=display{% endif %}</span><span style="color:#c0c5ce;">&quot;&gt;{{body | safe}}&lt;/</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
+</span></pre>
+<p>　Markdownでは以下のように書きます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">&lt;!-- inline --&gt;
+</span><span style="color:#c0c5ce;">{{ </span><span style="color:#bf616a;">katex</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">\KaTeX</span><span style="color:#c0c5ce;">&quot;) }}
+</span><span style="color:#65737e;">&lt;!-- multiline--&gt;
+</span><span style="color:#c0c5ce;">{% </span><span style="color:#b48ead;">katex</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">block</span><span style="color:#c0c5ce;">=</span><span style="color:#d08770;">true</span><span style="color:#c0c5ce;">) %}
+  \KaTeX \\
+  \KateX
+{% </span><span style="color:#b48ead;">end </span><span style="color:#c0c5ce;">%}
+</span></pre>
+<p>　インライン要素では<script type="math/tex">\KaTeX</script>という表示になります. 一方のブロック要素は, </p>
+<script type="math/tex;mode=display">\begin{aligned}
+  \KaTeX
+\end{aligned}</script> 
+<h3 id="auto-render-extension">auto-render extension</h3>
+<p>auto-render拡張を有効にすると, 以下のような記法も使えるようです.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#96b5b4;">\\</span><span style="color:#c0c5ce;">(\frac{a}{b} </span><span style="color:#96b5b4;">\\</span><span style="color:#c0c5ce;">)
+</span><span style="color:#96b5b4;">\\</span><span style="color:#c0c5ce;">[ \frac{a}{b} </span><span style="color:#96b5b4;">\\</span><span style="color:#c0c5ce;">]
+</span></pre><h2 id="githubpezihenodepuroi">Githubページへのデプロイ</h2>
+<h2 id="zhu-shi">注釈</h2>
+<ol>
+<li>
+<p><a name="ref-1"></a> <a href="https://www.getzola.org/documentation/content/page/#summary">Summary</a></p>
+</li>
+<li>
+<p><a name="ref-2"></a> <a href="https://tera.netlify.com/docs/templates/#built-ins">Built-ins</a></p>
+</li>
+<li>
+<p><a name="ref-3"></a> <a href="https://github.com/djc/askama">Askama</a>などRust製の<a href="https://crates.io/categories/template-engine">テンプレート・エンジン</a>はいくつかあります.</p>
+</li>
+<li>
+<p><a name="ref-4"></a> <a href="https://www.getzola.org/documentation/templates/overview/#built-in-filters">Built-in filters</a></p>
+</li>
+<li>
+<p><a name="ref-5"></a> <a href="https://www.getzola.org/documentation/templates/overview/#built-in-global-functions">Built-in global functions</a></p>
+</li>
+<li>
+<p><a name="ref-6"></a> <a href="https://www.getzola.org/documentation/content/overview/#static-assets">Static assets</a></p>
+</li>
+<li>
+<p><a name="ref-7"></a> <a href="https://www.getzola.org/documentation/content/overview/#static-assets">Static assets</a></p>
+</li>
+<li>
+<p><a name="ref-8"></a> <a href="https://www.getzola.org/documentation/content/syntax-highlighting/">Syntax Highlighting</a></p>
+</li>
+<li>
+<p><a name="ref-9"></a> <a href="https://github.com/KaTeX/KaTeX/tree/master/contrib/mathtex-script-type">math/tex Custom Script Type Extension</a></p>
+</li>
+<li>
+<p><a name="ref-10"></a> <a href="https://github.com/getzola/even/issues/26">Latex, Katex support #26</a></p>
+</li>
+</ol>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a href="https://www.getzola.org/">Zola</a></li>
+<li><a href="https://tera.netlify.com/">Tera</a></li>
+</ol>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;tags&#x2f;rust&#x2f;">#rust</a>
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;tags&#x2f;ssg&#x2f;">#SSG</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                    
+                        <a class="next" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-56&#x2f;">PyO3入門 (0) ›</a>
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>
