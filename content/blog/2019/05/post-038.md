@@ -10,7 +10,7 @@ date = 2019-05-16T23:17:46Z
 
 [taxonomies]
 categories = ["programming"]
-tags = ["rust", "SSG"]
+tags = ["Rust", "SSG"]
 +++
 
 ## Zolaとは?
@@ -313,7 +313,7 @@ taxonomies = [
 +++
 [taxonomies]
 categories = ["programming"]
-tags = ["rust", "SSG", "Zola"]
+tags = ["Rust", "SSG", "Zola"]
 +++
 ```
 

@@ -6,7 +6,7 @@ date = 2019-05-16T23:20:58Z
 
 [taxonomies]
 categories = ["programming"]
-tags = ["rust", "python"]
+tags = ["Rust", "python"]
 +++
 
 # Python API
