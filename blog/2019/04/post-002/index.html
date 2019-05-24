@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - React入門 (1) Reactとコンポーネント</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-002&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-002&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-002/#reactru-men" class="toc-link">React入門</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-002/#reacttoha" class="toc-link">Reactとは?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-002/#konponento" class="toc-link">コンポーネント</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-002/#zhu-shi" class="toc-link">注釈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-002/#reference" class="toc-link">Reference</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-002&#x2f;">React入門 (1) Reactとコンポーネント</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-12</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="reactru-men">React入門</h1>
+<h2 id="reacttoha">Reactとは?</h2>
+<p>　Facebook製のUIライブラリです. 以下のような特徴があります.</p>
+<ul>
+<li>Reactive</li>
+<li>Component-based</li>
+<li>Declarative</li>
+<li>Virtual DOM</li>
+<li>Bidirectional</li>
+</ul>
+<p>　名前の通りリアクティブなUIを設計することができるライブラリです. ただReactを中心にしたエコシステムが存在し, JSXやHTMLタグ風のコンポーネントなどを変換するもあり実質UIフレームワークといっても良いものだと思います. 今回はコンポーネントについて説明したと思います.</p>
+<h2 id="konponento">コンポーネント</h2>
+<p>　ロジックが定義されているのでMVCアーキテクチャでいうモデルに近いですが, JSXというHTML風の構文でビューも一緒に定義しています. ステートと呼ばれる内部状態を持ち, 定義された状態を変更してビューを描画します. 画面の中の一部を抽象化した部品です. 定義したコンポーネントはHTMLタグのようにJSX内に記述できます. コンポーネント自体はES6のクラスとして定義されていますが, 関数コンポーネントとしても定義できます. これはのクラスも関数も全てオブジェクト(連想配列)だというJavaScriptの特徴によります.</p>
+<p>　コンポーネントは以下のように定義されます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">import </span><span style="color:#bf616a;">React </span><span style="color:#b48ead;">from </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">react</span><span style="color:#c0c5ce;">&#39;;
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MyComponent </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+    </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) {
+        </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">);
+        </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.name  </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">.name;
+        </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.state </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">{ money: </span><span style="color:#d08770;">0 </span><span style="color:#eff1f5;">};
+    }
+
+    </span><span style="color:#8fa1b3;">doSomething</span><span style="color:#eff1f5;">() {
+        </span><span style="color:#65737e;">// write logic here
+    </span><span style="color:#eff1f5;">}
+
+    </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+        </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">(
+            </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+              &lt;</span><span style="color:#bf616a;">h2</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#bf616a;">適当</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#96b5b4;">h2&gt;
+              &lt;p&gt;
+                私は適当なコンポーネントです</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;"> 名前は{this</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">name}です</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;"> 所持金は{this</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">money}です</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">
+                よろしくお願いします</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">
+              &lt;</span><span style="color:#c0c5ce;">/</span><span style="color:#96b5b4;">p</span><span style="color:#c0c5ce;">&gt;
+            &lt;/</span><span style="color:#96b5b4;">div&gt;
+        )
+    }
+}
+</span></pre>
+<p>　ほぼHTMLですがこのrender関数内でreturnされる部分をJSXと呼んでいます. 要するにテンプレートです. 内部状態にはthisでアクセスし, 中括弧でビューと結合します. コンストラクタの引数として渡されるのがpropsです.</p>
+<h3 id="props-vs-state">props vs state</h3>
+<p>　コンポーネントの定義は単なるクラス(関数)でした. ではどのように利用しデータの受け渡しはされるのでしょうか?</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">MyComponent name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">Component Taro</span><span style="color:#c0c5ce;">&quot;/&gt;
+</span></pre>
+<p>　一見HTMLですがこれがコンポーネントですが, 属性にあたる部分がが引数として扱われます. 一方stateは外部からはアクセスできません.</p>
+<h3 id="te-zheng">特徴</h3>
+<p>　コンポーネントとは,</p>
+<ul>
+<li>Independent(独立性)</li>
+<li>Reusable (再利用性)</li>
+<li>Isolation (隔離性)</li>
+<li>Pure Function (純粋関数)</li>
+</ul>
+<p>　があるとされています<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-002/#ref-1"><sup>1</a>. これらは要するにコンポーネントごとにテストや実行などが可能ということを意味します.</p>
+<h3 id="chun-cui-guan-shu">純粋関数</h3>
+<p>　Reactのコンポーネントはpropsに対して純粋関数として振舞うこととされています<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-002/#ref-2"><sup>2</a>. 簡単にいうと引数を上書きしないということです. しかしJavaScriptの変数は可変です. propsも当然書き換えようと思えば書き換えれます. そのためこれはこれは規約です. propsは読み込み専用ということを覚えておきましょう. 上書き可能な変数(蓄積変数など)が必要な場合はstateを利用します.</p>
+<h3 id="zhong-lei">種類</h3>
+<p>　いくつか定義の仕方があります.</p>
+<ul>
+<li>関数コンポーネント (RFC)</li>
+<li>アロー関数コンポーネント (RAFC)</li>
+<li>クラスコンポーネント (RCC)</li>
+</ul>
+<p>　VSCodeなどではカッコ内の名前を打ち込むとスニペットが補完されたりします.</p>
+<h2 id="zhu-shi">注釈</h2>
+<p><a name="ref-1"></a> 1 <a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a>
+<a name="ref-2"></a> 2 <a href="https://reactjs.org/docs/components-and-props.html#props-are-read-only">Props are Read-Only</a></p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://reactjs.org/docs/hello-world.html">MAIN CONCEPTS</a></li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;react&#x2f;">#React</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - Unity入門 (2) Graphics入門</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;05&#x2f;post-028&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-028&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#basic-of-unity-on-graphics" class="toc-link">Basic of Unity on Graphics</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#rendering-path" class="toc-link">Rendering Path</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#colo-space" class="toc-link">Colo Space</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#hdr" class="toc-link">HDR</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#reflection" class="toc-link">Reflection</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#light-sources" class="toc-link">Light Sources</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#unitynoraiteingu" class="toc-link">Unityのライティング</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#reference" class="toc-link">Reference</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#reference-1" class="toc-link">Reference</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-028&#x2f;">Unity入門 (2) Graphics入門</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-05-02</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="basic-of-unity-on-graphics">Basic of Unity on Graphics</h1>
+<h2 id="rendering-path">Rendering Path</h2>
+<ul>
+<li>Forward Rendering</li>
+<li>Deferred Rendering</li>
+</ul>
+<h3 id="forward-rendering-1">Forward Rendering <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#ref-1"><sup>1</a></h3>
+<p>　オブジェクトを１以上の複数のパスでレンダリングします. このパス数がライトの数で決まります.レンダリング速いのと, MSAA(Multi-Sample Anti-Aliasing)のようなテクニックが使えるそうです. ライトの数が増えるとそれだけパスが増えるので, たくさんのライトが必要なプロジェクトのは向かない. 透明の処理も速いらしいけどこの辺は理屈が分からない.</p>
+<h3 id="deferred-rendering-2">Deferred Rendering <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#ref-2"><sup>2</a></h3>
+<p>　シェーディングとブレンディングを遅延して行う. ２つのパスからなる.</p>
+<ul>
+<li>G-buffer pas</li>
+<li>Lighting pass</li>
+</ul>
+<p>　G-bufferはいくつかの頂点属性からなる複数のバッファーである. これとDepthバッファの情報を利用してLightingパスでライティングが行われる. つまりSceen Spaceで計算が行われる.</p>
+<h3 id="rendaringupasunoshe-ding">レンダリング・パスの設定</h3>
+<p>　設定のやり方は２つある.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#ref-3"><sup>3</a></p>
+<blockquote>
+<p>The rendering path used by your project is chosen on the Graphics window. Additionally, you can override it for each Camera.</p>
+</blockquote>
+<ul>
+<li>Edior -&gt; Project Settings -&gt; Graphics category</li>
+<li>Camera Object -&gt; Cameraコンポーネント -&gt; Rendering Path</li>
+</ul>
+<p><img src="../../img/Unity_002.png" alt="Rendering Path on Graphics Panel" /></p>
+<p><img src="../../img/Unity_003.png" alt="Rendering Path on Camera Component" /></p>
+<h2 id="colo-space">Colo Space</h2>
+<h3 id="color-spacenozhong-lei">Color Spaceの種類</h3>
+<p>　カラー・スペースには２つの選択肢があるようです.</p>
+<ul>
+<li>Gamma Space</li>
+<li>Linear Space</li>
+</ul>
+<p><img src="https://docs.unity3d.com/uploads/Main/LinearRendering-LightingSphereLinearGamma.png" alt="Differences between linear and gamma color space" /></p>
+<p>　Linearの方が精確らしいです. </p>
+<blockquote>
+<p>...linear color space rendering gives more precise results.</p>
+</blockquote>
+<p>　カラー・スペースは以下に影響するそうです. ~~またシェーダのライティング・モデルの入力として違う数値が渡されるので当然違う色がレンダリングされる.~~</p>
+<ul>
+<li>ライティング計算のカラーの合成</li>
+<li>テクスチャからの色の読み込み</li>
+</ul>
+<p>　リニア・スペースの方が色としては正確です. 普通黒から白へのグラディエントを考えたら, 両色の間は線形に埋めるでしょう.</p>
+<p>　ガンマ・スペースはより人間の目に近いカラー・スペースになるようです. 人間の目は明るいが感度が低いらしいです. 例えばろうそくを倍々に追加して行くと(1個, 2個, 4個...)輝度は指数関数的に増えるはずですが, 人間の目には線形に増えるようにしか見えないそうです<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#ref-5"><sup>5</a>. そうすると暗い色(黒に近い色)により多くの階調を割いた方が良いでしょう. </p>
+<p>　歴史的にモニターとディスプレイが同じような特徴を持っていたので<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#ref-6"><sup>6</a>リニア・スペースだと不自然になるのでガンマ補正(Gamma Correction)という補正をかける必要があったそうです. 現代のデジタル化されたモニターこれを引き継いでガンマ補正後の信号(Gamma-Encoded Signal)を入力として受け取るという基準を採用しており, これをsRGBというそうです.</p>
+<h3 id="shi-ifen-ke">使い分け</h3>
+<p>　単純にリニア・スペースが採用できるハードウェアならリニアの方が良いということらしいです.</p>
+<h3 id="more-on-linear-and-gamma-spaces">More on Linear and Gamma Spaces</h3>
+<p>　Unityのドキュメントでは良く分からなかったので, <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#ref-4"><sup>4</a>をベースにもう少しカラー・スペースについてい考えて見る そもそもガンマというのは累乗の指数のことです. この値によって補正をかけるわけです.</p>
+<p>$$ x^{gamma}$$</p>
+<p>　以下は$gamma = 0.45, 1.0, 2.2$の場合の画像です.</p>
+<p><img src="https://static1.squarespace.com/static/525ed7ade4b0924d2f499223/t/575f4222e321408871d71230/1465860711911/Images+representing+various+gamma+values?format=750w" alt="適用される" /></p>
+<p>　色としては中央が正しいです. この色をそのまま表示したいわけですが, 問題はモニターはsRGBを採用しているのでガンマ補正をして表示します. デジカメなどはこうした変換を前提にして保存しています. よってコンピュータ上は左側のデータを保持しています. それをモニターに出力するときに2.2辺りガンマ値を使って補正するそうです. そうすると中央に近い色が出ます. </p>
+<p>　<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#ref-4"><sup>4</a>でgammaパイプラインとlinearパイプラインの比較が分かりやすいです. 物理的に正しい描画をするにはパイプラインの途中で入り込むガンマ補正による歪みを取り除く必要があります. 下の図では, まずマテリアルのカラーとテクスチャがすでにガンマ補正の影響を受けているのでそれを取り除いた後にシェーディングをして, 再度ガンマ補正をかけて表示している様子を表しています(下図).</p>
+<p><img src="https://static1.squarespace.com/static/525ed7ade4b0924d2f499223/t/575f42e327d4bdc48f2261e4/1465860851928/An+image+comparing+gamma+and+linear+pipelines?format=1000w" alt="A comparison of Gamma and Linear pipelines" /></p>
+<h3 id="ganmabu-zheng">ガンマ補正</h3>
+<p>　<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#ref-5"><sup>5</a>によると昔のモニターにガンマ補正が必要だったのはブラウン管の特性らしいです.</p>
+<blockquote>
+<p>昔のブラウン管テレビが陰極管の物理特性により入力信号の電圧に対して出力する輝度が比例しなかったので、信号側で補正する事にしたそうです。</p>
+</blockquote>
+<p>　<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#ref-6"><sup>6</a>によると結果として以下のような効果があったようです.</p>
+<blockquote>
+<p>CRTディスプレイが持つ冪関数的な濃度階調は、CRTに使われる三極管の性質によるものでもあったが、人間の視覚にとっては階調を均等に感じさせる効果があった（ヴェーバー‐フェヒナーの法則）。</p>
+</blockquote>
+<h3 id="she-ding">設定</h3>
+<p>　Editor -&gt; Project -&gt; Settings -&gt; PlayerのOther SettingsにColor Spaceという項目がある.</p>
+<p><img src="../../img/Unity_004.png" alt="Color Space" /></p>
+<h2 id="hdr">HDR</h2>
+<h3 id="guang-niguan-xi-surudan-wei">光に関係する単位</h3>
+<h4 id="zhong-lei">種類</h4>
+<ul>
+<li>Lm (ルーメン)</li>
+<li>Lux (ルクス)</li>
+<li>cd (カンデラ)</li>
+<li>nit (ニト)</li>
+<li>W ()</li>
+<li>Brightness (明るさ)</li>
+<li>Luminance (輝度)</li>
+<li>Illuminance (照度)</li>
+<li>Lightness (明度)</li>
+</ul>
+<h4 id="rumen-quan-guang-shu">ルーメン(全光束)</h4>
+<p>　光源(ランプ)の表面から発生する全ての光束の量を計測した単位です. つまり光の総量です. このことから全光束とも呼ぶようです. 積分球というので測定するようです.</p>
+<p><a href="https://www.diylabo.jp/column/column-121.html"><img src="https://www.diylabo.jp/images/column-121-02.jpg" alt="積分球" /></a></p>
+<p>　つまり,</p>
+<blockquote>
+<p>「すべての方向に対して1カンデラの光度を持つ標準の点光源が1ステラジアンの立体角内に放出する光束」<a name="ref-12">12</a> </p>
+</blockquote>
+<p>　となります.</p>
+<h4 id="kandera-guang-du">カンデラ(光度)</h4>
+<p>　単位立体角(sr)あたりの光束(ルーメン)です(Lm/sr). ある方向への光の強さ(放射強度)のことです. 実際の照明器具では, 中心光度とか最大光度を指すようです. 昔は1カンデラはだいたいろうそく一本の明るだったらしいです.</p>
+<h4 id="rukusu-zhao-du">ルクス(照度)</h4>
+<p>　単位面積当たりに入射する光束のことで, 光源に照らされた場所で計測した値のようです. 単位は単位面積当たりの光度($cd/m^2$)となります. 光源が照らす場所が分かると照射角度が分かりますので, 実際にどれぐらい明るく照らせるかを表しています. このことから&quot;照度&quot;の単位として使われます.</p>
+<h4 id="nito-hui-du">ニト(輝度)</h4>
+<p>　ルクスは光があたっている場所に入射する光束でした. それを見る人の立場で表したのがニトです. つまりある方向から見た単位面積当たりの明るさ(ルクス)のことです.</p>
+<h4 id="rukusutokanderanoguan-xi">ルクスとカンデラの関係</h4>
+<p>　 ルクスとカンデラには以下のような関係があります.</p>
+<p>$$ Lm = \frac{cd}{m^2} $$</p>
+<p><img src="https://www.cateye.com/jp/enjoy_lights/img/3bb04ff285923a2ab6eb5e3f020077e22510e4f9.png" alt="ルクスとカンデラの関係" /></p>
+<h4 id="matome">まとめ</h4>
+<p>　以上の単位は以下のように整理できます.<a name="ref-11">11</a> </p>
+<p><img src="https://www.daisaku-shoji.co.jp/iel/img/light_word.jpg" alt="光源, 光束, 照度, 光度, 輝度の違い" /></p>
+<h4 id="guang-shu-toha-fang-she-liang-toce-guang-liang-noguan-xi-kara14">光束とは? 放射量と測光量の関係から<a name="ref-14">14</a></h4>
+<p>　ザクっと単位を確認したが良く分からないことも多い. 特に光束が良く分からなかった. これは以下のようが２つの概念が光に関して関係しているのが理由のようです.</p>
+<ul>
+<li>放射量(radiant quantities): 放射に伴う物理量の総称</li>
+<li>測光量(luminous quantities): 放射量を人間の目が感じる明るさに変換した量</li>
+</ul>
+<p>　 まず光は究極的には電磁気的なエネルギーが伝播したもので, 簡単にいうとエネルギーの流れです.</p>
+<blockquote>
+<p>..., ある着目したエリアを単位時間（例えば1秒間）にどれだけのエネルギーが通過していくかという放射量を「放射束」と言います。</p>
+</blockquote>
+<p>　ある物理量が単位面積当たり単位時間当たりに流れる量をフラックス(流量)といい, 放射エネエルギーの場合は</p>
+<p>$$ W = J/s = A \times V $$</p>
+<p>　と表せます. つまり放射束(luminous flux)とは放射エネルギーのフラックスと言えます. しかし, これは光束とは少し意味合いが違います. 光は電磁波なので単純に光に置き換えても良さそうですが, 実際には人間の目というセンサーに限定されます. これは暗に可視光=光という前提があることを意味します. 放射量を人間の目を基準に変換したものを測光量と呼びびます. 放射エネルギーに対応するのが光度エネルギーで, このフラックスを光束(luminous flux)と呼んでいます. この単位がルーメンなのです.</p>
+<p>　両者は基本的には同じものなので, どちらもワットが単位として使われますが, 人間の目というセンサーの特性を考慮して使い分けられているようです.</p>
+<blockquote>
+<p>「放射束」を「人間の眼」で見るということは、「人間の眼」の分光応答度特性、すなわち標準分光視感効率 V ( λ )で評価する、ということになります。この時に「人間の眼」が感じる明るさが「光束」です。</p>
+</blockquote>
+<h4 id="fang-she-liang-tofang-she-enerugi">放射量と放射エネルギー</h4>
+<p>　放射エネルギーはジュールで, じゃ放射量は何かというと放射量というカテゴリの中に, 放射エネルギー[J]や放射束[W]が含まれるようです. 放射量とは放射に関係する物理量の総称のようです.</p>
+<h4 id="fang-she-liang-toce-guang-liang-nodui-ying-guan-xi">放射量と測光量の対応関係</h4>
+<table>
+  <thead>
+    <tr>
+      <th>放射量</th>
+      <th>測光量</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>放射エネルギー　[J = W・s]</td>
+      <td>光度エネルギー　[lm・s]</td>
+    </tr>
+    <tr>
+      <td>放射束　[W]</td>
+      <td>光束　[lm]</td>
+    </tr>
+    <tr>
+      <td>放射強度　[W/sr]</td>
+      <td>光度　[cd]</td>
+    </tr>
+    <tr>
+      <td>放射輝度　[W/sr/m^2]</td>
+      <td>輝度　[cd/m^2 = nt]</td>
+    </tr>
+    <tr>
+      <td>放射照度　[W/m^2]</td>
+      <td>照度　[lx = lm/m^2]</td>
+    </tr>
+  </tbody>
+</table>
+<p><a href="https://ja.wikipedia.org/wiki/%E6%94%BE%E5%B0%84%E3%82%A8%E3%83%8D%E3%83%AB%E3%82%AE%E3%83%BC">放射量の国際単位系</a>と<a href="https://ja.wikipedia.org/wiki/%E5%85%89%E5%BA%A6%E3%82%A8%E3%83%8D%E3%83%AB%E3%82%AE%E3%83%BC">測光の国際単位系</a>を元に作成</p>
+<h4 id="zui-da-shi-gan-xiao-guo-du-14-15">最大視感効果度<a name="ref-14">14</a>  <a name="ref-15">15</a></h4>
+<p>　放射量から測光量への変換に使う係数です. </p>
+<p>$$
+\begin{aligned}
+\Phi_{e} &amp;= \int P(\lambda)\cdot d\lambda <br />
+\Phi_{v} &amp;= K_{m}\int P(\lambda)\cdot V(\lambda) \cdot d\lambda 
+\end{aligned}
+$$</p>
+<p>　ここで$P(\lambda)$[W/nm]を分光分布, $V(\lambda)$を標準分光視感効率です.</p>
+<h4 id="fen-guang-shi-gan-xiao-lu">分光視感効率</h4>
+<blockquote>
+<p>このグラフは，物理的に同じエネルギーを持った単色光が，ある波長の時にどれだけの明暗量（正確には輝度）としてヒトに知覚されるかを相対的に表したもので..., 480nmの単色光は560nmの単色光よりも約0.1倍明るく見える（＝10倍暗く見える）...<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-028/#ref-7"><sup>7</a></p>
+</blockquote>
+<p><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/M/Mzawa2/20180211/20180211161554.jpg" alt="標準分光視感効率" /></p>
+<h4 id="hui-du-luminance">輝度 (Luminance)</h4>
+<p>　分光視覚効率におけるある一点における明暗の量のことを輝度というらしいです. 以下のような式で定義されます(単位は$cd/m^2$ = nt).</p>
+<p>$$ L = 683\int_{730,nm}^{380,nm}E(\lambda)V(\lambda)d\lambda$$</p>
+<p>　積分は足し算のようなものなので線型性が成り立ちます. 線型性というとあれですが, 光源が増えると2倍, 3倍と増えて行くという感じでしょうか?</p>
+<h4 id="guang-du-luminous-intencity">光度 (Luminous Intencity)</h4>
+<p>　すでに説明しましたがステラジアン辺りのルーメンです. また輝度を面積で積分するとカンデラになります.</p>
+<h4 id="guang-shu-luminous-flux">光束 (Luminous flux)</h4>
+<p>　単位はルーメン(lm)で点光源の光度を全球面積分したような値です.</p>
+<h4 id="zhao-du-illuminance">照度 (Illuminance)</h4>
+<p>　光源の明るさとは別に光で照らされている場所の明るさです. 同じ光源でも照射される面との距離で変化します.</p>
+<h3 id="hdrtoha">HDRとは?</h3>
+<p>　High Dynamic Rangeの略ですが説明の前にLDR(Low Dynamic Range)の話をしましょう. 色はRGBの3チェネルから構成されており各チャネルは8ビットです. 色の組み合わせは$256^3$となります. 白色が(255, 255, 255)で黒色が(0, 0, 0)となります. さて1600万色も使えるわけですが, これは現実世界の色の組み合わせは無制限に存在します. 明るさHDRの色は量子化したものなので量子化誤差が存在するわけです. また現実世界にはこの色空間外にも色が存在します. 現実世界ほどではないけれどもこのLDRを超えた明るさをUnityは扱えます. 制約となるのはモニタの性能です. HDRを使うと色として浮動小数点数が扱えるようになりより精度の高い色を表現できます.</p>
+<ul>
+<li>室外と影のコントラスト</li>
+<li>Bloom Effect</li>
+<li>Glow Effect</li>
+</ul>
+<h3 id="tonemapping">Tonemapping</h3>
+<p>　階調のリバランスをして値がクランプ(値をある範囲に収める処理)されないようにする変換のことのようです. つまり画面内の相対的な階調(tone)は維持されるが桁溢れのような現象は起きていない画面作りとなる. HDRカメラの映像をポスト・プロセスとかで上手に変換してくれるらしい.</p>
+<h3 id="hdrgashi-enaichang-he">HDRが使えない場合</h3>
+<ul>
+<li>ハードウェアが対応していない時</li>
+<li>MSAAをフォーワード・レンダリングで利用している時</li>
+</ul>
+<h3 id="she-ding-1">設定</h3>
+<p>カメラ・コンポーネントのHDRチェックボックスから行います.</p>
+<h2 id="reflection">Reflection</h2>
+<p>　UnityはStarndard Shaderは物理ベース・レンダリング(PBR)を行います. マテリアルはSpecularity(鏡面性)/metalness(金属性)の基づいた反射性(reflectivity)があります. この程度に基づいて反射が再現されるわけです. 通常は</p>
+<h3 id="physically-based-rendering">Physically Based Rendering</h3>
+<p>　光の物理的特性を再現するように設定できるシェーダ・プログラムのことだと思います. </p>
+<ul>
+<li>Energy Conservation</li>
+<li>Fresnel Reflection</li>
+<li>Geometry Term</li>
+</ul>
+<p>　などの原理に従うとのことです.</p>
+<h3 id="standard-shader">Standard Shader</h3>
+<p>　いくつかのシェーダー・タイプ(シェーダの変数のこと?)があるそうです.</p>
+<ul>
+<li>Diffuse</li>
+<li>Specular</li>
+<li>Bumped Specular</li>
+<li>Reflective</li>
+</ul>
+<p>　これら属性を組み合わせることで１つのスタンダード・シェーダを構成し, マテリアル・システムで利用されます. この統合されたシェーダ・モデルでは, 金属マテリアルを個別に作るのではなく, マテリアルの反射率を調整することで金属の見た目を再現するわけです.</p>
+<h3 id="pre-rendering-reflection">Pre-Rendering Reflection</h3>
+<p>　性能が低い場合はキューブ・マップに焼き込みしたテクスチャ・マップを使います. この値を元にブレンディングなどが行われるようです.</p>
+<h3 id="reflection-source">Reflection Source</h3>
+<p>　反射する対象といことでしょうか. つまり鏡面に写り込むのはなんなのかを指定できるようです.</p>
+<p><img src="../../img/Unity_005.png" alt="反射源の設定" /></p>
+<h3 id="reflection-probe">Reflection Probe</h3>
+<p>　サンプルなら別としてSkyboxだけ反射できる機能に意味はないでしょう. は任意の場所に置かれるオブジェクトが必ずしも全天を映し出すわけではありません. 遮蔽物なども当然映り込む, 室内なら空が映るわけはないのです. このような場合に使うのがリフレクション・プローブです. 元のオブジェクトの代わりにキューブ・マップを生成し, それを使って鏡面映り込みを近似的に再現するわけです.</p>
+<ul>
+<li>Baked (焼き込み)</li>
+<li>Custom (カスタム)</li>
+<li>Realtime (リアルタイム)</li>
+</ul>
+<p>　ベイクの場合は指定したオブジェクトだけが鏡面に映り込みます. リアルタイムは全てですが, 計算が大変らしいです.</p>
+<h2 id="light-sources">Light Sources</h2>
+<p>　光源とは要するに光を発するオブジェクトです.  ライトの作り方は3種類あります.</p>
+<ul>
+<li>Light Objects</li>
+<li>Ambient light</li>
+<li>Emissive materials</li>
+</ul>
+<p>　Ambientライトは環境光のことです. Emissiveマテリアルは</p>
+<h3 id="guang-yuan-nozhong-lei-light-types">光源の種類 (Light Types)</h3>
+<p>　Unityには4種類の光源が存在します.</p>
+<ul>
+<li>Directional Light</li>
+<li>Point Light</li>
+<li>Spotlithg</li>
+<li>Aera Light</li>
+</ul>
+<h3 id="ambient-lighting">Ambient Lighting</h3>
+<blockquote>
+<p>This can be thought of as a global light source affecting objects in the scene from every direction.</p>
+</blockquote>
+<p>　 要するに環境光です. シーン全体を明るくできます. <a name="ref-16">16</a> </p>
+<p><img src="https://unity3d.com/sites/default/files/ambientlightab_0.png" alt="Effect of Ambient Lighting" /></p>
+<p>　設定はLighting Settingsから行います.</p>
+<p><img src="../../img/Unity_006.png" alt="Environmental Lighting" /></p>
+<h3 id="emissive-materials-fa-guang-su-cai">Emissive Materials (発光素材)</h3>
+<p>　エリア・ライトに似た性質を持つ光源になります. スタンダード・シェーダの発光属性から設定できます. ネオンとかに使えるそうです.<a name="ref-17">17</a> </p>
+<p><img src="https://unity3d.com/sites/default/files/emissives_2.png" alt="Neon Effect" /></p>
+<p>　ぼんやりした光(soft light)なので基本的に静的なオブジェクトにだけ影響を与えます. 動いているオブジェクトにも光の影響を及したい場合は他の場合と同じようにライティング・プローブを使うと良いようです.</p>
+<h3 id="light-probs">Light Probs</h3>
+<p>　指定した位置での光の情報を記録します.　この近くをオブジェクトが移動する場合は, GIやどの光の効果が見込めるようになります.</p>
+<h2 id="unitynoraiteingu">Unityのライティング</h2>
+<p>　光にはおおよそ2種類あります.</p>
+<ul>
+<li>Direct Light (直接光)</li>
+<li>Indirect Light (間接光)</li>
+</ul>
+<p>　直接光は比較的簡単に扱えます. 一方, 間接光は計算が複雑になります. 光源から表面を到達した光が反射されて空間上を跳ね返りながらカメラに入ってきます. このパスを正確に計算すると物理的に正しい絵ができるようです. </p>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a name="ref-1"></a> <a href="https://docs.unity3d.com/2019.1/Documentation/Manual/RenderTech-ForwardRendering.html">Forward Rendering Path Details</a></li>
+<li><a name="ref-2"></a> <a href="https://docs.unity3d.com/2019.1/Documentation/Manual/RenderTech-DeferredShading.html">Deferred shading rendering path</a></li>
+<li><a name="ref-3"></a> <a href="https://docs.unity3d.com/Manual/RenderingPaths.html">Rendering Paths</a></li>
+<li><a name="ref-4"></a> <a href="http://www.kinematicsoup.com/news/2016/6/15/gamma-and-linear-space-what-they-are-how-they-differ">GAMMA AND LINEAR SPACE - WHAT THEY ARE AND HOW THEY DIFFER</a></li>
+<li><a name="ref-5"></a> <a href="https://qiita.com/yoya/items/122b93970c190068c752">ガンマ補正のうんちく</a></li>
+<li><a name="ref-6"></a> <a href="https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%B3%E3%83%9E%E5%80%A4">ガンマ値 Wikipedia</a></li>
+<li><a name="ref-7"></a> <a href="http://13mzawa2.hateblo.jp/entry/2018/02/12/005402">すっごくわかりにくい「明るさ」のはなし　〜Aqoursを添えて〜</a></li>
+<li><a name="ref-8"></a> <a href="https://www.cateye.com/jp/enjoy_lights/unit.html">ルーメン、カンデラ、ルクスの違いってなぁに？</a></li>
+<li><a name="ref-9"></a> <a href="https://www.diylabo.jp/column/column-121.html">カンデラ、ルーメン、ルクスの違いをスッキリ理解</a><br />
+<a name="ref-10">10</a> <a href="https://www.monotaro.com/s/pages/productinfo/akarusa/">ルーメン・カンデラ・ルクスの違い</a><br />
+<a name="ref-11">11</a> <a href="https://www.daisaku-shoji.co.jp/iel/w_difference.html">証明用語の基礎知識</a><br />
+<a name="ref-12">12</a> <a href="https://www.irodorinet.jp/irodori-column/brightness-unit-of/">明るさの単位「カンデラ」「ルーメン」「ルクス」の違い</a><br />
+<a name="ref-13">13</a> <a href="https://www.ccs-inc.co.jp/museum/column/">第7回　放射量 と 測光量（その4</a><br />
+<a name="ref-14">14</a> <a href="https://www.ccs-inc.co.jp/guide/column/light_color/vol04.html">第4回 放射量 と 測光量（その1）</a><br />
+<a name="ref-15">15</a> <a href="https://ja.wikipedia.org/wiki/%E6%94%BE%E5%B0%84%E6%9D%9F">放射束 ウィキペディア</a><br />
+<a name="ref-16">16</a> <a href="https://unity3d.com/learn/tutorials/topics/graphics/ambient-lighting?playlist=17102">Ambient Lighting on Unity Tutorial</a><br />
+<a name="ref-17">17</a> <a href="https://unity3d.com/learn/tutorials/topics/graphics/emissive-materials?playlist=17102">Emissive Materials on Unity Tutorial</a></li>
+</ol>
+<h2 id="reference-1">Reference</h2>
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/s/graphics">Graphics Section on Unity Tutorial</a></li>
+<li><a href="https://unity3d.com/learn/tutorials/temas/performance-optimization/optimizing-graphics-rendering-unity-games">Optimizing graphics rendering in Unity games</a></li>
+<li><a href="http://tsubakit1.hateblo.jp/entry/2016/09/25/233000">【Unity】Unity 5.5以降のRender Pathの設定</a></li>
+<li><a href="https://qiita.com/r-ngtm/items/a78ca2f72a36e2005da3">【Unity】ForwardレンダリングとDeferredレンダリングの違いを軽くまとめてみた</a></li>
+<li><a href="http://esprog.hatenablog.com/entry/2016/03/17/142939">Deferred Shadingについてまとめてみた</a></li>
+<li><a href="https://medium.com/@EightyLevel/7-tips-for-better-lighting-in-unity-686694892ece">7 Tips For Better Lighting in Unity</a></li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;unity&#x2f;">#Unity</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-027&#x2f;">‹ コンピュータ・サイエンス入門(1)</a>
+                    
+                    
+                        <a class="next" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-029&#x2f;">Unity入門 (3) Lighting ›</a>
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - Rust入門 (4) CowとDerefについて</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;05&#x2f;post-035&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-035&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#cowtoderef" class="toc-link">CowとDeref</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#cowtoha" class="toc-link">Cowとは?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#dereftoha" class="toc-link">Derefとは?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#reference" class="toc-link">Reference</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-035&#x2f;">Rust入門 (4) CowとDerefについて</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-05-14</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="cowtoderef">CowとDeref</h1>
+<h2 id="cowtoha">Cowとは?</h2>
+<p>　CowはClone-on-writeの略らしいです.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#ref-1"><sup>1</a></p>
+<blockquote>
+<p>The type Cow is a smart pointer providing clone-on-write functionality: it can enclose and provide immutable access to borrowed data, and clone the data lazily when mutation or ownership is required.</p>
+</blockquote>
+<p>　Cowはスマート・ポインタでーで, 書き込み時の複製機能を提供します: 借用されたデータを包み込むか不変なアクセスを提供します. 更に(データの)変更や所有権の取得が必要な時はその時になってからデータを複製できます.</p>
+<blockquote>
+<p>'Cow' ... is a type that allows you to reuse data if it is not modified. <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#ref-2"><sup>2</a></p>
+</blockquote>
+<p>　Cowは変更されないデータを再利用することができる型です.</p>
+<blockquote>
+<p>Cow is an abbreviation for Clone-on-write (usually Copy on Write, but copy has a different meaning in Rust), a cool idea that means we can use both an owned instance of something or a borrowed instance using the same code.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#ref-3"><sup>3</a></p>
+</blockquote>
+<p>　</p>
+<h2 id="dereftoha">Derefとは?</h2>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a name="ref-1"></a> <a href="https://doc.rust-lang.org/std/borrow/enum.Cow.html">std::borrow::Cow</a></li>
+<li><a name="ref-2"></a> <a href="https://deterministic.space/secret-life-of-cows.html">The Secret Life of Cows</a></li>
+<li><a name="ref-3"></a> <a href="https://llogiq.github.io/2015/07/09/cow.html">Holy std::borrow::Cow!</a></li>
+</ol>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;rust&#x2f;">#Rust</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-034&#x2f;">‹ Clip Studio Tips (1) 画像の読み込みと編集</a>
+                    
+                    
+                        <a class="next" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-036&#x2f;">Rust入門 (5) 複数のバイナリを持つパッケージの作成 ›</a>
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

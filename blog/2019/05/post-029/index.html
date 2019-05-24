@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - Unity入門 (3) Lighting</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;05&#x2f;post-029&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-029&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#raiteingunoji-chu" class="toc-link">ライティングの基礎</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#dong-hua" class="toc-link">動画</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#konerubotukusu" class="toc-link">コーネル・ボックス</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#unitynoraiteingu" class="toc-link">Unityのライティング</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#riarutaimuhua-shi-qian-ji-suan-ka" class="toc-link">リアルタイム化事前計算か?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#gi-global-illumination" class="toc-link">GI (Global Illumination)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#lighting-setting" class="toc-link">Lighting Setting</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#guang-yuan" class="toc-link">光源</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#ying" class="toc-link">影</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#lightmapping" class="toc-link">Lightmapping</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#unityniokerugi" class="toc-link">UnityにおけるGI</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#lighting-settings" class="toc-link">Lighting Settings</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#zui-shi-hua-nioitekao-lu-surudian" class="toc-link">最適化において考慮する点</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#reference" class="toc-link">Reference</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-029&#x2f;">Unity入門 (3) Lighting</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-05-03</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="raiteingunoji-chu">ライティングの基礎</h1>
+<h2 id="dong-hua">動画</h2>
+<p>　とりあえずこれを見る.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eGu9_8HS2uI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>　プロシージャル・スカイボックスの解説動画です. </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UIbkfVWYRWQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>　後半のPost Processing StackはUnityに統合されたので導入方法が変わっているようです. ちなみに現在は</p>
+<p>Window -&gt; Package Manager</p>
+<p>　からPost Processingは導入するようです. 詳しくは以下を参照してください.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5cjhNjtkpVE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2 id="konerubotukusu">コーネル・ボックス</h2>
+<p>コーネル・ボックスはライティングのために作られる特別な空間らしいです. ライティングってどういう状況で試したらいいのか分からないのでこういうのを作ってやってみるのもいいかもしれません.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#ref-5"><sup>5</a> <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#ref-6"><sup>6</a></p>
+<blockquote>
+<p>コーネルボックス（英語：cornell box）とは、3DCGのレンダリングの品質を見るために考案された環境である。<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#ref-7"><sup>7</a></p>
+</blockquote>
+<h2 id="unitynoraiteingu">Unityのライティング</h2>
+<p>　光にはおおよそ2種類あります.</p>
+<ul>
+<li>Direct Light (直接光)</li>
+<li>Indirect Light (間接光)</li>
+</ul>
+<p>　直接光は比較的簡単に扱えます. 一方, 間接光は計算が複雑になります. 光源から表面を到達した光が反射されて空間上を跳ね返りながらカメラに入ってきます. このパスを正確に計算すると物理的に正しい絵ができるようです. </p>
+<p>　この差は穴から入る光の効果などを表現するに顕著に現れます. 以下はライトなし(左), 直接光のみ(中央), そして間接光あり(右)の例です.</p>
+<p><img src="https://unity3d.com/sites/default/files/lightingintroduction.png" alt="Comparison of lightin effect" /></p>
+<h2 id="riarutaimuhua-shi-qian-ji-suan-ka">リアルタイム化事前計算か?</h2>
+<p>　以下のライトはリアルタイムで更新される直接光に寄与するそうです. これらは動的なオブジェクトにもっぱら使うようです.</p>
+<ul>
+<li>Directional Light</li>
+<li>Spot Light</li>
+<li>Point Light</li>
+</ul>
+<p><img src="https://docs.unity3d.com/uploads/Main/RealtimeSpotlight.png" alt="スポット・ライトの例" /></p>
+<p>　間接光は光の反射などでできるる影や光を表現できます.</p>
+<h2 id="gi-global-illumination">GI (Global Illumination)</h2>
+<p>　Unityのマニュアルにはシステムと書いていますが, 間接光も取り入れたモデルを元に描画を行うシステムということでしょう.</p>
+<blockquote>
+<p>Global Illumination (GI) is a system that models how light is bounced off of surfaces onto other surfaces (indirect light) rather than being limited to just the light that hits a surface directly from a light source (direct light).</p>
+</blockquote>
+<h3 id="shi-qian-ji-suan-toraitopurobu">事前計算とライト・プローブ</h3>
+<p>　普通にGIを計算するととんでもない時間がかかり, ゲームのフレームレートが落ちるなどの不都合が生じます. そのため静的なオブジェクトについては事前に光の影響を計算しておきます. </p>
+<ul>
+<li>Baked GI (ベイクGI)</li>
+<li>Precomputed Realtime GI (リアルタイムGI)</li>
+</ul>
+<p>　Precomputed Realtime GIは現在ではRealtime Global Illuminationと呼ばれているようです.</p>
+<h3 id="riarutaimugi">リアルタイムGI</h3>
+<p>　Lighting Precomputeというプロセスで, 光の跳ね返りを計算しておきます. 一種のルックアップ・テーブルで, ランタイム時に参照されます. ベイクGIが単純にテクスチャにライトマップとして情報を焼き込むのとは違いリアルタイムでGIを更新できます. この情報はLighting Data Assetに保存されるらしいです.</p>
+<p>応用例としてはA time of dayシステムがあります.</p>
+<p><img src="https://docs.unity3d.com/uploads/GlobalIllumination/timeofdaycycle.gif" alt="A time of day system" /></p>
+<h3 id="beikugi">ベイクGI</h3>
+<p>　こちらは古典的な方法で, 単純に焼き込みを行います. テクスチャなので光との相互作用などは全く働かないです. ある時点で作り出された光と影を色として色としてテクスチャに保存しているだけです.</p>
+<p><img src="https://docs.unity3d.com/uploads/GlobalIllumination/Lightmap.png" alt="Lightmapped Scene and Lightmap" /></p>
+<p>　直接光からの影響は受けるものの, 基本的にはこれがこのまま表示されて途中で変更することはできません. ただし性能が低いデバイスでも使えるようです.</p>
+<h3 id="enlighten">Enlighten</h3>
+<p>　Unityで使われるGI事前計算のためのバックエンドの名称です. これを最適に使ええるかで, 事前計算の効率に影響するようです.</p>
+<h2 id="lighting-setting">Lighting Setting</h2>
+<h3 id="huan-jing-niguan-surushe-ding">環境に関する設定</h3>
+<p>　Lightinの設定はWindow -&gt; Rendering -&gt; Lighting Settingsにあります. 資料によって違う場合が多いので最新のマニュアルを読むのが良さそうです(それでも更新が間に合わない場合はあるっぽいですが).</p>
+<ul>
+<li>スカイボックスと太陽</li>
+<li>環境光 (Environmental Lighting)</li>
+<li>環境映り込み (Environmental Reflection)</li>
+</ul>
+<p>　環境映り込みは高い反射率が設定されたマテリアルが適用されたオブジェクへ周囲の環境が映り込む現象である. 極端な例でいうと鏡のような表面をしたオブジェクトということである.</p>
+<h3 id="ginoshe-ding">GIの設定</h3>
+<p>　Realtime </p>
+<p><img src="../../img/Unity_007.png" alt="Settings for GI" /></p>
+<h3 id="sonota">その他</h3>
+<p>　FogとかProgress CPUとか.</p>
+<h3 id="riarutaimugitobeikuginobing-yong">リアルタイムGIとベイクGIの併用</h3>
+<p>　リアルタイムGIとベイクGIを両方使うMixedというのはとても思いです. 4コアフルでした. </p>
+<h2 id="guang-yuan">光源</h2>
+<ul>
+<li>Point Light</li>
+<li>Spot Light</li>
+<li>Directional Light</li>
+<li>Area light</li>
+<li>Emissive materials</li>
+</ul>
+<h3 id="directional-light">Directional Light</h3>
+<p>　Unityのプロジェクトを作るとデフォルトでダイレクト・ライトが１つシーンに追加されています. これが実は太陽として設定されています. </p>
+<p><img src="../../img/Unity_008.png" alt="Default Sun Source" /></p>
+<p>またアンビエント・ライトの元もスカイボックスなので, デフォルトのライトの色を買えると環境光の色も変わります.</p>
+<p><img src="../../img/Unity_009.png" alt="Ambient Source" /></p>
+<h3 id="area-light">Area Light</h3>
+<p>　柔らかい光が出せるライトです. 逆二乗則で減衰します. 注意点は計算量が多いためか, ライトマップを使ったベイクのみでの利用となるようです(リアルタイムGIは使えない).</p>
+<blockquote>
+<p>Since the lighting calculation is quite processor-intensive, area lights are not available at runtime and can only be baked into lightmaps.</p>
+</blockquote>
+<h3 id="emissive-material">Emissive Material</h3>
+<p>　エリア・ライトと同じような雰囲気の光を出せます. 逆二乗則に従う減衰などエリアライトと似た特性がありますがリアルタイムGIでも利用できます. ネオンなどに利用できます. 普通のジオメトリにマテリアルを設定して, Emission設定から光度を調整します.</p>
+<blockquote>
+<p>Emission will only be received by objects marked as ‘Static’ or “Lightmap Static’ from the Inspector.</p>
+</blockquote>
+<h3 id="ambient-lighting">Ambient Lighting</h3>
+<p>どこからともなくやってくる光をDiffuse LightingもしくはAmbient lightと呼ぶそうです. 色などを変更するとどこに影響しているかすぐに分かると思いますが, シーン全体の雰囲気を醸し出すのに使えそうです.</p>
+<h3 id="raiteinguinsupekuta">ライティング・インスペクタ</h3>
+<p>　いじれば分かるのでパス.</p>
+<h3 id="raitonoshi-ifang">ライトの使い方</h3>
+<p>　ライトを追加してもシーン・ビューで変化がない場合は以下のアイコンから有効にできます.</p>
+<p><img src="../../img/Unity_10.png" alt="Lighting Effect In Scene View" /></p>
+<h3 id="cookie-cucoloris">Cookie(cucoloris)</h3>
+<p>　木々の影とか窓の格子の影をテクスチャで再現する.</p>
+<ul>
+<li>ジャングル</li>
+<li>barred window(格子付きの窓)</li>
+</ul>
+<p>　などで使われる.</p>
+<p><img src="https://docs.unity3d.com/uploads/Main/CookieExample.png" alt="Cookie In Action" /></p>
+<p>作り方は必要になったらやろう.</p>
+<h2 id="ying">影</h2>
+<h3 id="siyadoumatupu">シャドウ・マップ</h3>
+<p>　影は光で照らされていない領域です.</p>
+<p><img src="https://docs.unity3d.com/uploads/Main/ShadowMapIntro.svg" alt="How to create the shadow" /></p>
+<p>　ライトの視点からは見えない領域と言い換えることもできるようです.</p>
+<p><img src="https://docs.unity3d.com/uploads/Main/ShadowLightsEyeView.svg" alt="Camera View" /></p>
+<p>　こうした重なりの情報は深度バッファと呼ばれ, ジオメトリの重複を判断しています.</p>
+<h3 id="siyadouakunetobaiasu">シャドウ・アクネとバイアス</h3>
+<p>　まずはシャドウ・アクネがない場合は以下になります.</p>
+<p><img src="https://docs.unity3d.com/uploads/Main/ShadowBiasGood.jpg" alt="Correct shadowing" /></p>
+<p>　シャドウ・アクネができると縞模様のようなものが出現します.</p>
+<p><img src="https://docs.unity3d.com/uploads/Main/ShadowBiasAcne.jpg" alt="Shadowing with shado acne artifact" /></p>
+<p>　オブジェクトの表面は相対的に滑らかなのですが, シャドウ・マップに格納する場合に発生する離散化誤差のようです.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-029/#ref-8"><sup>8</a> こうした現象のためにバイアスが存在します.</p>
+<p><img src="../../img/Unity_11.png" alt="Bias setting" /></p>
+<p>ただし適切に設定しないとlight bleedingが起きるそうです. これは影領域が光に侵食される現象です.</p>
+<h3 id="pasupekuteibuaraiasu">パースペクティブ・アライアス</h3>
+<p>　シャドウ・マップはライトの視点から作られるもの出たが, シーン全体はカメラから見た映像になります. この場合, 以下の図のように近いものと遠い場所で解像度が違ってきます. このため手前のエリアではブロック・ノイズが発生します.</p>
+<p><img src="https://docs.unity3d.com/uploads/Main/ShadMapFrustumDiagram.svg" alt="Perspective Aliasing" /></p>
+<p>　解像度を手前に合わせることもできますが, これだとコンピュータ資源を食います.</p>
+<h3 id="kasukedosiyadoumatupu">カスケード・シャドウマップ</h3>
+<p>　ではどうするかというとカメラから距離に応じて多解像度のシャドウ・マップを作ります. カスケード・シャドウ・マップ(Parallel Split Shadow Maps)とは多解像度のシャドウ・マップのことです. シェーディング・モードをShadow Cascadesに変更することで確認できます.</p>
+<p><img src="../../img/Unity_12.png" alt="Shading mode" /></p>
+<h3 id="siyadoupankekingu">シャドウ・パンケーキング</h3>
+<p>　照明の対象領域を限定するっぽいのだがよく分からなかった.</p>
+<!-- TODO: 理解する -->
+<p><img src="https://docs.unity3d.com/uploads/Main/PancakingIdea.png" alt="Shadow pancaking" />
+　</p>
+<h3 id="kiyasutosiyadou">キャスト・シャドウ</h3>
+<p>　オブジェクト側で影が表面に生成されるか個別に設定できる.</p>
+<h2 id="lightmapping">Lightmapping</h2>
+<h3 id="zhong-lei">種類</h3>
+<p>　3種類あるようです.</p>
+<ul>
+<li>GPU-accelerated Lightmapper</li>
+<li>CPU Progresive Lightmapper</li>
+<li>Enlighten</li>
+</ul>
+<p>　Lighting settingsから選択できる. デフォルトはCPUプログレス・ライトマッパーになっている.</p>
+<p><img src="../../img/Unity_13.png" alt="Lightmapper" /></p>
+<p>　後は飛ばした.</p>
+<!-- TODO: ちゃんと調べる -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tN33YqhfVtI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h3 id="lightmappertoha">Lightmapperとは?</h3>
+<p>　ライト・マップはシャドウ・マップと逆に光をテクスチャに焼き込んだものです.</p>
+<h3 id="enlighten-1">Enlighten</h3>
+<p>GI用のライティング・システムらしいです.</p>
+<h2 id="unityniokerugi">UnityにおけるGI</h2>
+<p>　そのため2種類の方法があるそうです.</p>
+<ul>
+<li>Realtime Global Illumination (Precomputed Realtime GI)</li>
+<li>Baked GI</li>
+<li>Mixed</li>
+</ul>
+<h3 id="baked-gi-lightmaps">Baked GI/Lightmaps</h3>
+<p>　CGアニメ映画では普通に使われているGIですが, ゲームだとリアルタイム性が重要なので遅延するぐらいなら簡単なモデルで済ませることになります. しかし近年はその辺の要求も上がっているので何とかそれらしい映像を作る技術としてベイク(焼き込み)という技術が用いられています. やることは単純で, 事前に計算した間接光をテクスチャ(ライトマップと呼ばれる)として利用するわけです. ただし(というか当然の制約として)静的なオブジェクトにしか使えません. ソフト・シャドウとかいうものにも良いらしいです.</p>
+<h3 id="realtime-global-illumination">Realtime Global Illumination</h3>
+<p>　Precomputed(事前計算)とRealtime(即時)という一見相反する言葉が含まれていますが, 事前計算リアルタイムGIでは事前に計算するのは光の軌跡です. 具体的な解説がないので良くわからないのですが, 設定された環境でとにかく全ての光の跳ね返りを事前に計算するそうです.</p>
+<blockquote>
+<p>..., but rather it precomputes all possible light bounces and encodes this information for use at runtime.</p>
+</blockquote>
+<p>　この情報を使ってリアルタイムにGIを計算するようです.</p>
+<blockquote>
+<p>The final lighting is done at runtime by feeding the actual lights present into these previously computed light propagation paths.</p>
+</blockquote>
+<p>この方法なら計算自体はリアルタイムに行われるので対象は静的オブジェクトに限りません. またベイクされていないのでオブジェクトのマテリアルも変更可能です.</p>
+<p>計算量的にはベイクGI &lt; 事前計算リアルタイムGIで, また影の品質もベイクGIの方が良いようです.</p>
+<blockquote>
+<p>While Precomputed Realtime GI also results in soft shadows, they will typically have to be more coarse-grained than what can be achieved with Baked GI unless the scene is very small.</p>
+</blockquote>
+<h3 id="mixed-gi">Mixed GI</h3>
+<p>リアルタイムGIとベイクGIを両方使う設定ですが, 自分のMac mini(Late 2014)だと4コアがマックス近くになりました.</p>
+<h3 id="xian-jie">限界</h3>
+<p>　両方とも静的な環境で得た情報を使っているので動くオブジェクト(動的オブジェクト)には使えません. その場合はプローブを使うそうです.</p>
+<h2 id="lighting-settings">Lighting Settings</h2>
+<p>　GIの設定とかはWindow -&gt; RenderingにあるLighting Settingsから行います.</p>
+<h3 id="scenetabu">Sceneタブ</h3>
+<p>　シーン全体に関するGI(環境光)のセッチング</p>
+<h3 id="realtime-lighting">Realtime Lighting</h3>
+<p>　Realtime LightingはRealtime GIの利用に関するチェックすボックスがあるだけです. これをチェックするとRealtime LightmapsタブにUVが展開されます.</p>
+<p><img src="../../img/Unity_001.png" alt="Lighting Settings Panel" /></p>
+<p>　当然これを切ってしまうと, 
+　</p>
+<h3 id="debug-settings">Debug Settings</h3>
+<p>　Auto Generateがデフォルトでチェックされている. この場合, Realtime LightingやMixed Lightingを有効にしていると自動的にライトマップの生成が行われる.</p>
+<h3 id="raitopurobu">ライト・プローブ</h3>
+<p>　空間中に設置された光の観測点です. ここを通過した光を保存して実行時に近似的に動的なGIが再現できます. 下図の黄色い点がプローブです. 赤線はプローブをつないだ線で構成される三角錐に照射対象が入るとライティングが計算されます.</p>
+<p><img src="https://docs.unity3d.com/uploads/Main/LightProbes-0.png" alt="Light Probes" /></p>
+<h3 id="ringingu">リンギング</h3>
+<p>　背面にライトが突き抜けてしまうような現象です.</p>
+<p><img src="https://docs.unity3d.com/uploads/Main/class-LightProbeGroup-Ringing.png" alt="Ringing" />　</p>
+<h3 id=""></h3>
+<h2 id="zui-shi-hua-nioitekao-lu-surudian">最適化において考慮する点</h2>
+<p>　色々な最適かのピットフォールがあるようです. 事前計算自体が何時間もかかったのでは効率化の意味が薄れます.</p>
+<ul>
+<li>Appropriate Lighting Resolution</li>
+<li>Charts</li>
+<li>Probe lighting</li>
+<li>Improve on auto UV unwrapping</li>
+<li>Clusters</li>
+<li>Lightmap Parameters</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a name="ref-1"></a> <a href="https://unity3d.com/learn/tutorials/topics/graphics/introduction-precomputed-realtime-gi?playlist=17102">Introduciton to Precomputed Realtime GI</a></li>
+<li><a name="ref-2"></a> <a href="https://docs.unity3d.com/Manual/BestPracticeMakingBelievableVisuals3.html">Lighting strategy</a></li>
+<li><a name="ref-3"></a> <a href="https://docs.unity3d.com/Manual/LightModes.html">Lighting Modes</a></li>
+<li><a name="ref-4"></a> <a href="https://docs.unity3d.com/Manual/LightingInUnity.html">Lighting overview</a></li>
+<li><a name="ref-5"></a> <a href="http://tsubakit1.hateblo.jp/entry/2016/03/14/230904">ライティングを理解するためにコーネルボックスを作って遊ぶ</a></li>
+<li><a name="ref-6"></a> <a href="https://qiita.com/thiroaki/items/7a9213150b15810137f2">コーネルボックスをつくってあそぼ</a></li>
+<li><a name="ref-7"></a> <a href="https://monobook.org/wiki/%E3%82%B3%E3%83%BC%E3%83%8D%E3%83%AB%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9">コーネルボックス</a></li>
+<li><a name="ref-8"></a> <a href="http://www.project-asura.com/program/d3d11/d3d11_008.html">シャドウマッピングの基本</a></li>
+</ol>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;unity&#x2f;">#Unity</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-028&#x2f;">‹ Unity入門 (2) Graphics入門</a>
+                    
+                    
+                        <a class="next" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-030&#x2f;">Learn OpenGL With Rust (2) GetString ›</a>
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

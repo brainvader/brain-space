@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - Learn OpenGL with Rust (1) Getting Started</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-017&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-017&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#di-1hui-getting-started" class="toc-link">第1回 Getting Started</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#learn-opengltoha" class="toc-link">Learn OpenGLとは?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#getting-started" class="toc-link">Getting Started</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#glfw" class="toc-link">glfw</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#tiao-jian-fu-konpairu-conditional-compilation" class="toc-link">条件付コンパイル (Conditional Compilation)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#moziyuru" class="toc-link">モジュール</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#sabumeinguan-shu" class="toc-link">サブ・メイン関数</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#matome" class="toc-link">まとめ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#bu-zu" class="toc-link">補足</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#zhu-shi" class="toc-link">注釈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#reference" class="toc-link">Reference</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-017&#x2f;">Learn OpenGL with Rust (1) Getting Started</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-24</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="di-1hui-getting-started">第1回 Getting Started</h1>
+<h2 id="learn-opengltoha">Learn OpenGLとは?</h2>
+<p>　C++でOpenGLに入門できるサイトです.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#com-1"><sup>1</a></p>
+<h2 id="getting-started">Getting Started</h2>
+<p>　オリジナルは色々設定が大変みたいだが, Rustでは新規プロジェクト作ってglfw-rsを導入すればできます. 面倒な人はgit cloneでプロジェクトをローカル環境に持って来てもできるはずです. いずれにしろ下記のglfwの導入は必要です.</p>
+<h2 id="glfw">glfw</h2>
+<p>　glfwだけ少し色々やる必要があります.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#com-2"><sup>2</a> まずglfw3をbrewでインストールします. この時cmakeが必要になります.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">brew install glfw cmake
+</span></pre>
+<p>　後は<a href="https://github.com/bwasty/learn-opengl-rs/blob/master/Cargo.toml">Cargo.toml</a>のdependenciesの項をコピーペすればオッケーです. バージョンが更新されているものもは更新しました.</p>
+<h2 id="tiao-jian-fu-konpairu-conditional-compilation">条件付コンパイル (Conditional Compilation)</h2>
+<p>　 cfgマクロを使うと条件付きコンパイルができる.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#com-3"><sup>3</a> Cargo.tomでfeaturesでフラグを設定できる.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">[features]
+</span><span style="color:#bf616a;">default </span><span style="color:#c0c5ce;">=[
+  &quot;</span><span style="color:#a3be8c;">chapter-1</span><span style="color:#c0c5ce;">&quot;
+]
+
+</span><span style="color:#65737e;"># no extra dependencies
+</span><span style="color:#bf616a;">chapter-1 </span><span style="color:#c0c5ce;">= []
+</span></pre>
+<p>　このフラグをcargoの--featuresオプションに渡してやる.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">cargo</span><span style="color:#c0c5ce;"> run</span><span style="color:#bf616a;"> --features </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">chapter-1</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">cargo</span><span style="color:#c0c5ce;"> build</span><span style="color:#bf616a;"> --features </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">chapter-1</span><span style="color:#c0c5ce;">&quot;
+</span></pre>
+<p>　モジュールの前にcfgマクロを定義すると, 引数として渡された条件を満たす場合にコンパイルされモジュールが読み込まれる.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">#cfg[feature = &quot;</span><span style="color:#a3be8c;">chapter-1</span><span style="color:#c0c5ce;">&quot;)]
+</span><span style="color:#b48ead;">mod </span><span style="color:#c0c5ce;">_1_getting_started;
+</span></pre>
+<p>　この場合_1_getting_startedが使えるようになる.</p>
+<h2 id="moziyuru">モジュール</h2>
+<p>　次はモジュールが必要になる. 各章のソースはモジュールとして管理されている. _1_getting_startedにmod.rsがあり, ここでまとめて公開されている. ファイル名がモジュールとなる. ファイルに定義された関数はpubと定義されているものだけが公開される. useを使うとパスを省略できるので, 関数名だけを読込先で使える.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">mod </span><span style="color:#c0c5ce;">greate_module;
+</span><span style="color:#b48ead;">use </span><span style="color:#c0c5ce;">great_module::*;
+</span></pre>
+<p>　とするとgreat_funをそのまま呼び出せる.
+　</p>
+<h2 id="sabumeinguan-shu">サブ・メイン関数</h2>
+<p>　cargo runを--featuresオプション付きで実行すると条件付きコンパイルで章ごとにモジュールが取り込まれてビルドが実行される. しかしこれではいちいちmain.rsの内容を章の内容に合わせて書き直す必要がある. そのため引数でタイプ・キーで章を指定できるようにしている. 該当する章の&quot;サブ・メイン関数&quot;が実行される.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#com-4"><sup>4</a> 1章1節1項なら, 1_1_1を指定する.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">cargo</span><span style="color:#c0c5ce;"> run 1_1_1
+</span></pre>
+<p>　main.rsがビルドされて実行されるが, 実際に実行されるのは以下の部分になる.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">// sub main function for 1.1.1
+</span><span style="color:#b48ead;">pub fn </span><span style="color:#8fa1b3;">main_1_1_1</span><span style="color:#c0c5ce;">() { </span><span style="color:#65737e;">/* omit */ </span><span style="color:#c0c5ce;">}
+</span></pre><h2 id="matome">まとめ</h2>
+<p>　cargoがあるとはいえcmakeが必要だったりして, 結構前準備がめんどくさかった. Rustのこの辺は良くわかっていなかったので良い復習になった. またバイナリとしてプロジェクトを構築した場合に, 例をどうやって動的に切り替えて実行するかの良い例になっていて真似しようと思った.</p>
+<h2 id="bu-zu">補足</h2>
+<h3 id="glutin">glutin</h3>
+<p>　Rust版GLFWらしいですが使わないようです.</p>
+<h3 id="glium">glium</h3>
+<p>　OpenGLのラッパーです. 便利らしいのですがもうメンテナンスもされていないしので使わないようです.</p>
+<h2 id="zhu-shi">注釈</h2>
+<ol>
+<li><a href="com-1"></a> <a href="https://learnopengl.com/">Learn OpenGL</a></li>
+<li><a href="com-2"></a> <a href="https://qiita.com/seibe/items/1c7388cfc216b29a8b75">GLFW on Rust 環境構築</a></li>
+<li><a href="com-3"></a> <a href="https://doc.rust-lang.org/1.30.0/book/first-edition/conditional-compilation.html">Conditional Compilation</a></li>
+<li><a href="com-4"></a> こんな呼び方はしないが良い表現が思いつかない.</li>
+</ol>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://keens.github.io/blog/2017/12/01/rustnodi/">RustのDI</a></li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;rust&#x2f;">#Rust</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - Rust雑記 (1) Dpendency Inversion</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-016&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-016&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-016/#rustza-ji-1" class="toc-link">Rust雑記 (1)</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-016/#rustdedependency-inversion" class="toc-link">RustでDependency Inversion</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-016/#toreito" class="toc-link">トレイト</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-016/#associated-type" class="toc-link">Associated Type</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-016/#cakepatan" class="toc-link">Cakeパターン</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-016/#ditutehe-yo" class="toc-link">DIって何よ?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-016/#zhu-shi" class="toc-link">注釈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-016/#reference" class="toc-link">Reference</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-016&#x2f;">Rust雑記 (1) Dpendency Inversion</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-24</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="rustza-ji-1">Rust雑記 (1)</h1>
+<h2 id="rustdedependency-inversion">RustでDependency Inversion</h2>
+<p>　Clean Architectureの日本語記事が増えて来た気がして, 大昔Pythonで失敗したことを思い出した. 当時はFlaskを使ってやって気がするが, Pythonでインターフェースに依存する書き方ができなくて詰んだのだった. PHPやScalaならできるんだろう(Javaは況や). 調べるとDIを使ったりもするらしい. そうするとLaravelなら実装できそうって話になるけど, あえてのRsutではって話です.</p>
+<h2 id="toreito">トレイト</h2>
+<p>　トレイトとは直訳すると特性という意味になる. あるデータ型の特性を定義することになる. 特性って何というと振る舞いで, 要するに関数を定義する. 内容的におかしいのだが, とりあえず例を挙げておく.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">trait </span><span style="color:#c0c5ce;">Hoge {
+  </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">do_something</span><span style="color:#c0c5ce;">() -&gt; ();
+}
+
+</span><span style="color:#b48ead;">struct </span><span style="color:#c0c5ce;">Data;
+
+</span><span style="color:#b48ead;">impl </span><span style="color:#c0c5ce;">Hoge </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">Data {
+  </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">do_something</span><span style="color:#c0c5ce;">() {
+    </span><span style="color:#96b5b4;">println</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">Hello World</span><span style="color:#c0c5ce;">&quot;);
+  }
+}
+</span></pre>
+<p>　他の言語で言う所のインターフェースということになるが, 少し違うのはトレイトは型らしい. なのでトレイトを継承(?)することができる.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">trait </span><span style="color:#c0c5ce;">Service {}
+</span><span style="color:#b48ead;">trait </span><span style="color:#c0c5ce;">SpecialService: Serevice {}
+</span></pre><h2 id="associated-type">Associated Type</h2>
+<p>　インターフェースと違ってデータ型を定義できる. これを関連型という.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-016/#com-1"><sup>1</a></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">// Graph Trait
+</span><span style="color:#b48ead;">trait </span><span style="color:#c0c5ce;">Graph&lt;N, E&gt; { </span><span style="color:#65737e;">/* function declarations */ </span><span style="color:#c0c5ce;">}
+
+</span><span style="color:#65737e;">// Graph Trait with Associated Types
+</span><span style="color:#b48ead;">trait </span><span style="color:#c0c5ce;">Graph {
+  </span><span style="color:#b48ead;">type </span><span style="color:#c0c5ce;">N;
+  </span><span style="color:#b48ead;">type </span><span style="color:#c0c5ce;">E;
+
+  </span><span style="color:#65737e;">/* function declarations */
+</span><span style="color:#c0c5ce;">}
+</span></pre>
+<p>　上はGenericを使ってグラフ型のトレイトにNodeとEdgeを定義したことになるが何かと煩雑になる. </p>
+<h2 id="cakepatan">Cakeパターン</h2>
+<p>　CakeパターンってのはScalaで考え出されたパターンらしい.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-016/#com-2"><sup>2</a> トレイトと関連型を使うのだが実装はReference読んで. ポイントはトレイト型を関連型として持つトレイト型を作ること(実装見て).</p>
+<h2 id="ditutehe-yo">DIって何よ?</h2>
+<p>　内容読むとどの辺が依存性注入の話なのか良く分からない. Dpendency Inversionの話にしか聞こえない.</p>
+<h2 id="zhu-shi">注釈</h2>
+<ol>
+<li><a href="com-1"></a> <a href="https://qiita.com/tacke_jp/items/9c7617971dc341146c0f">RustのAssociated Typeについて</a></li>
+<li><a href="com-2"></a> <a href="https://qiita.com/yasuabe2613/items/d1e0451024f61145f875">Scalaでいろんな DIを試してみる Cake 〜 Free+ReaderT</a></li>
+</ol>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://keens.github.io/blog/2017/12/01/rustnodi/">RustのDI</a></li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;rust&#x2f;">#Rust</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

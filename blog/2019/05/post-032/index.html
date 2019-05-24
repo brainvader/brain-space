@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - Functional Programming in Rust</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;05&#x2f;post-032&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-032&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-032/#rustdeguan-shu-xing-yan-yu" class="toc-link">Rustで関数型言語</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-032/#gai-yao" class="toc-link">概要</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-032/#rusthaguan-shu-xing-nopuroguraminguyan-yu" class="toc-link">Rustは関数型のプログラミング言語?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-032/#guan-shu-xing-yan-yu-tute-what-is-a-functional-programming" class="toc-link">関数型言語って? (What is a functional programming?)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-032/#reference" class="toc-link">Reference</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-032&#x2f;">Functional Programming in Rust</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-05-08</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="rustdeguan-shu-xing-yan-yu">Rustで関数型言語</h1>
+<h2 id="gai-yao">概要</h2>
+<p><a href="https://brainvader.github.io/brain-space/blog/2019/05/post-032/#ref-1"><sup>1</a>をベースに関数型言語の考え方をRustで学習する.</p>
+<h2 id="rusthaguan-shu-xing-nopuroguraminguyan-yu">Rustは関数型のプログラミング言語?</h2>
+<p>　RustはC++と同じくマルチ・パラダイム言語らしいです.</p>
+<h2 id="guan-shu-xing-yan-yu-tute-what-is-a-functional-programming">関数型言語って? (What is a functional programming?)</h2>
+<p>　Rustで関数言語風に書くには, 以下のような概念を利用します.</p>
+<ul>
+<li>Generics</li>
+<li>Higher Order Function</li>
+<li>Functions as values</li>
+<li>Ternary Operators</li>
+<li>Iterator</li>
+<li>Pattern Matching</li>
+<li>Expression</li>
+<li>Direct Constructor Expression</li>
+<li>Tagged Union Expression <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-032/#ref-3"><sup>3</a></li>
+</ul>
+<p>　関数型言語では全ての項は式です. イテレータはコンポーザビリティを提供します.</p>
+<h3 id="kuroziyatohahe-ka">クロージャとは何か?</h3>
+<p>　クロージャは関数ではなく関数のように振る舞うオブジェクトのようです.</p>
+<blockquote>
+<p>A closure is an object that acts as a function, ...</p>
+</blockquote>
+<p>　以下のいずれかのトレイトを実装しているオブジェクトとも言えます.</p>
+<ul>
+<li>fn</li>
+<li>Fn</li>
+<li>FnMut</li>
+<li>FnOnce</li>
+</ul>
+<p>値として扱われるため, 引数として関数に渡したり戻り値として返すことができます. このような関数を高階関数(Higher order Function a.k.a HoF)と呼びます.</p>
+<h3 id="patanmatutitotagufu-kigong-you-xing">パターン・マッチとタグ付き共有型</h3>
+<p>　C言語にも共有型がありましたが, 色々と問題があったようです.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-032/#ref-4"><sup>4</a> Rustの共有型はタグ付きといって属性を追加できます. この属性もパターン・マッチの対象とすることができます.</p>
+<h3 id="complex-rules-ownership">Complex rules ownership</h3>
+<p>　関数のローカル変数を戻り値とすることはRustでは基本的にはできません. なぜなら関数のスコープとともにローカル変数が解放されるからです. clone(deep copy)を使うこともできますが, これではゼロ・コストを謳うRustらしくはありません. ローカル変数は関数の依存性なので外部から参照として渡してやることで解決できます(これをRustは借用と呼んでいます). 関数は処理だけを行えばいいのです.</p>
+<h3 id="fearless-concurrency-5">Fearless Concurrency <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-032/#ref-5"><sup>5</a></h3>
+<p>　Rustは型安全かつコンパイラに強制されます. 後者は特にコンパイル時に競合の発生やデッドロックを教えてくれます.</p>
+<blockquote>
+<p>All of this concurrency is type-safe and compiler-enforced.</p>
+</blockquote>
+<!-- TODO: 少し早かったのでRustを先にちゃんと理解する. -->
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a name="ref-1"></a>  <a href="https://www.packtpub.com/application-development/hands-functional-programming-rust">Hands-On Functional Programming in RUST</a></li>
+<li><a name="ref-2"></a>  <a href="https://github.com/PacktPublishing/Hands-On-Functional-Programming-in-Rust">Hands-On-Functional-Programming-in-Rust</a></li>
+<li><a name="ref-3"></a>  <a href="https://tonyarcieri.com/a-quick-tour-of-rusts-type-system-part-1-sum-types-a-k-a-tagged-unions">A quick tour of Rust’s Type System Part 1: Sum Types (a.k.a. Tagged Unions)</a></li>
+<li><a name="ref-4"></a>  <a href="http://patshaughnessy.net/2018/3/15/how-rust-implements-tagged-unions">How Rust Implements Tagged Unions</a></li>
+<li><a name="ref-5"></a>  <a href="https://doc.rust-lang.org/book/ch16-00-concurrency.html?highlight=concur#fearless-concurrency">Fearless Concurrency</a></li>
+<li><a name="ref-6"></a>  <a href="http://squidarth.com/rc/rust/2018/06/04/rust-concurrency.html">Safe Concurrency with Rust</a></li>
+</ol>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;rust&#x2f;">#Rust</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-031&#x2f;">‹ Unity入門 (3) 3D Game Kit</a>
+                    
+                    
+                        <a class="next" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-033&#x2f;">Rust入門 (3) Thread ›</a>
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

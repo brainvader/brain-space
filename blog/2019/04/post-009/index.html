@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - React入門 (6) フォーム</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-009&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-009&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-009/#huomu" class="toc-link">フォーム</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-009/#huomunoji-ben" class="toc-link">フォームの基本</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-009/#controlled-component" class="toc-link">Controlled Component</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-009/#uncontrolled-component" class="toc-link">Uncontrolled Component</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-009/#he-cheng-huomu" class="toc-link">合成フォーム</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-009/#matome" class="toc-link">まとめ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-009/#further-reading" class="toc-link">Further Reading</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-009/#zhu-shi" class="toc-link">注釈</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-009&#x2f;">React入門 (6) フォーム</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-16</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="huomu">フォーム</h1>
+<h2 id="huomunoji-ben">フォームの基本</h2>
+<p>　フォームは通常以下のように定義されます. 問題はフォームはユーザーが入力したデータを保持するということです. これをコンポーネントで管理してやる必要があります. このようになコンポーネント化されたフォームをControlled Componentと呼びます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">form</span><span style="color:#c0c5ce;">&gt;
+  &lt;</span><span style="color:#bf616a;">label</span><span style="color:#c0c5ce;">&gt;
+    Name:
+    &lt;</span><span style="color:#bf616a;">input </span><span style="color:#d08770;">type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">text</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">name</span><span style="color:#c0c5ce;">&quot; /&gt;
+  &lt;/</span><span style="color:#bf616a;">label</span><span style="color:#c0c5ce;">&gt;
+  &lt;</span><span style="color:#bf616a;">input </span><span style="color:#d08770;">type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">submit</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">value</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">Submit</span><span style="color:#c0c5ce;">&quot; /&gt;
+&lt;/</span><span style="color:#bf616a;">form</span><span style="color:#c0c5ce;">&gt;
+</span></pre><h2 id="controlled-component">Controlled Component</h2>
+<p>　input, textarea, そしてselectなどがControlled Componentの対象です. これらは全てvalue属性で値にアクセスできることが共通しています.</p>
+<h3 id="ru-li-huomu">入力フォーム</h3>
+<p>　value属性に入力された値が保持されています.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">form</span><span style="color:#c0c5ce;">&gt;
+  &lt;</span><span style="color:#bf616a;">label</span><span style="color:#c0c5ce;">&gt;
+    Name:
+    &lt;</span><span style="color:#bf616a;">input </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">myInput</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">text</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">name</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">value</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">John</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">onchange</span><span style="color:#c0c5ce;">=</span><span style="color:#d08770;">changeHandler()</span><span style="color:#c0c5ce;">/&gt;
+  &lt;/</span><span style="color:#bf616a;">label</span><span style="color:#c0c5ce;">&gt;
+  &lt;</span><span style="color:#bf616a;">input </span><span style="color:#d08770;">type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">submit</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">value</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">Submit</span><span style="color:#c0c5ce;">&quot; /&gt;
+&lt;/</span><span style="color:#bf616a;">form</span><span style="color:#c0c5ce;">&gt;
+</span></pre>
+<p>　一方, value属性を上書きするとフォーム・フィールドに値が表示できます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">document.</span><span style="color:#96b5b4;">getElementById</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">myInput</span><span style="color:#c0c5ce;">&#39;).value = &quot;</span><span style="color:#a3be8c;">Taro</span><span style="color:#c0c5ce;">&quot;;
+</span></pre>
+<p>　これをコンポーネント化します. ポイントは二つでvalueとハンドラを定義するだけです.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">NameForm </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+  </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) {
+    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">);
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.state </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">{value: </span><span style="color:#c0c5ce;">&#39;&#39;</span><span style="color:#eff1f5;">};
+
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange.</span><span style="color:#bf616a;">bind</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">);
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleSubmit </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleSubmit.</span><span style="color:#bf616a;">bind</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">);
+  }
+
+  </span><span style="color:#8fa1b3;">handleChange</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">event</span><span style="color:#eff1f5;">) {
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">setState</span><span style="color:#eff1f5;">({value: </span><span style="color:#bf616a;">event</span><span style="color:#eff1f5;">.target.value});
+  }
+
+  </span><span style="color:#8fa1b3;">handleSubmit</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">event</span><span style="color:#eff1f5;">) {
+    </span><span style="color:#bf616a;">alert</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">A name was submitted: </span><span style="color:#c0c5ce;">&#39; + </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.state.value);
+    </span><span style="color:#bf616a;">event</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">preventDefault</span><span style="color:#eff1f5;">();
+  }
+
+  </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">(
+      </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">form onSubmit</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.</span><span style="color:#bf616a;">handleSubmit</span><span style="color:#eff1f5;">}</span><span style="color:#c0c5ce;">&gt;
+        &lt;</span><span style="color:#bf616a;">label</span><span style="color:#c0c5ce;">&gt;
+          </span><span style="color:#bf616a;">Name</span><span style="color:#eff1f5;">:
+          </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">input type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">text</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#bf616a;">value</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.state.</span><span style="color:#bf616a;">value</span><span style="color:#eff1f5;">} </span><span style="color:#bf616a;">onChange</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.</span><span style="color:#bf616a;">handleChange</span><span style="color:#eff1f5;">} </span><span style="color:#c0c5ce;">/&gt;
+        &lt;/</span><span style="color:#96b5b4;">label&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; </span><span style="color:#c0c5ce;">/&gt;
+      &lt;/</span><span style="color:#96b5b4;">form&gt;
+    );
+  }
+}
+</span></pre>
+<p>　ユーザー入力はハンドラを介して1度stateに保存され, それが更新時に反映されます. 初期値がある場合もstateにまず値を割り当てます. サブミットでサーバー側とやりとりする場合はSubmitイベントのハンドラで行えば良いです.</p>
+<h3 id="tekisutoeria">テキスト・エリア</h3>
+<p>　テキスト・エリアもやることは同じです.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;form onSubmit={this.handleSubmit}&gt;
+    &lt;label&gt;
+        Essay:
+        &lt;textarea value={this.state.value} onChange={this.handleChange} /&gt;
+    &lt;/label&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
+&lt;/form&gt;
+</span></pre><h3 id="xuan-ze-zhi">選択肢</h3>
+<p>　select要素も基本的に同じです.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;form onSubmit={this.handleSubmit}&gt;
+    &lt;label&gt;
+        Pick your favorite flavor:
+        &lt;select value={this.state.value} onChange={this.handleChange}&gt;
+        &lt;option value=&quot;grapefruit&quot;&gt;Grapefruit&lt;/option&gt;
+        &lt;option value=&quot;lime&quot;&gt;Lime&lt;/option&gt;
+        &lt;option value=&quot;coconut&quot;&gt;Coconut&lt;/option&gt;
+        &lt;option value=&quot;mango&quot;&gt;Mango&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/label&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
+&lt;/form&gt;
+</span></pre>
+<p>　ちなみに複数選択の場合は配列を渡してやります.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;select multiple={true} value={[&#39;Monday&#39;, &#39;Sunday&#39;]} /&gt;
+</span></pre><h2 id="uncontrolled-component">Uncontrolled Component</h2>
+<p>　input要素のtype属性をfileにした場合valueは読み込み専用なのでコンポーネントからは管理できません. こうしたコンポーネントをUncontrolled Componentと呼びます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;input type=&quot;file&quot; /&gt;
+</span></pre><h2 id="he-cheng-huomu">合成フォーム</h2>
+<p>　通常フォームはもっと複雑なものです. この場合name属性を使ってどの属性からの入力かを判断します<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-009/#com-1"><sup>1</a>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;form&gt;
+    &lt;label&gt;
+        Is going:
+        &lt;input
+        name=&quot;isGoing&quot;
+        type=&quot;checkbox&quot;
+        checked={this.state.isGoing}
+        onChange={this.handleInputChange} /&gt;
+    &lt;/label&gt;
+    &lt;br /&gt;
+    &lt;label&gt;
+        Number of guests:
+        &lt;input
+        name=&quot;numberOfGuests&quot;
+        type=&quot;number&quot;
+        value={this.state.numberOfGuests}
+        onChange={this.handleInputChange} /&gt;
+    &lt;/label&gt;
+&lt;/form&gt;
+</span></pre>
+<p>　name属性の値を取得するにはtargetを使いますが,  computed property nameというのを使うと便利だそうです<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-009/#com-2"><sup>2</a>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">handleInputChange</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">event</span><span style="color:#c0c5ce;">) {
+    </span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">target </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">event</span><span style="color:#c0c5ce;">.target;
+    </span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">value </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">target</span><span style="color:#c0c5ce;">.type === &#39;</span><span style="color:#a3be8c;">checkbox</span><span style="color:#c0c5ce;">&#39; ? </span><span style="color:#bf616a;">target</span><span style="color:#c0c5ce;">.checked : </span><span style="color:#bf616a;">target</span><span style="color:#c0c5ce;">.value;
+    </span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">name </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">target</span><span style="color:#c0c5ce;">.name;
+
+    </span><span style="color:#bf616a;">this</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">setState</span><span style="color:#c0c5ce;">({
+      [</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">]: </span><span style="color:#bf616a;">value
+    </span><span style="color:#c0c5ce;">});
+}
+</span></pre>
+<p>当然コンポーネント間を複数のControlled Componentに分割してもいいでしょう.</p>
+<h2 id="matome">まとめ</h2>
+<p>　Reactでフォームを作詞する場合は, value属性という共通の性質を用いてフォームの状態をコンポーネント側で受け持つようにします.</p>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://reactjs.org/docs/uncontrolled-components.html">Uncontrolled Components</a></li>
+<li><a href="https://jaredpalmer.com/formik/">Formik</a></li>
+</ul>
+<h2 id="zhu-shi">注釈</h2>
+<ol>
+<li><a name="com-1"></a> <a href="https://reactjs.org/docs/forms.html#handling-multiple-inputs">Handling Multiple Inputs</a></li>
+<li><a name="com-2"></a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names">Computed property namesSection</a></li>
+</ol>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;react&#x2f;">#React</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

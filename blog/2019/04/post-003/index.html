@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - React入門 (2) JSXとReactエレメント</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-003&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-003&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-003/#jsx" class="toc-link">JSX</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-003/#jsxtoha" class="toc-link">JSXとは?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-003/#jsxnozheng-ti" class="toc-link">JSXの正体</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-003/#jia-xiang-dom" class="toc-link">仮想DOM</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-003/#immutability-bu-bian-xing" class="toc-link">Immutability (不変性)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-003/#rutonodo" class="toc-link">ルートノード</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-003/#matome" class="toc-link">まとめ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-003/#zhu-shi" class="toc-link">注釈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-003/#reference" class="toc-link">Reference</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-003&#x2f;">React入門 (2) JSXとReactエレメント</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-13</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="jsx">JSX</h1>
+<h2 id="jsxtoha">JSXとは?</h2>
+<p>　JavaScriptの拡張でHTMLタグのような記法を使います. コンポーネントはロジックとビューで構成されますが, このビューの部分をJSXとして記述します. Webフレームワークで使われるテンプレートとは逆にJavaScriptにビューを取り入れています. JSXの部分はテンプレートなので中括弧を使ってJavaScriptの変数や関数を埋め込むこともできます.</p>
+<p>　HTMLに似ていますが基本的にはJavaScriptの拡張です. 属性名などもclassとclassNameのように違ってきます. コンポーネントの記述方法などは<a href="/2019/04/post-002/">前回</a>の記事を参考にしてください.</p>
+<p>　JSXはXSS(Cross-Site-Scripting)対策もされています. つまりHTMLタグが入力としてきた場合は文字列に変換されます. dangerouslySetInnerHTMLを使うとHTML要素として表示されますが危険が伴います. GatsbyJSなどではMarkdownの記事を変換してHTMLとして表示するのにdangerouslySetInnerHTMLが利用されています.</p>
+<h2 id="jsxnozheng-ti">JSXの正体</h2>
+<p>　JSXはReact固有の記法として導入されました(現在は他にも使われているかもしれませんが). JavaScriptの拡張といってもブラウザでは解釈できません. そのためコンパイラでブラウザが解釈可能な構文に変換する必要があります. コンパイル後はReact.createElementに変換されます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">const </span><span style="color:#bf616a;">element </span><span style="color:#c0c5ce;">= &lt;</span><span style="color:#bf616a;">h1</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#bf616a;">Hello</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">world</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#96b5b4;">h1&gt;;
+ReactDOM</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">render(element, document</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">getElementById(&#39;root&#39;));
+</span></pre>
+<p>　この関数はReactエレメントを生成する関数ですが, ただのPOJO(Plain Old Javascript Object)です. DOM(Document Object Model)生成に使われるレシピとでも思えばいいと思います. </p>
+<h2 id="jia-xiang-dom">仮想DOM</h2>
+<p>　実際のDOMは木構造をしています. React要素はその設計図なので何を作るかとか子要素は何かという情報を持っています. これを仮想DOMと言います. DOMとは別にこのようなデータ構造を挟むのは不経済と思うかもしれませんが, 実際には仮想DOMの方が早く処理できます<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-003/#rel-1"><sup>*1</a>.</p>
+<h2 id="immutability-bu-bian-xing">Immutability (不変性)</h2>
+<p>　React要素はHTML要素と違って不変(immutable)です. 不変というのは変更があった場合は, 構成するノードを全て再描画し直します. これだと非効率と思うかもしれませんが変更は仮想DOM上で行われます. DOMの方は必要な部分だけが更新されます. こうした仮想DOMを用いた効率的なDOM操作がReactの魅力の1つです.</p>
+<h2 id="rutonodo">ルートノード</h2>
+<p>　ReactエレメントからDOMを作りますが, ルート・ノードだけは別です. ルート・ノードはアプリケーションの入れ物で普通のHTMLです. このノードの下に最終的なDOM要素が追加されます. 名前とは裏腹に複数あっても良いそうです.</p>
+<h2 id="matome">まとめ</h2>
+<p>　JSXの正体はcreateElementが生成するReact要素でした. React要素はPOJOに過ぎず, これが組み合わさって仮想DOMを構成していました. 仮想DOM上に変更を限定し実際のDOMの変更からコードの変更を切り離すことでReactは高速な画面の更新を実現しています.</p>
+<h2 id="zhu-shi">注釈</h2>
+<p><a name="ref-1"></a> 1 ということになっていますが実際は知りません. 信じましょうw.</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://reactjs.org/docs/hello-world.html">MAIN CONCEPTS</a></li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;react&#x2f;">#React</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

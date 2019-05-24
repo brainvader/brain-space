@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - React入門 (8) 親子コンポーネントの関係</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-011&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-011&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-011/#konponentonoguan-xi" class="toc-link">コンポーネントの関係</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-011/#guan-xi" class="toc-link">関係</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-011/#unidirectional-data-flow" class="toc-link">Unidirectional Data Flow</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-011/#childrenpuropatei" class="toc-link">childrenプロパティ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-011/#konponentodu-si" class="toc-link">コンポーネント渡し</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-011/#he-cheng" class="toc-link">合成</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-011/#matome" class="toc-link">まとめ</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-011&#x2f;">React入門 (8) 親子コンポーネントの関係</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-16</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="konponentonoguan-xi">コンポーネントの関係</h1>
+<h2 id="guan-xi">関係</h2>
+<ul>
+<li>親から子</li>
+<li>子から親</li>
+<li>コンポーネント渡し</li>
+<li>合成</li>
+</ul>
+<h2 id="unidirectional-data-flow">Unidirectional Data Flow</h2>
+<p>　通常Reactではデータは親から子へと渡されます. propsには値以外にもハンドラなども渡すことができます. 多くの場合親コンポーネントは子コンポーネントについて知る必要はありません.</p>
+<h2 id="childrenpuropatei">childrenプロパティ</h2>
+<p>　propsにはchildrenプロパティを通じて子コンポーネントのJSX要素にアクセスすことができます. やり方は簡単で, 単純にコンポーネントに閉じタグを加えて, 親に渡したい内容を挟み込むだけです.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;ParentComponent&gt;
+　 &lt;h1&gt;Inserted Content&lt;/h1&gt;
+   &lt;p&gt;This is inserted on the child component&lt;/p&gt;
+&lt;/ParentComponent&gt;
+</span></pre>
+<p>　親ではこれをchildrenプロパティから取り出して展開します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;div&gt;
+  {props.children}
+&lt;/div&gt;
+</span></pre><h2 id="konponentodu-si">コンポーネント渡し</h2>
+<p>　コンポーネントを引数として渡すこともできます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;ParentComponent
+  first={&lt;FirstChild/&gt;}
+  second={&lt;SecondChild /&gt;}
+/&gt;
+</span></pre>
+<p>同じようにParentComponentで展開します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;div&gt;
+</span><span style="color:#c0c5ce;">  {props.first}
+</span><span style="color:#c0c5ce;">  {props.second}
+</span><span style="color:#c0c5ce;">&lt;/div&gt;
+</span></pre><h2 id="he-cheng">合成</h2>
+<p>独自のコンポーネントはextendsでは継承しません.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SuperComponent </span><span style="color:#b48ead;">extends </span><span style="color:#a3be8c;">MyComponent </span><span style="color:#eff1f5;">{ 
+    </span><span style="color:#65737e;">// ...
+</span><span style="color:#eff1f5;">}
+</span></pre>
+<p>　独自コンポーネントを拡張するには合成で行います. 合成といってもラッパー・コンポーネントを使うだけです.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Wrapper </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+    </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+        </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">(
+            </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">CoreComponent name</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">Super-Component</span><span style="color:#c0c5ce;">&quot;&gt;
+               &lt;</span><span style="color:#bf616a;">h1</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#bf616a;">Dump on the parent component</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#96b5b4;">h1&gt;
+               &lt;p&gt;This is a content of the child component</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;"> Is that properly inserted</span><span style="color:#c0c5ce;">?</span><span style="color:#96b5b4;">&lt;</span><span style="color:#c0c5ce;">/</span><span style="color:#96b5b4;">p</span><span style="color:#c0c5ce;">&gt;
+            &lt;/</span><span style="color:#96b5b4;">CoreComponent&gt;
+        );
+    }
+}
+</span></pre><h2 id="matome">まとめ</h2>
+<p>　JSX要素としてコンポーネントを使う場合は, createElementでPOJO(React要素とも言う)に変換されることを思い出しましょう. そうすればなぜpropsに渡せるのかがわかるはずです. </p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;react&#x2f;">#React</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

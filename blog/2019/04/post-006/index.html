@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - React入門 (3) ライフサイクル・フック</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-006&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-006&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-006/#raihusaikuruhutuku" class="toc-link">ライフサイクル・フック</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-006/#reactnoraihusaikuru" class="toc-link">Reactのライフサイクル</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-006/#mauntotoanmaunto" class="toc-link">マウントとアンマウント</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-006/#raihusaikuruhutukutoha" class="toc-link">ライフサイクル・フックとは?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-006/#zhong-lei" class="toc-link">種類</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-006/#yusukesu" class="toc-link">ユースケース</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-006/#matome" class="toc-link">まとめ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-006/#further-readind" class="toc-link">Further Readind</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-006&#x2f;">React入門 (3) ライフサイクル・フック</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-15</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="raihusaikuruhutuku">ライフサイクル・フック</h1>
+<h2 id="reactnoraihusaikuru">Reactのライフサイクル</h2>
+<p>　正確にはReactのコンポーネントのライフサイクルで, レンダリングされることをマウントと呼ぶ. 公式の<a href="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">Lifecycle Diagram</a>を参照してほしい.</p>
+<h2 id="mauntotoanmaunto">マウントとアンマウント</h2>
+<p>　コンポーネントがレンダリングされることをマウントと呼ぶ. 削除されることをアンマウントと呼ぶ.</p>
+<h2 id="raihusaikuruhutukutoha">ライフサイクル・フックとは?</h2>
+<p>　Reactのアプリの任意のタイミングで呼び出される関数のことです. コンポーネントが利用するリソースの処理などを記述します.</p>
+<h2 id="zhong-lei">種類</h2>
+<p>　　この他にもconstructorやrenderメソッドもライフサイクル・メソッドである.  これ以外にとりあえず以下の三つを覚えれば十分である.</p>
+<ul>
+<li>componentDidMount</li>
+<li>componentDidUpdate</li>
+<li>componentWillUnmount</li>
+</ul>
+<p>　constructorはマウントされる前に呼び出される. stateとpropsの初期化などに使います. renderを挟んでコンポーネントが表示された後にcomponentDidMountが呼び出されます. 動的に削除する前にcomponentWillUnmountが呼び出されます. コンポーネントの状態は変化するので変更されるたびにcomponentDidUpdateが呼び出されます.</p>
+<h2 id="yusukesu">ユースケース</h2>
+<p>　公式ではタイマーの例を使って説明していました. </p>
+<ol>
+<li>ReactDOM.renader()にコンポーネントが渡されるとconstructorが呼び出される.</li>
+<li>renderでReact要素が返される.</li>
+<li>表示後にcomponentDidMountが呼び出される.</li>
+<li>componentWillUnmountメソッドの場合clearInterval関数のように後処理が必要な場合に使えます.</li>
+</ol>
+<p>　setIntevalをcomponentDidMount時に設定して, 削除する場合に4を呼び出すという流れです.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Clock </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+  </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) {
+    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">);
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.state </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">{date: </span><span style="color:#c0c5ce;">new </span><span style="color:#ebcb8b;">Date</span><span style="color:#eff1f5;">()};
+  }
+
+  </span><span style="color:#8fa1b3;">componentDidMount</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.timerID </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">setInterval</span><span style="color:#eff1f5;">(
+      () </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">tick</span><span style="color:#eff1f5;">(),
+      </span><span style="color:#d08770;">1000
+    </span><span style="color:#eff1f5;">);
+  }
+
+  </span><span style="color:#8fa1b3;">componentWillUnmount</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#bf616a;">clearInterval</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.timerID);
+  }
+
+  </span><span style="color:#8fa1b3;">tick</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">setState</span><span style="color:#eff1f5;">({
+      date: </span><span style="color:#c0c5ce;">new </span><span style="color:#ebcb8b;">Date</span><span style="color:#eff1f5;">()
+    });
+  }
+
+  </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">(
+      </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+        &lt;</span><span style="color:#bf616a;">h1</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#bf616a;">Hello</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">world</span><span style="color:#c0c5ce;">!&lt;/</span><span style="color:#96b5b4;">h1&gt;
+        &lt;h2&gt;It is {this</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">state</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">date</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">toLocaleTimeString()}</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">&lt;</span><span style="color:#c0c5ce;">/</span><span style="color:#96b5b4;">h2</span><span style="color:#c0c5ce;">&gt;
+      &lt;/</span><span style="color:#96b5b4;">div&gt;
+    );
+  }
+}
+
+ReactDOM</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">render(
+  &lt;Clock /&gt;,
+  document</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">getElementById(&#39;root&#39;)
+);
+</span></pre><h2 id="matome">まとめ</h2>
+<p>　ひとまずそういうものがあったというのを覚えておくと, 実際のアプリを作成するときよりReactらしいコードディングができます.</p>
+<h2 id="further-readind">Further Readind</h2>
+<ul>
+<li><a href="https://reactjs.org/docs/react-component.html">React.Component</a></li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;react&#x2f;">#React</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

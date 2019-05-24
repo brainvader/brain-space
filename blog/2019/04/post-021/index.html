@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - Elm入門 (1)</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-021&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-021&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-021/#elmru-men-1" class="toc-link">Elm入門 (1)</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-021/#elmtoha" class="toc-link">Elmとは？</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-021/#elmrinkuji" class="toc-link">Elmリンク集</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-021/#xing-toguan-shu" class="toc-link">型と関数</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-021/#patanmatuti" class="toc-link">パターン・マッチ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-021/#msgpatan" class="toc-link">Msgパターン</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-021/#browser-sandboxtobrowser-element" class="toc-link">Browser.sandboxとBrowser.element</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-021/#http" class="toc-link">HTTP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-021/#zhu-shi" class="toc-link">注釈</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-021&#x2f;">Elm入門 (1)</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-26</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="elmru-men-1">Elm入門 (1)</h1>
+<h2 id="elmtoha">Elmとは？</h2>
+<p>　第1回でそんなものは分からない. ReduxがElmアーキテクチャを参考に作られていたらしい. また関数型のプログラミング言語だそうだ. AltJSなので最終的にはJavaScript(とHTML)が生成される. またRustの<a href="https://github.com/DenisKolodin/yew">yew</a>というUIフレームワークもElmに触発されたプロジェクトらしい. 基本的な構造は(代数的データ型)のメッセージをパターン・マッチで分岐させて処理する.</p>
+<h2 id="elmrinkuji">Elmリンク集</h2>
+<p>　とりあえず第1回は入門できそうなサイトをまとめておく.</p>
+<ol>
+<li><a href="https://guide.elm-lang.jp/">Elm について (はじめに)</a> <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-021/#com-1"><sup>1</a></li>
+<li><a href="https://elmprogramming.com/">Beginning Elm</a></li>
+<li><a href="https://elm-lang.org/docs/syntax">Elm Syntax</a> <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-021/#com-2"><sup>2</a>　</li>
+</ol>
+<h2 id="xing-toguan-shu">型と関数</h2>
+<p>　関数は型注釈と定義から構成される. Msg型とModel型の引数を受け取って, Model型を返すという意味になる. カスタム型では代数型データ型を定義する. <strong>バリアント</strong>というらしい. この型情報を元にパターン・マッチで処理を分岐させる.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">-- custom data type
+</span><span style="color:#b48ead;">type Msg </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">Increment </span><span style="color:#c0c5ce;">| </span><span style="color:#d08770;">Decrement
+</span><span style="color:#65737e;">-- type anottation
+</span><span style="color:#8fa1b3;">update </span><span style="color:#b48ead;">: Msg -&gt; Model -&gt; Model
+</span><span style="color:#65737e;">-- functin definition
+</span><span style="color:#8fa1b3;">update </span><span style="color:#c0c5ce;">msg model = 
+  </span><span style="color:#65737e;">-- pattern match
+  </span><span style="color:#b48ead;">case </span><span style="color:#c0c5ce;">msg </span><span style="color:#b48ead;">of
+    </span><span style="color:#d08770;">Increment </span><span style="color:#c0c5ce;">-&gt;
+      model + </span><span style="color:#d08770;">1
+
+    Decrement </span><span style="color:#c0c5ce;">-&gt;
+      model - </span><span style="color:#d08770;">1
+</span></pre>
+<p>　型は実は関数で引数を取れたりもします. 垂直線で型と引数のペアが区切られると解釈しますのでRegular型とVisitor型が定義されていることになります. 両方String型を第1引数にとりますがRegular型はInt型を第2引数として取ります.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">type User
+  </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">Regular String Int
+  </span><span style="color:#c0c5ce;">| </span><span style="color:#d08770;">Visitor String
+</span></pre><h2 id="patanmatuti">パターン・マッチ</h2>
+<p>　パターン・マッチでバリアントごとの処理を分岐します. またパターン・マッチに不要な引数は_で省略できます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#8fa1b3;">toName </span><span style="color:#b48ead;">: User -&gt; String
+</span><span style="color:#8fa1b3;">toName </span><span style="color:#c0c5ce;">user =
+  </span><span style="color:#b48ead;">case </span><span style="color:#c0c5ce;">user </span><span style="color:#b48ead;">of
+    </span><span style="color:#d08770;">Regular</span><span style="color:#c0c5ce;"> name age -&gt;
+      name
+
+    </span><span style="color:#d08770;">Visitor</span><span style="color:#c0c5ce;"> name -&gt;
+      name
+
+toName</span><span style="color:#b48ead;">(</span><span style="color:#d08770;">Regular </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Thomas</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">44</span><span style="color:#b48ead;">)</span><span style="color:#c0c5ce;">
+toName</span><span style="color:#b48ead;">(</span><span style="color:#d08770;">Visitor </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Thomas</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#b48ead;">)
+</span></pre><h2 id="msgpatan">Msgパターン</h2>
+<p>　パターンというべきか分かりませんが, 良く使われます. パターン・マッチが無い言語では文字列などを使ってswitch文で同じことをしていたりしますが(Reduxが確かそうです), こちらの方が可読性は高いと思います. しかも型情報があるのでエラーも適切に出せます(たぶん).</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">-- custom data type
+</span><span style="color:#b48ead;">type Msg </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">Increment </span><span style="color:#c0c5ce;">| </span><span style="color:#d08770;">Decrement
+</span><span style="color:#65737e;">-- type anottation
+</span><span style="color:#8fa1b3;">update </span><span style="color:#b48ead;">: Msg -&gt; Model -&gt; Model
+</span><span style="color:#65737e;">-- functin definition
+</span><span style="color:#8fa1b3;">update </span><span style="color:#c0c5ce;">msg model = 
+  </span><span style="color:#65737e;">-- pattern match
+  </span><span style="color:#b48ead;">case </span><span style="color:#c0c5ce;">msg </span><span style="color:#b48ead;">of
+    </span><span style="color:#d08770;">Increment </span><span style="color:#c0c5ce;">-&gt;
+      model + </span><span style="color:#d08770;">1
+
+    Decrement </span><span style="color:#c0c5ce;">-&gt;
+      model - </span><span style="color:#d08770;">1
+</span></pre><h2 id="browser-sandboxtobrowser-element">Browser.sandboxとBrowser.element</h2>
+<p>　ElmはコードとRuntime Systemから成立している. Browser.sandboxはHTMLだけをRuntimeに送るらしい. RuntimeでDOMの変更の計算などを行います. その結果をメッセージとしてElmコードに返します. updateが受け取るメッセージはElmコードの外からやってくるということにようです.</p>
+<p><img src="https://guide.elm-lang.jp/effects/diagrams/sandbox.svg" alt="Browser.sandbox" /></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">Browser
+</span><span style="color:#8fa1b3;">main </span><span style="color:#c0c5ce;">=
+  </span><span style="color:#d08770;">Browser</span><span style="color:#c0c5ce;">.sandbox </span><span style="color:#96b5b4;">{</span><span style="color:#c0c5ce;"> init = init</span><span style="color:#96b5b4;">,</span><span style="color:#c0c5ce;"> update = update</span><span style="color:#96b5b4;">,</span><span style="color:#c0c5ce;"> view = view </span><span style="color:#96b5b4;">}
+</span></pre>
+<p>　Browser.elemetはHtml以外にもコマンド(Cmd)やサブスクリプション(Sub)という値を送り出します. これらはRuntimeに対する指示です. 指示の結果をやはりメッセージとして返してきますので, それをupdateで受け取ります.</p>
+<p><img src="https://guide.elm-lang.jp/effects/diagrams/element.svg" alt="Browser.element" /></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">import </span><span style="color:#c0c5ce;">Browser
+
+</span><span style="color:#8fa1b3;">main </span><span style="color:#c0c5ce;">=
+  </span><span style="color:#d08770;">Browser</span><span style="color:#c0c5ce;">.element
+    </span><span style="color:#96b5b4;">{</span><span style="color:#c0c5ce;"> init = init
+    </span><span style="color:#96b5b4;">,</span><span style="color:#c0c5ce;"> update = update
+    </span><span style="color:#96b5b4;">,</span><span style="color:#c0c5ce;"> subscriptions = subscriptions
+    </span><span style="color:#96b5b4;">,</span><span style="color:#c0c5ce;"> view = view
+    </span><span style="color:#96b5b4;">}
+</span></pre>
+<p>コードだけ見ているとどれとどれが繋がるのかは良くわかりませんが, Html Msg, Cmd Msg, そしてSub Msgという部分を見つけたらこれはRuntimeに指示を出しているのだと思えばいいと思います. Runtimeが計算や処理を行って, メッセージを返してくるわけです. メッセージはupdateで受け取って更新処理(モデルの更新など)を行います.</p>
+<p>こうした流れが分かると宣言的かつ疎結合に書けてElmアーキテクチャの見通しの良さが理解できると思います.</p>
+<h2 id="http">HTTP</h2>
+<p>　</p>
+<h2 id="zhu-shi">注釈</h2>
+<p><a name="com-1"></a> 1. <a href="https://qiita.com/arowM/items/5ec5853298fc880353b7">2019年 Elmをはじめる人が最初に読むページ</a>によると1を読むべしということなので1を読む. 少し読んだ感じでは非常に良く書かれているようだ. 同じ著者のElm本もある.
+2. <a name="com-2"></a> <a href="https://qiita.com/ababup1192/items/4c39ff981642aded5d8e">わざわざ学ばなくてもいいプログラミング言語一位Elm</a>によると文法が少ないらしい.</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;elm&#x2f;">#Elm</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

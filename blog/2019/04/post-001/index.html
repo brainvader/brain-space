@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - GatsbyJSでブログを作った時のメモ</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-001&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-001&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#gatsbyjsniyoruburogunozuo-rifang" class="toc-link">GatsbyJSによるブログの作り方</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#gatbyjstoha" class="toc-link">GatbyJSとは?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#burogututedonnaji-neng-gabi-yao" class="toc-link">ブログってどんな機能が必要?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#jing-de-saitosheng-cheng-noji-ben-de-naliu-re" class="toc-link">静的サイト生成の基本的な流れ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#detasosunozhong-lei" class="toc-link">データソースの種類</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#starter" class="toc-link">Starter</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#gatsby-config-js" class="toc-link">gatsby-config.js</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#bi-yao-napuraguin" class="toc-link">必要なプラグイン</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#gatsby-node-apis" class="toc-link">Gatsby Node APIs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#sutairingu" class="toc-link">スタイリング</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#githubpezihenodepuroi" class="toc-link">Githubページへのデプロイ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#gatsby-config-js-1" class="toc-link">gatsby-config.js</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#zhu-shi" class="toc-link">注釈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#reference" class="toc-link">Reference</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-001&#x2f;">GatsbyJSでブログを作った時のメモ</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-12</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="gatsbyjsniyoruburogunozuo-rifang">GatsbyJSによるブログの作り方</h1>
+<h2 id="gatbyjstoha">GatbyJSとは?</h2>
+<p>　React.jsベースの静的サイト・ジェネレータです. 画面の構成などをReactで作成してそこにコンテンツのデータを結合して静的サイトを生成します. RailsやLaravelといったWebフレームワークまたはWordpressのようなCMSはリクエストが来てからテンプレートとデータを結合してページを返しますが, 静的サイト・ジェネレータはあらかじめ全てのページを生成しておくプログラムです. このサイト生成の処理時間がいらないのでページの描画を高速にすることができます. では管理が面倒なのかというとそうでもないです. GatsbyJSでは様々なデータをソースとして使えます. 普通のデータベースやWordpressもこの中に含まれており, 既存のプロジェクトを静的サイトに変更することも比較的容易にできます.</p>
+<h2 id="burogututedonnaji-neng-gabi-yao">ブログってどんな機能が必要?</h2>
+<p>　ブログにもいろんな種類があるわけですがプログラムのとなるとだいたい以下のような機能が必要になると思います.</p>
+<ul>
+<li>タグ</li>
+<li>コードのハイライト</li>
+<li>数式の表示</li>
+</ul>
+<p>　この程度の機能ならGatsbyJSでも簡単に実現できます. RailsやLaravelといったWebフレームワークのようにReactでビューが組めますし, 動的な機能もReactのコンポーネントとして定義できます.</p>
+<h2 id="jing-de-saitosheng-cheng-noji-ben-de-naliu-re">静的サイト生成の基本的な流れ</h2>
+<p>　GatsbyJSではデータ取得してReactで作ったビューと結合して静的サイトを作成します.</p>
+<h2 id="detasosunozhong-lei">データソースの種類</h2>
+<p>　データソースは色々あります.</p>
+<ul>
+<li>Wordpress</li>
+<li>Contentful</li>
+<li>Markdown</li>
+</ul>
+<p>　これ以外にもいろいろあります<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#ref-1">*<sup>1</a>. WordpressとContentfulはCMS(Content Management System)と呼ばれるアプリケーションです. 特にContentfulはHeadless CMSと呼ばれる必要なものです. 今回はMarkdownを使ってブログのコンテンツを管理する方法を説明しようと思います.</p>
+<h2 id="starter">Starter</h2>
+<p>　GatsbyJSにはいくつかスターター・プロジェクトが用意されています. 今回は0から作るのではなく<a href="https://www.gatsbyjs.org/starters/patricoferris/gatsby-starter-notes/">gatsby-starter-notes</a>を使いました.</p>
+<p>　プロジェクトはgatsby cliを使って生成します. newサブコマンド以下にプロジェクトの名前とスターターを渡せばオッケーです.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">gatsby</span><span style="color:#c0c5ce;"> new project-name https://github.com/patricoferris/gatsby-starter-notes
+</span></pre>
+<p>　他にも色々なスターターがあり必要な機能から検索することもできます.</p>
+<ul>
+<li><a href="https://www.gatsbyjs.org/starters/?">Gatsby Starters</a></li>
+</ul>
+<h2 id="gatsby-config-js">gatsby-config.js</h2>
+<p>　GatsbyJSの設定ファイルです. ここに必要なプラグインを列挙したり, オプションを指定したりします. プラグインはnpmのパッケージとして管理されているのであらかじめインストールしておく必要があります.</p>
+<h2 id="bi-yao-napuraguin">必要なプラグイン</h2>
+<p>　GatsbyJSは便利なプラグインが豊富に提供されています. Markdownの記事を取得するには以下のようなプラグインが必要です.</p>
+<ul>
+<li><a href="https://www.gatsbyjs.org/packages/gatsby-source-filesystem/?=markdown#gatsby-source-filesystem">gatsby-source-filesystem</a></li>
+<li><a href="https://www.gatsbyjs.org/packages/gatsby-transformer-remark/?=markdown#gatsby-transformer-remark">gatsby-transformer-remark</a></li>
+</ul>
+<p>　1つ目はローカルのファイル・システムからデータを取得するためのものです. 取得したファイルからファイル・ノードが作られます. 次にファイルの内容をtransformerというプラグインで変換します. 2つ目に上げたのがmarkdownを変換するプラグインで, MarkdownRemarkというノードに変換されます. 他にもJSONノードへ変換する<a href="https://www.gatsbyjs.org/packages/gatsby-transformer-json/?=json#gatsby-transformer-json">gatsby-transformer-json</a>というのがあります.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">npm</span><span style="color:#c0c5ce;"> install</span><span style="color:#bf616a;"> --save</span><span style="color:#c0c5ce;"> gatsby-source-filesystem gatsby-transformer-remark
+</span></pre>
+<p>　ブログを作成するには他にもいろんな情報を記述する必要があります. 特にコードのハイライトと数式は欠かせません. </p>
+<ul>
+<li>[gatsby-remark-prismjs](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/?=katex#gatsby-remark-prismjs)</li>
+<li>[gatsby-remark-katex](https://www.gatsbyjs.org/packages/gatsby-remark-katex/?=katex#gatsby-remark-katex)</li>
+</ul>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">npm</span><span style="color:#c0c5ce;"> install</span><span style="color:#bf616a;"> --save</span><span style="color:#c0c5ce;"> gatsby-remark-prismjs prismjs gatsby-remark-katex katex
+</span></pre><h3 id="nodotoha">ノードとは?</h3>
+<p>　ノードというのはGraphQLで指定するフィールドのことととりあえず思えばいいです. GraphQLではデータ構造としてグラフを念頭に置いています. しかしデータソースはグラフ構造ではありません. これをGraphQLで扱えるようにグラフ構造へと変換するのがtransfomerの役割です. 変換後のデータにGraphQLでクエリを送りデータを取得するわけです. つまりクエリで指定するフィールドとノードが同じと言う意味です.</p>
+<h2 id="gatsby-node-apis">Gatsby Node APIs</h2>
+<p>　GatsbyJSが提供するAPIsでgatsby-node.jsに記述します. 具体的には<a href="https://www.gatsbyjs.org/docs/node-apis/#onCreateNode">onCreateNode</a>やcreatePagesという関数があります. 要するにフック関数<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#ref-2">*<sup>2</a>と言うやつです.
+　
+　onCreateNodeはノードの作成時に呼び出されます. 今回使ったスターターではslugというノードの追加を行なっています. slugはURLの最後に付加される識別子で個別のページを表すのに使われます. そのためファイル名などから動的に生成する必要があります. createPagesは個別のページが作られるときに呼び出されます. この時点ではノードが生成されているのでクエリでどのようなデータが必要かを指定して, ページのテンプレートに渡します. ここから先はReactのデータ結合と同じです.</p>
+<h2 id="sutairingu">スタイリング</h2>
+<p>　CSSを用いたスタイリングにもいくつかの書き方があります.</p>
+<ul>
+<li>Globalスタイル</li>
+<li>CSSモジュール</li>
+<li>CSS-in-JS</li>
+</ul>
+<p>　詳しくは<a href="https://www.gatsbyjs.org/tutorial/part-two/">公式</a>で説明されています. 簡単に言うとGlobalスタイルはサイトやアプリ全体に適用されます. CSSモジュールはCSSファイルをimportステートメントで取り込んだコンポーネントだけに適用されます. 裏側ではwebpackのcss-loaderなどを利用しているようです. 最後のCSS-in-JSはその他の通りJavaScriptファイルにオブジェクト形式でCSSを定義すると言う方法です. 今回は公式でもオススメしているCSS-in-JSライブラリである<a href="https://www.gatsbyjs.org/docs/emotion/">Emotion</a>を使いました.</p>
+<p>　emotionを使うとcssという属性を使って直接記述できます. このままインラインになるわけではなく, cssで記述した部分はclassとして置き換えられ, 適当な名前が割り当てられるようです. CSSの名前を考えなくて良いのとスタイルも含めてコンポーネントで完結するのは読みやすいと思いますが, 問題はエディタの恩恵を得られないことでしょうか.</p>
+<h2 id="githubpezihenodepuroi">Githubページへのデプロイ</h2>
+<p>　ホスティングはGithu Pagesというサービスを利用します. Github PagesはプロジェクトのWebサイトを公開するためのサービスです. 他にもアカウントを持っているユーザーのWebサイトを公開することもできます. やることは非常に簡単です(但しgitに関する知識が要求されます). </p>
+<ol>
+<li>Githubのアカウントに登録する.</li>
+<li>Webページ用のリポジトリを作成</li>
+<li>プロジェクト・フォルダをプッシュする.</li>
+<li>ビルドした静的サイトをデプロイする.</li>
+</ol>
+<p>　gitやGithubについてはここでは扱いませんが, デプロイは簡単です. まずgh-pagesと言うパッケージを入れます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">npm</span><span style="color:#c0c5ce;"> install gh-pages</span><span style="color:#bf616a;"> --save-dev
+</span></pre>
+<p>　後はgatsbyのdevelopサブコマンドを実行後にgh-pagesを実行すればいいです. package.jsonに以下を行を追加しましょう(scriptsがある場合はdeployの項目だけを追加する).</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{
+  &quot;</span><span style="color:#a3be8c;">scripts</span><span style="color:#c0c5ce;">&quot;: {
+    &quot;</span><span style="color:#a3be8c;">deploy</span><span style="color:#c0c5ce;">&quot;: &quot;</span><span style="color:#a3be8c;">gatsby build --prefix-paths &amp;&amp; gh-pages -d public</span><span style="color:#c0c5ce;">&quot;
+  }
+}
+</span></pre>
+<p>　scriptsに定義したコマンドはnpm run nameで実行できます. ただこのまえにGatsbyJSのプロジェクトをpushしておく方がいいです.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">npm</span><span style="color:#c0c5ce;"> run deploy
+</span></pre>
+<p>　するとリポジトリにgh-pagesというリポジトリが生成されます. このリポジトリにビルド後の静的サイトが格納され公開されます.</p>
+<h2 id="gatsby-config-js-1">gatsby-config.js</h2>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{
+    module.exports = {
+        siteMetadata: {
+            title = &#39;</span><span style="color:#a3be8c;">Brain Space</span><span style="color:#c0c5ce;">&#39;,
+        },
+        plugins: [
+            </span><span style="color:#bf616a;">options</span><span style="color:#c0c5ce;">: {
+                plugins: [
+                    `</span><span style="color:#a3be8c;">gatsby-remark-prismjs</span><span style="color:#c0c5ce;">`,
+                    `</span><span style="color:#a3be8c;">gatsby-remark-katex</span><span style="color:#c0c5ce;">`,
+                    {
+                        resolve: `</span><span style="color:#a3be8c;">gatsby-remark-images</span><span style="color:#c0c5ce;">`,
+                        options: {
+                            maxWidth: </span><span style="color:#d08770;">650</span><span style="color:#c0c5ce;">,
+                        },
+                    },
+                ],
+            },
+            {
+                resolve: &#39;</span><span style="color:#a3be8c;">gatsby-source-filesystem</span><span style="color:#c0c5ce;">&#39;,
+                options: {
+                    path: `${__dirname}</span><span style="color:#a3be8c;">/src/posts</span><span style="color:#c0c5ce;">`,
+                    name: &#39;</span><span style="color:#a3be8c;">posts</span><span style="color:#c0c5ce;">&#39;,
+                },
+            },
+        ],
+    }
+}
+</span></pre><h2 id="zhu-shi">注釈</h2>
+<p><a name="ref-1"></a> 1 <a href="https://www.gatsbyjs.org/docs/content-and-data/">Sourcing Content and Data</a><br />
+<a name="ref-2"></a> 2 あるタイミングで呼び出される関数のこと.</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/">How Gatsby Works with GitHub Pages</a></li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;gatsbyjs&#x2f;">#GatsbyJS</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

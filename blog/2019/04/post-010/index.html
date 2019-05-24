@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - React入門 (7) Reactプロジェクトの作成方法</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-010&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-010&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/#react-puroziekutonozuo-cheng-fang-fa" class="toc-link">React プロジェクトの作成方法</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/#zhong-lei" class="toc-link">種類</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/#raiburaritositepuroziekutonozhui-jia" class="toc-link">ライブラリとしてプロジェクトの追加</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/#0-karahuan-jing-wogou-zhu-sitexin-gui-zuo-cheng" class="toc-link">0 から環境を構築して新規作成</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/#turutiein" class="toc-link">ツールチェイン</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/#turutieinwoyong-ite-react-apuritositexin-gui-zuo-cheng" class="toc-link">ツールチェインを用いて React アプリとして新規作成</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/#matome" class="toc-link">まとめ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/#zhu-shi" class="toc-link">注釈</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-010&#x2f;">React入門 (7) Reactプロジェクトの作成方法</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-16</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="react-puroziekutonozuo-cheng-fang-fa">React プロジェクトの作成方法</h1>
+<h2 id="zhong-lei">種類</h2>
+<ol>
+<li>ライブラリとしてプロジェクトの追加<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/#com-1"><sup>1</a></li>
+<li>0 から環境を構築して新規作成</li>
+<li>ツールチェインを用いて React アプリとして新規作成<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/#com-2"><sup>2</a></li>
+</ol>
+<p>このポストでは最後の Create React App での SPA 用プロジェクトの作成を紹介したいと思います.</p>
+<h2 id="raiburaritositepuroziekutonozhui-jia">ライブラリとしてプロジェクトの追加</h2>
+<p>React は SPA 用のライブラリと思われがちですが, jQuery などの既存の UI ライブラリと同じように使うことができます. ただこの場合は ES6 以降のブラウザが対応していない JavaScript の構文は使えません. 当然 JavaScript の拡張構文である JSX も使えません. これらを利用するためには webpack などの導入する必要がありますが, この場合はツールチェインを用いたやり方の方が良いと思います.</p>
+<h2 id="0-karahuan-jing-wogou-zhu-sitexin-gui-zuo-cheng">0 から環境を構築して新規作成</h2>
+<p>用途によるので一概に説明はできません. しかし比較的モダンな開発環境を簡単に手に入れるなら<a href="https://parceljs.org/">Parcel</a>が良いでしょう. Parcel は Webpack と違ってほとんど設定をする必要がありません(zero configuration). ただこの場合は Create React App で良いのではという話も出てきます. ライブラリとして導入したけどモダンな仕様を試してみたいという時なんかに使えると思います.</p>
+<p>React の環境構築を一から学びたいという場合はやはり<a href="https://webpack.js.org/">Webpack</a>について勉強すると便利です. 何れにしても JavaScript のパッケージ・マネジャである npm や yarn を使うのは必須です.</p>
+<p>インポート構文など ES6 以降の機能を使いたい場合は babel, 型を利用したい場合 TypeScript などのトランスパイラが利用できます. TypeScript については別の機会に書いてみたいと思います.</p>
+<h2 id="turutiein">ツールチェイン</h2>
+<p>SPA(Single Page Application)や SSR(Server Side Rendering)ウェブサイトや静的サイト, ネイティブ・アプリなど用途によっていくつかのツールが用意されています.</p>
+<ul>
+<li><a href="https://facebook.github.io/create-react-app/">Create React App</a></li>
+<li><a href="https://nextjs.org/">Next.js</a>: server side rendering site</li>
+<li><a href="https://www.gatsbyjs.org/">Gatsby</a>: Static Site Generator (SSG)</li>
+<li><a href="https://facebook.github.io/react-native/">React Native</a>: Native Application</li>
+<li><a href="https://electronjs.org/">Electron</a>: Desktop Application</li>
+</ul>
+<h2 id="turutieinwoyong-ite-react-apuritositexin-gui-zuo-cheng">ツールチェインを用いて React アプリとして新規作成</h2>
+<p>まず create-react-app パッケージを導入します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">npm</span><span style="color:#c0c5ce;"> i</span><span style="color:#bf616a;"> -g</span><span style="color:#c0c5ce;"> install create-react-app
+</span></pre>
+<p>後は導入されたコマンドでプロジェクトを作成するだけです<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/#com-3"><sup>3</a>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">npx</span><span style="color:#c0c5ce;"> create-react-app my-app
+</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> my-app
+</span><span style="color:#bf616a;">npm</span><span style="color:#c0c5ce;"> start
+</span></pre>
+<p><a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/localhost:3000">localhost:3000</a>ページを開くとサンプルページが表示されているはずです. 次に VSCode 限定ですが, コードのフォーマットの設定を行います<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-010/#com-4"><sup>4</a>. 整形のためのツールであるprettierを導入します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">npm</span><span style="color:#c0c5ce;"> i</span><span style="color:#bf616a;"> --dev --exact</span><span style="color:#c0c5ce;"> prettier
+</span><span style="color:#bf616a;">npm</span><span style="color:#c0c5ce;"> i</span><span style="color:#bf616a;"> --dev</span><span style="color:#c0c5ce;"> eslint-plugin-prettier
+</span></pre>
+<p>　雛形プロジェクトの package.json には eslintConfig という項目があります. ここに prettier の設定を追加します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">eslintConfig</span><span style="color:#c0c5ce;">&quot;: {
+    &quot;</span><span style="color:#a3be8c;">extends</span><span style="color:#c0c5ce;">&quot;: &quot;</span><span style="color:#a3be8c;">react-app</span><span style="color:#c0c5ce;">&quot;,
+    &quot;</span><span style="color:#a3be8c;">plugins</span><span style="color:#c0c5ce;">&quot;: [
+        &quot;</span><span style="color:#a3be8c;">prettier</span><span style="color:#c0c5ce;">&quot;
+    ],
+    &quot;</span><span style="color:#a3be8c;">rules</span><span style="color:#c0c5ce;">&quot;: {
+        &quot;</span><span style="color:#a3be8c;">prettier/prettier</span><span style="color:#c0c5ce;">&quot;: &quot;</span><span style="color:#a3be8c;">error</span><span style="color:#c0c5ce;">&quot;
+    }
+},
+</span></pre>
+<p>　これで整形はprettierがやってくれます. 後はルールを定義するだけです. .prettierrcとういファイルをプロジェクト直下に配置します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{
+    &quot;</span><span style="color:#a3be8c;">singleQuote</span><span style="color:#c0c5ce;">&quot;: </span><span style="color:#d08770;">true</span><span style="color:#c0c5ce;">,
+    &quot;</span><span style="color:#a3be8c;">tabWidth</span><span style="color:#c0c5ce;">&quot;: </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">,
+    &quot;</span><span style="color:#a3be8c;">trailingComma</span><span style="color:#c0c5ce;">&quot;: &quot;</span><span style="color:#a3be8c;">es5</span><span style="color:#c0c5ce;">&quot;
+}
+</span></pre><h2 id="matome">まとめ</h2>
+<p>自分がやろうとしている用途によって柔軟に React を導入できる.</p>
+<h2 id="zhu-shi">注釈</h2>
+<ol>
+<li><a name="com-1"></a>. <a href="https://reactjs.org/docs/add-react-to-a-website.html">Add React to a Website</a></li>
+<li><a name="com-2"></a>. <a href="https://reactjs.org/docs/create-a-new-react-app.html">Create a New React App</a><br />
+<a name="com-3"></a> *3. <a href="https://facebook.github.io/create-react-app/docs/getting-started#quick-start">Quick Start on React Create App</a>
+<a name="com-4"></a> *4. <a href="https://medium.com/technical-credit/using-prettier-with-vs-code-and-create-react-app-67c2449b9d08">Using Prettier with VS Code and Create React App</a></li>
+</ol>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;react&#x2f;">#React</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

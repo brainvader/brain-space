@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - React入門 (9) ポータルとモーダル</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-012&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-012&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#potarutomodaru" class="toc-link">ポータルとモーダル</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#potarutoha" class="toc-link">ポータルとは?</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#yusukesu" class="toc-link">ユースケース</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#gou-wen" class="toc-link">構文</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#modarunoshi-zhuang" class="toc-link">モーダルの実装</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#event-bubbling" class="toc-link">Event Bubbling</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#matome" class="toc-link">まとめ</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-012&#x2f;">React入門 (9) ポータルとモーダル</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-17</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="potarutomodaru">ポータルとモーダル</h1>
+<h2 id="potarutoha">ポータルとは?</h2>
+<blockquote>
+<p>Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-1"><sup>1</a></p>
+</blockquote>
+<p>　正直この説明では良く分からない. 通常DOMノードは親子関係を構築する. つまり子は親の下にぶら下がる親から子へと辿っていける構造になっている. しかしモーダルなどのいくつかのUIsでは動的に生成される必要がある.</p>
+<h2 id="yusukesu">ユースケース</h2>
+<p>公式では以下のようなユースケースを上げていました.</p>
+<ul>
+<li>Dialog</li>
+<li>Hovercards</li>
+<li>Tooltips</li>
+</ul>
+<h2 id="gou-wen">構文</h2>
+<p>　createPortal<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-2"><sup>2</a>と言うメソッドを使う.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#ebcb8b;">ReactDOM</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">createPortal</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">child</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">container</span><span style="color:#c0c5ce;">);
+</span></pre>
+<p>　render<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-3"><sup>3</a>と比較してみよう.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#ebcb8b;">ReactDOM</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">render</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">element</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">container</span><span style="color:#c0c5ce;">[, </span><span style="color:#bf616a;">callback</span><span style="color:#c0c5ce;">])
+</span></pre>
+<p>　引数のcontainerは実際のDOMです(getElementByIdとかで取得する). renderはDOM構造の最上部で呼び出すと言うのが普通ですが, createPortalはサブツリーの好きなところで挿入できます. 特に</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;"></span><span style="color:#8fa1b3;">.</span><span style="color:#d08770;">parent </span><span style="color:#c0c5ce;">{
+  overflow: hidden;
+}
+</span></pre>
+<p>　とかz-indexなどが指定されている場合です. この場合普通に子要素を付け足すと, 隠れて見えなくなってしまいます. これでは具合が悪いので指定したDOM要素に追加できるのがポータルです. 言い換えると子要素が親を選べると言うことでもあります.</p>
+<h2 id="modarunoshi-zhuang">モーダルの実装</h2>
+<p>　公式の例をそのままパクってきました.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-3"><sup>3</a> 通常モーダル・コンポーネントはAppコンポーネントの子要素となりますが, ポータルとして指定した要素の子要素になるように指定しています. 子が親を選べるとはこう言うことです. またモーダル・ビューということで要素も動的に生成・削除されています.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">div </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">app-root</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#bf616a;">div </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">modal-root</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+</span></pre><pre style="background-color:#2b303b;">
+<span style="color:#65737e;">// These two containers are siblings in the DOM
+</span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">appRoot </span><span style="color:#c0c5ce;">= document.</span><span style="color:#96b5b4;">getElementById</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">app-root</span><span style="color:#c0c5ce;">&#39;);
+</span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">modalRoot </span><span style="color:#c0c5ce;">= document.</span><span style="color:#96b5b4;">getElementById</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">modal-root</span><span style="color:#c0c5ce;">&#39;);
+
+</span><span style="color:#65737e;">// Let&#39;s create a Modal component that is an abstraction around
+// the portal API.
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Modal </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+  </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) {
+    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">);
+    </span><span style="color:#65737e;">// Create a div that we&#39;ll render the modal into. Because each
+    // Modal component has its own element, we can render multiple
+    // modal components into the modal container.
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.el </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">document.</span><span style="color:#96b5b4;">createElement</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">div</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#eff1f5;">);
+  }
+
+  </span><span style="color:#8fa1b3;">componentDidMount</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#65737e;">// Append the element into the DOM on mount. We&#39;ll render
+    // into the modal container element (see the HTML tab).
+    </span><span style="color:#bf616a;">modalRoot</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">appendChild</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.el);
+  }
+
+  </span><span style="color:#8fa1b3;">componentWillUnmount</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#65737e;">// Remove the element from the DOM when we unmount
+    </span><span style="color:#bf616a;">modalRoot</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">removeChild</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.el);
+  }
+  
+  </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#65737e;">// Use a portal to render the children into the element
+    </span><span style="color:#b48ead;">return </span><span style="color:#ebcb8b;">ReactDOM</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">createPortal</span><span style="color:#eff1f5;">(
+      </span><span style="color:#65737e;">// Any valid React child: JSX, strings, arrays, etc.
+      </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.props.children,
+      </span><span style="color:#65737e;">// A DOM element
+      </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.el,
+    );
+  }
+}
+
+</span><span style="color:#65737e;">// The Modal component is a normal React component, so we can
+// render it wherever we like without needing to know that it&#39;s
+// implemented with portals.
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">App </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+  </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) {
+    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">);
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.state </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">{showModal: </span><span style="color:#d08770;">false</span><span style="color:#eff1f5;">};
+  }
+
+  </span><span style="color:#bf616a;">handleShow </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">() </span><span style="color:#b48ead;">=&gt; </span><span style="color:#eff1f5;">{
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">setState</span><span style="color:#eff1f5;">({showModal: </span><span style="color:#d08770;">true</span><span style="color:#eff1f5;">});
+  }
+  
+  </span><span style="color:#bf616a;">handleHide </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">() </span><span style="color:#b48ead;">=&gt;</span><span style="color:#eff1f5;">{
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">setState</span><span style="color:#eff1f5;">({showModal: </span><span style="color:#d08770;">false</span><span style="color:#eff1f5;">});
+  }
+
+  </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#65737e;">// Show a Modal on click.
+    // (In a real app, don&#39;t forget to use ARIA attributes
+    // for accessibility!)
+    </span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">modal </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.state.showModal </span><span style="color:#c0c5ce;">? </span><span style="color:#eff1f5;">(
+      </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">Modal</span><span style="color:#c0c5ce;">&gt;
+        &lt;</span><span style="color:#bf616a;">div className</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">modal</span><span style="color:#c0c5ce;">&quot;&gt;
+          &lt;</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+            </span><span style="color:#bf616a;">With a portal</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">we can render content into a different
+            part of the DOM</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">as if it were any other React child</span><span style="color:#eff1f5;">.
+          </span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#96b5b4;">div&gt;
+          This is being rendered inside the #modal-container div</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">
+          &lt;button onClick={this</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">handleHide}&gt;Hide modal&lt;</span><span style="color:#c0c5ce;">/</span><span style="color:#96b5b4;">b</span><span style="color:#b48ead;">u</span><span style="color:#96b5b4;">tton</span><span style="color:#c0c5ce;">&gt;
+        &lt;/</span><span style="color:#96b5b4;">div&gt;
+      &lt;</span><span style="color:#c0c5ce;">/</span><span style="color:#96b5b4;">Modal</span><span style="color:#c0c5ce;">&gt;
+    </span><span style="color:#eff1f5;">) </span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">null</span><span style="color:#eff1f5;">;
+
+    </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">(
+      </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">div className</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">app</span><span style="color:#c0c5ce;">&quot;&gt;
+        </span><span style="color:#bf616a;">This div has overflow</span><span style="color:#eff1f5;">: </span><span style="color:#bf616a;">hidden</span><span style="color:#eff1f5;">.
+        </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">button onClick</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.</span><span style="color:#bf616a;">handleShow</span><span style="color:#eff1f5;">}</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#bf616a;">Show modal</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#96b5b4;">button&gt;
+        {modal}
+      &lt;</span><span style="color:#c0c5ce;">/</span><span style="color:#96b5b4;">d</span><span style="color:#b48ead;">i</span><span style="color:#96b5b4;">v</span><span style="color:#c0c5ce;">&gt;
+    </span><span style="color:#eff1f5;">);
+  }
+}
+
+</span><span style="color:#ebcb8b;">ReactDOM</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">render</span><span style="color:#c0c5ce;">(&lt;</span><span style="color:#bf616a;">App </span><span style="color:#c0c5ce;">/&gt;, </span><span style="color:#bf616a;">appRoot</span><span style="color:#c0c5ce;">);
+</span></pre><h2 id="event-bubbling">Event Bubbling</h2>
+<p>　親子関係が壊れるわけですがイベント・バブリングはどうなるのでしょうか? ドキュメントではモーダル・ビューで表示したボタンを押すと実際の親ではない, Appコンポーネントに反映されると言う例を示しています.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-4"><sup>4</a> 状態自体は仮想DOMが管理していますが, イベント・バブリングはReactツリー上で伝達されるそうです.</p>
+<h2 id="matome">まとめ</h2>
+<p>　Reactは仮想DOMを利用するライブラリで, 一般的な使い方なら実DOMを操作する必要はありません. しかし一部の特殊用途(子要素が親を選ぶ必要が出てくる場合)ではポータルを使って別の親の子要素とすることもできます. 一方この場合(実DOM上で親子関係が存在しない)でもイベントは仮想DOM(Reactツリー)上での親子関係が維持されて, 子要素のイベントが親へと伝達されます.</p>
+<p>+++</p>
+<ol>
+<li><a name="com-1"></a> <a href="https://reactjs.org/docs/portals.html">Portals on advanced guides</a></li>
+<li><a name="com-2"></a> <a href="https://reactjs.org/docs/react-dom.html#createportal">createPortal</a></li>
+<li><a name="com-3"></a> <a href="https://codepen.io/gaearon/pen/yzMaBd">Modal Example on CodePen</a></li>
+<li><a name="com-4"></a> <a href="https://reactjs.org/docs/portals.html#event-bubbling-through-portals">Event Bubbling</a></li>
+</ol>
+<p>+++</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;react&#x2f;">#React</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

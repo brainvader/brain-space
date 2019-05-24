@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - Rust入門 (5) 複数のバイナリを持つパッケージの作成</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;05&#x2f;post-036&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-036&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-036/#fu-shu-nobainariwoguan-li-suru" class="toc-link">複数のバイナリを管理する</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-036/#binhuairunozuo-cheng" class="toc-link">binファイルの作成</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-036/#cargo-tomlnifu-shu-nobinsekusiyonwozhi-ding-suru" class="toc-link">Cargo.tomlに複数のbinセクションを指定する.</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-036/#featureshu-xing-noli-yong" class="toc-link">feature属性の利用</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-036/#reference" class="toc-link">Reference</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-036&#x2f;">Rust入門 (5) 複数のバイナリを持つパッケージの作成</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-05-14</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="fu-shu-nobainariwoguan-li-suru">複数のバイナリを管理する</h1>
+<h2 id="binhuairunozuo-cheng">binファイルの作成</h2>
+<p>　binというファイルがいるようです.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-036/#ref-1"><sup>1</a></p>
+<h2 id="cargo-tomlnifu-shu-nobinsekusiyonwozhi-ding-suru">Cargo.tomlに複数のbinセクションを指定する.</h2>
+<p>　次にCargo.tomlに以下のように書く.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">[[bin]]
+</span><span style="color:#bf616a;">name </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">project_name</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">src  </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">src/main.rs</span><span style="color:#c0c5ce;">&quot;
+
+[[bin]]
+</span><span style="color:#bf616a;">name </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">second</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">src  </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">src/bin/second.rs</span><span style="color:#c0c5ce;">&quot;
+</span></pre>
+<p>　後はnameで指定した名前をオプションとして渡す.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">cargo</span><span style="color:#c0c5ce;"> run</span><span style="color:#bf616a;"> --bin</span><span style="color:#c0c5ce;"> second
+</span></pre><h2 id="featureshu-xing-noli-yong">feature属性の利用</h2>
+<p>すでに<a href="/2019/04/post-017">OpenGL</a>の初回で説明した.</p>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a name="ref-1"></a> <a href="https://github.com/timglabisch/rust_multibin">rust_multibin</a></li>
+</ol>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;rust&#x2f;">#Rust</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-035&#x2f;">‹ Rust入門 (4) CowとDerefについて</a>
+                    
+                    
+                        <a class="next" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-038&#x2f;">Zola入門 ›</a>
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

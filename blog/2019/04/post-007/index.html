@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - React入門 (4) イベントハンドリングとState</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-007&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-007&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-007/#ibentohandoringutostate" class="toc-link">イベントハンドリングとState</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-007/#ibentohandoringu" class="toc-link">イベントハンドリング</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-007/#setstate" class="toc-link">setState</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-007/#matome" class="toc-link">まとめ</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-007&#x2f;">React入門 (4) イベントハンドリングとState</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-15</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="ibentohandoringutostate">イベントハンドリングとState</h1>
+<h2 id="ibentohandoringu">イベントハンドリング</h2>
+<p>　コンポーネントにはメソッドが定義できる. これがそのままJSXに結合することができる. またクラス・メソッドは通常バインドされない. アロー関数と思えば良い. そうしないとメソッドとして定義した関数の内部に別のスコープが発生し, thisの生合成がなくなる. そのため明示的にバインドしてやる必要がある.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;button onClik={this.clickHandler.bind(this)}&gt;Click&lt;/button&gt;
+</span></pre>
+<p>　ちなみにcreate-react-appを使うとクラス・フィールド構文というのが使われる. これを使うと明示的にbindをする必要はない.</p>
+<h2 id="setstate">setState</h2>
+<p>　通常ユーザーインタクラションは内部状態を変更を伴う. ただしstateは直接変更せずsetState関数経由で行う必要がある.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">this</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">state</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">NewName</span><span style="color:#c0c5ce;">&#39;);
+</span></pre>
+<p>　またpropsとstateは非同期に更新されるので両者に依存するような書き方はできない.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">// Wrong Case
+</span><span style="color:#bf616a;">this</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">setState</span><span style="color:#c0c5ce;">({
+  counter: </span><span style="color:#bf616a;">this</span><span style="color:#c0c5ce;">.state.counter + </span><span style="color:#bf616a;">this</span><span style="color:#c0c5ce;">.props.increment,
+});
+
+</span><span style="color:#65737e;">// Correct Cases
+</span><span style="color:#bf616a;">this</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">setState</span><span style="color:#c0c5ce;">((state, props) </span><span style="color:#b48ead;">=&gt; </span><span style="color:#c0c5ce;">({
+  counter: </span><span style="color:#bf616a;">state</span><span style="color:#c0c5ce;">.counter + </span><span style="color:#bf616a;">props</span><span style="color:#c0c5ce;">.increment
+}));
+
+</span><span style="color:#bf616a;">this</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">setState</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">function</span><span style="color:#c0c5ce;">(state, props) {
+  </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">{
+    counter: </span><span style="color:#bf616a;">state</span><span style="color:#c0c5ce;">.counter + </span><span style="color:#bf616a;">props</span><span style="color:#c0c5ce;">.increment
+  };
+});
+</span></pre><h2 id="matome">まとめ</h2>
+<p>　内部状態の変更を伴うイベント・ハンドラの利用例は以下のようになる.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MyButton </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+  </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) {
+    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">);
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.state </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">{ available: </span><span style="color:#d08770;">true </span><span style="color:#eff1f5;">};
+  }
+
+  </span><span style="color:#8fa1b3;">clickHandler</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">setState</span><span style="color:#eff1f5;">((</span><span style="color:#c0c5ce;">state</span><span style="color:#eff1f5;">, </span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) </span><span style="color:#b48ead;">=&gt; </span><span style="color:#eff1f5;">({
+      available = !state.avaialble;
+    }));
+  }
+
+  </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">(
+      </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">button onClick</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.clickHandler.</span><span style="color:#8fa1b3;">bind</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">this</span><span style="color:#eff1f5;">)}</span><span style="color:#c0c5ce;">&gt;</span><span style="color:#bf616a;">Click Me</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#96b5b4;">button&gt;
+    );
+  }
+
+  ReactDOM</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">render(&lt;MyButton /&gt;, document</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">getElementById(&#39;root));
+}
+</span></pre>
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;react&#x2f;">#React</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

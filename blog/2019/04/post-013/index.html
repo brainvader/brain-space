@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - React入門 (10) Refs</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2f;2019&#x2f;04&#x2f;post-013&#x2f;</div>
+<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-013&#x2f;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#refs" class="toc-link">Refs</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#referencenoqu-de" class="toc-link">Referenceの取得</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#createrefs" class="toc-link">createRefs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#callback-refs" class="toc-link">Callback Refs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#string-refs" class="toc-link">String Refs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#forwarding-refs" class="toc-link">Forwarding refs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#higher-order-components-hocs" class="toc-link">Higher Order Components (HOCs)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#gong-tong-hua" class="toc-link">共通化</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#container-component" class="toc-link">Container Component</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#pure-hocs" class="toc-link">Pure HOCs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#parameterized-container-component" class="toc-link">Parameterized Container Component</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#connecttobu-fen-shi-yong" class="toc-link">connectと部分適用</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#hocsnoshi-yong" class="toc-link">HOCsの適用</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#forwarding-refs-with-hocs" class="toc-link">Forwarding refs with HOCs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#uncontrolled-component" class="toc-link">Uncontrolled Component</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#matome" class="toc-link">まとめ</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-013&#x2f;">React入門 (10) Refs</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-04-17</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="refs">Refs</h1>
+<h2 id="referencenoqu-de">Referenceの取得</h2>
+<p>　通常親がこの要素へ何かするときはpropsで渡してやる. つまりこの内部状態を親へと持ち上げる必要がある.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#com-1"><sup>1</a> しかし以外にも以下のような場合にいくつかのケースで親が子コンポーネントの要素へを参照できると便利な場合がある.</p>
+<ul>
+<li>focus</li>
+<li>text selection</li>
+<li>media playback</li>
+</ul>
+<p>　なおrefsで取得されるのは実DOMへの参照です. コンポーネントのインスタンスではありません. そのため以下のような用途でも利用できるようです.</p>
+<ul>
+<li>仮想DOMを使わないサード・パーティ製のライブラリ</li>
+</ul>
+<h2 id="createrefs">createRefs</h2>
+<p>　まず参照を保存する変数をcreateRefで作成する. あとはrefs属性をつけたJSX要素に結合すればオッケーです. 実際のDOM要素はcurrentプロパティに保存されています.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">CustomTextInput </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+  </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) {
+    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">);
+    </span><span style="color:#65737e;">// create a ref to store the textInput DOM element
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.textInput </span><span style="color:#c0c5ce;">= </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">createRef</span><span style="color:#eff1f5;">();
+  }
+
+  </span><span style="color:#bf616a;">focusTextInput </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">() </span><span style="color:#b48ead;">=&gt; </span><span style="color:#eff1f5;">{
+    </span><span style="color:#65737e;">// Explicitly focus the text input using the raw DOM API
+    // Note: we&#39;re accessing &quot;current&quot; to get the DOM node
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.textInput.current.</span><span style="color:#96b5b4;">focus</span><span style="color:#eff1f5;">();
+  }
+
+  </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#65737e;">// tell React that we want to associate the &lt;input&gt; ref
+    // with the `textInput` that we created in the constructor
+    </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">(
+      </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+        &lt;</span><span style="color:#bf616a;">input
+          type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">text</span><span style="color:#c0c5ce;">&quot;
+          </span><span style="color:#bf616a;">ref</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.</span><span style="color:#bf616a;">textInput</span><span style="color:#eff1f5;">} </span><span style="color:#c0c5ce;">/&gt;
+
+        &lt;</span><span style="color:#bf616a;">input
+          type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">button</span><span style="color:#c0c5ce;">&quot;
+          </span><span style="color:#bf616a;">value</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">Focus the text input</span><span style="color:#c0c5ce;">&quot;
+          </span><span style="color:#bf616a;">onClick</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.</span><span style="color:#bf616a;">focusTextInput</span><span style="color:#eff1f5;">}
+        </span><span style="color:#c0c5ce;">/&gt;
+      &lt;/</span><span style="color:#96b5b4;">div&gt;
+    );
+  }
+}
+</span></pre>
+<p>　このコンポーネントは親から参照することができます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">AutoFocusTextInput </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+  </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) {
+    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">);
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.textInput </span><span style="color:#c0c5ce;">= </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">createRef</span><span style="color:#eff1f5;">();
+  }
+
+  </span><span style="color:#8fa1b3;">componentDidMount</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.textInput.current.</span><span style="color:#bf616a;">focusTextInput</span><span style="color:#eff1f5;">();
+  }
+
+  </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">(
+      </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">CustomTextInput ref</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.</span><span style="color:#bf616a;">textInput</span><span style="color:#eff1f5;">} </span><span style="color:#c0c5ce;">/&gt;
+    </span><span style="color:#eff1f5;">);
+  }
+}
+</span></pre>
+<p>　このようにfocusTextInputはCustomTextInputコンポーネントのメソッドですが, 参照を利用して親コンポーネントで利用することができます.</p>
+<h2 id="callback-refs">Callback Refs</h2>
+<p>　通常はプロパティとして参照を定義しますが, コールバック関数を使って参照を取得することもできます. こうすることで参照時に処理を加えるなどの操作が可能になります. CustomTextInputをcallback refsで置き換えてみます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">CustomTextInput </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+  </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) {
+    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">);
+
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.textInput </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">null</span><span style="color:#eff1f5;">;
+
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">setTextInputRef </span><span style="color:#c0c5ce;">= element </span><span style="color:#b48ead;">=&gt; </span><span style="color:#eff1f5;">{
+      </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.textInput </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">element</span><span style="color:#eff1f5;">;
+    };
+
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">focusTextInput </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">() </span><span style="color:#b48ead;">=&gt; </span><span style="color:#eff1f5;">{
+      </span><span style="color:#65737e;">// Focus the text input using the raw DOM API
+      </span><span style="color:#b48ead;">if </span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.textInput) </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.textInput.</span><span style="color:#96b5b4;">focus</span><span style="color:#eff1f5;">();
+    };
+  }
+
+  </span><span style="color:#8fa1b3;">componentDidMount</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#65737e;">// autofocus the input on mount
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">focusTextInput</span><span style="color:#eff1f5;">();
+  }
+
+  </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#65737e;">// Use the `ref` callback to store a reference to the text input DOM
+    // element in an instance field (for example, this.textInput).
+    </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">(
+      </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+        &lt;</span><span style="color:#bf616a;">input
+          type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">text</span><span style="color:#c0c5ce;">&quot;
+          </span><span style="color:#bf616a;">ref</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.</span><span style="color:#bf616a;">setTextInputRef</span><span style="color:#eff1f5;">}
+        </span><span style="color:#c0c5ce;">/&gt;
+        &lt;</span><span style="color:#bf616a;">input
+          type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">button</span><span style="color:#c0c5ce;">&quot;
+          </span><span style="color:#bf616a;">value</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">Focus the text input</span><span style="color:#c0c5ce;">&quot;
+          </span><span style="color:#bf616a;">onClick</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.</span><span style="color:#bf616a;">focusTextInput</span><span style="color:#eff1f5;">}
+        </span><span style="color:#c0c5ce;">/&gt;
+      &lt;/</span><span style="color:#96b5b4;">div&gt;
+    );
+  }
+}
+</span></pre>
+<p>　親コンポーネントからコールバックを渡すこともできます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">CustomTextInput</span><span style="color:#c0c5ce;">(props) {
+  </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">(
+    &lt;</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+      &lt;</span><span style="color:#bf616a;">input ref</span><span style="color:#c0c5ce;">={props.</span><span style="color:#bf616a;">inputRef</span><span style="color:#c0c5ce;">} /&gt;
+    &lt;/</span><span style="color:#96b5b4;">div&gt;
+  );
+}
+
+class Parent extends React</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">Component {
+  render() {
+    return (
+      &lt;CustomTextInput
+        inputRef={el =&gt; this</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">inputElement = el}
+      /&gt;
+    );
+  }
+}
+</span></pre>
+<p>　これで子要素であるinputへの参照を取得できました.</p>
+<h2 id="string-refs">String Refs</h2>
+<p>　canvas要素を利用数場合は仮想DOMではダメなので, 実態へアクセスする必要があります. この場合にcanvas要素にrefs属性としてキーワードを設定して参照するような利用方法がありますが現在はLegacy APIとなっており上述のどちらかを使うようです.</p>
+<p>　と言っても変更点はストリングをプロパティに変更するだけです.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#com-2"><sup>2</a></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">CanvasExample </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+  </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(){
+    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">()
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.canvas </span><span style="color:#c0c5ce;">= </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">createRef</span><span style="color:#eff1f5;">()                  </span><span style="color:#65737e;">//// 1 - create ref
+  </span><span style="color:#eff1f5;">}
+
+  </span><span style="color:#8fa1b3;">componentDidMount</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">drawRectInCanvas</span><span style="color:#eff1f5;">()
+  }
+
+  </span><span style="color:#8fa1b3;">drawRectInCanvas</span><span style="color:#eff1f5;">(){
+    </span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">ctx </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.canvas.current.</span><span style="color:#bf616a;">getContext</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">2d</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#eff1f5;">) </span><span style="color:#65737e;">//// 3 - access node using .current
+    </span><span style="color:#bf616a;">ctx</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">fillRect</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">5</span><span style="color:#eff1f5;">, </span><span style="color:#d08770;">5</span><span style="color:#eff1f5;">, </span><span style="color:#d08770;">200</span><span style="color:#eff1f5;">, </span><span style="color:#d08770;">200</span><span style="color:#eff1f5;">)                     </span><span style="color:#65737e;">////   - do something!
+  </span><span style="color:#eff1f5;">}
+
+  </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">(){
+    </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">(
+      </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+        &lt;</span><span style="color:#bf616a;">canvas ref</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.</span><span style="color:#bf616a;">canvas</span><span style="color:#eff1f5;">} </span><span style="color:#c0c5ce;">/&gt;                 </span><span style="color:#65737e;">//// 2 - attach ref to node
+      </span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#96b5b4;">div&gt;
+    )
+  }
+}
+</span></pre><h2 id="forwarding-refs">Forwarding refs</h2>
+<p>　参照変数を子コンポーネントに送る方法である. やり方は簡単でfowardRefとして子コンポーネントを定義するだけである.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">const </span><span style="color:#bf616a;">FancyButton </span><span style="color:#c0c5ce;">= </span><span style="color:#ebcb8b;">React</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">forwardRef</span><span style="color:#c0c5ce;">((props, ref) </span><span style="color:#b48ead;">=&gt; </span><span style="color:#c0c5ce;">(
+  &lt;</span><span style="color:#bf616a;">button ref</span><span style="color:#c0c5ce;">={</span><span style="color:#bf616a;">ref</span><span style="color:#c0c5ce;">} </span><span style="color:#bf616a;">className</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">FancyButton</span><span style="color:#c0c5ce;">&quot;&gt;
+    {props.</span><span style="color:#bf616a;">label</span><span style="color:#c0c5ce;">}
+  &lt;/</span><span style="color:#96b5b4;">button&gt;
+));
+
+
+class ParentComponent extends React</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">Component {
+  constructor() {
+    super();
+    this</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">ref = React</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">createRef();
+  }
+
+  render() {
+    retrun (
+      &lt;FancyButton ref={this</span><span style="color:#d08770;">.</span><span style="color:#96b5b4;">ref} label=&quot;Click Me&quot;/&gt;
+    );
+  }
+}
+</span></pre><h2 id="higher-order-components-hocs">Higher Order Components (HOCs)</h2>
+<p>　高階関数を知っている人なら説明は不要かと思いますが, 公式ドキュメントには以下のように端的に説明されています. </p>
+<blockquote>
+<p>Concretely, a higher-order component is a function that takes a component and returns a new component.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#com-3"><sup>3</a></p>
+</blockquote>
+<p>　ReduxのconnectやRelayのcreateFragmentContainerがHOCsに当たるそうです. コンポーネントは継承ができません. このことから共通部分を抽象化して取り出す(extract out)ができません. </p>
+<h2 id="gong-tong-hua">共通化</h2>
+<p>　では共通化するにはどうすればいいでしょうか? そのようなときに使うのがHOCsです. 以下のCommetListとBlogPostの共通部分を抜き出してみましょう.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">CommentList </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+  </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) {
+    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">);
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange.</span><span style="color:#bf616a;">bind</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">);
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.state </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">{
+      </span><span style="color:#65737e;">// &quot;DataSource&quot; is some global data source
+      </span><span style="color:#eff1f5;">comments: </span><span style="color:#ebcb8b;">DataSource</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">getComments</span><span style="color:#eff1f5;">()
+    };
+  }
+
+  </span><span style="color:#8fa1b3;">componentDidMount</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#65737e;">// Subscribe to changes
+    </span><span style="color:#ebcb8b;">DataSource</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">addChangeListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange);
+  }
+
+  </span><span style="color:#8fa1b3;">componentWillUnmount</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#65737e;">// Clean up listener
+    </span><span style="color:#ebcb8b;">DataSource</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">removeChangeListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange);
+  }
+
+  </span><span style="color:#8fa1b3;">handleChange</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#65737e;">// Update component state whenever the data source changes
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">setState</span><span style="color:#eff1f5;">({
+      comments: </span><span style="color:#ebcb8b;">DataSource</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">getComments</span><span style="color:#eff1f5;">()
+    });
+  }
+
+  </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">(
+      </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+        </span><span style="color:#eff1f5;">{this.state.comments.</span><span style="color:#8fa1b3;">map</span><span style="color:#eff1f5;">((comment) =&gt; (
+          &lt;Comment comment={</span><span style="color:#bf616a;">comment</span><span style="color:#eff1f5;">} </span><span style="color:#bf616a;">key</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{comment.</span><span style="color:#bf616a;">id</span><span style="color:#eff1f5;">} </span><span style="color:#c0c5ce;">/&gt;
+        </span><span style="color:#eff1f5;">)</span><span style="background-color:#bf616a;color:#2b303b;">)</span><span style="color:#eff1f5;">}
+      </span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#96b5b4;">div&gt;
+    );
+  }
+}
+</span></pre><pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">BlogPost </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+  </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) {
+    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">);
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange.</span><span style="color:#bf616a;">bind</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">);
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.state </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">{
+      blogPost: </span><span style="color:#ebcb8b;">DataSource</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">getBlogPost</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">.id)
+    };
+  }
+
+  </span><span style="color:#8fa1b3;">componentDidMount</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#ebcb8b;">DataSource</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">addChangeListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange);
+  }
+
+  </span><span style="color:#8fa1b3;">componentWillUnmount</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#ebcb8b;">DataSource</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">removeChangeListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange);
+  }
+
+  </span><span style="color:#8fa1b3;">handleChange</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">setState</span><span style="color:#eff1f5;">({
+      blogPost: </span><span style="color:#ebcb8b;">DataSource</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">getBlogPost</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.props.id)
+    });
+  }
+
+  </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">TextBlock text</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.state.</span><span style="color:#bf616a;">blogPost</span><span style="color:#eff1f5;">} </span><span style="color:#c0c5ce;">/&gt;</span><span style="color:#eff1f5;">;
+  }
+}
+</span></pre>
+<p>　ライフサイクル・メソッドを使ってDataSourceに購読するという同じ処理が含まれています. 継承や委譲は使えません. </p>
+<h2 id="container-component">Container Component</h2>
+<p>　ではどうするかというと, 入力コンポーネントを表示する新しいコンポーンネントを使います. このようなコンポーネントをContainer Componentと呼びます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">// This function takes a component...
+</span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">withSubscription</span><span style="color:#c0c5ce;">(WrappedComponent, selectData) {
+  </span><span style="color:#65737e;">// container component
+  </span><span style="color:#b48ead;">return class extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+    </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">) {
+      </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">);
+      </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange.</span><span style="color:#bf616a;">bind</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">);
+      </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.state </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">{
+        data: </span><span style="color:#bf616a;">selectData</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">DataSource</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">)
+      };
+    }
+
+    </span><span style="color:#8fa1b3;">componentDidMount</span><span style="color:#eff1f5;">() {
+      </span><span style="color:#65737e;">// ... that takes care of the subscription...
+      </span><span style="color:#ebcb8b;">DataSource</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">addChangeListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange);
+    }
+
+    </span><span style="color:#8fa1b3;">componentWillUnmount</span><span style="color:#eff1f5;">() {
+      </span><span style="color:#ebcb8b;">DataSource</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">removeChangeListener</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.handleChange);
+    }
+
+    </span><span style="color:#8fa1b3;">handleChange</span><span style="color:#eff1f5;">() {
+      </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">setState</span><span style="color:#eff1f5;">({
+        data: </span><span style="color:#bf616a;">selectData</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">DataSource</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.props)
+      });
+    }
+
+    </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+      </span><span style="color:#65737e;">// ... and renders the wrapped component with the fresh data!
+      // Notice that we pass through any additional props
+      </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">WrappedComponent data</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{this.state.</span><span style="color:#bf616a;">data</span><span style="color:#eff1f5;">} {</span><span style="color:#c0c5ce;">...</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.props} </span><span style="color:#c0c5ce;">/</span><span style="color:#96b5b4;">&gt;;
+    }
+  };
+}
+</span></pre>
+<p>　WrappedComponentにCommentListやBlogPostを渡してやると同じ結果になるのがわかると思います.</p>
+<h2 id="pure-hocs">Pure HOCs</h2>
+<p>　コンテナ・コンポーネントを使うときは渡したコンポーネントを改変しては行けません. </p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">logProps</span><span style="color:#c0c5ce;">(WrappedComponent) {
+  </span><span style="color:#b48ead;">return class extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+    </span><span style="color:#8fa1b3;">componentWillReceiveProps</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">nextProps</span><span style="color:#eff1f5;">) {
+      console.</span><span style="color:#96b5b4;">log</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">Current props: </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.props);
+      console.</span><span style="color:#96b5b4;">log</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">Next props: </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">nextProps</span><span style="color:#eff1f5;">);
+    }
+    </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+      </span><span style="color:#65737e;">// Wraps the input component in a container, without mutating it. Good!
+      </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">WrappedComponent </span><span style="color:#eff1f5;">{</span><span style="color:#c0c5ce;">...</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.props} </span><span style="color:#c0c5ce;">/</span><span style="color:#96b5b4;">&gt;;
+    }
+  }
+}
+</span></pre><h2 id="parameterized-container-component">Parameterized Container Component</h2>
+<p>　HOCsの別名のようです. コンテナ・コンポーネントはパラメータとして渡されたコンポーネントを表示する役割を持ちます. コンポーネントをパラメータ化していることからこのような名前でも呼ぶようです.</p>
+<h2 id="connecttobu-fen-shi-yong">connectと部分適用</h2>
+<p>　Reduxのconnect関数の仕組みを少し説明します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">const </span><span style="color:#bf616a;">ConnectedComment </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">connect</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">commentSelector</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">commentActions</span><span style="color:#c0c5ce;">)(</span><span style="color:#bf616a;">CommentList</span><span style="color:#c0c5ce;">);
+</span></pre>
+<p>　このように部分適用が利用されていてわかりにくいです. もちろん部分適用になっているのには理由があります. connectはHOCを返す関数で戻り値となるコンポーネントにCommentListコンポーネントを渡しています. もちろん左辺はコンポーネントになります.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">// connect is a function that returns another function
+</span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">enhance </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">connect</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">commentListSelector</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">commentListActions</span><span style="color:#c0c5ce;">);
+</span><span style="color:#65737e;">// The returned function is a HOC, which returns a component that is connected
+// to the Redux store
+</span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">ConnectedComment </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">enhance</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">CommentList</span><span style="color:#c0c5ce;">);
+</span></pre>
+<p>　こうすると関数のチェイン化や関数合成ができたりして便利らしいです.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-013/#com-4"><sup>4</a> ReduxやRamdaと言ったライブラリではよく使われているようです.</p>
+<h2 id="hocsnoshi-yong">HOCsの適用</h2>
+<p>　HOCsの適用はコンポーネントの定義部分で行っては行けません. こうすると毎回新規作成されるため内部状態(state)その都度失われ, その下にぶら下がっている子コンポーネントにも影響が出ます.</p>
+<p>　一例としてこんな感じにします.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">const </span><span style="color:#bf616a;">ResultComponent </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">HOC</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">WrappedComponent</span><span style="color:#c0c5ce;">);
+</span><span style="color:#65737e;">// or
+</span><span style="color:#b48ead;">export default </span><span style="color:#bf616a;">HOC</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">WrappedComponent</span><span style="color:#c0c5ce;">);
+</span></pre><h2 id="forwarding-refs-with-hocs">Forwarding refs with HOCs</h2>
+<p>　refsをコンテナ・コンポーネントを通じて内部コンポーネントに渡す場合refsは渡せません. LogPropsというコンテナ・コンポーネントでrefを渡そうとしてもrefはkeyと同様にpropsからアクセスできません. そこでコンテナ・コンポーネントをReact.forwardRefを使って返すといことを行います.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">logProps</span><span style="color:#c0c5ce;">(InnerComponent) {
+  </span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LogProps </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#a3be8c;">Component </span><span style="color:#eff1f5;">{
+    </span><span style="color:#8fa1b3;">componentDidUpdate</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">prevProps</span><span style="color:#eff1f5;">) {
+      console.</span><span style="color:#96b5b4;">log</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">old props:</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">prevProps</span><span style="color:#eff1f5;">);
+      console.</span><span style="color:#96b5b4;">log</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">new props:</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.props);
+    }
+
+    </span><span style="color:#8fa1b3;">render</span><span style="color:#eff1f5;">() {
+      </span><span style="color:#b48ead;">const </span><span style="color:#eff1f5;">{</span><span style="color:#bf616a;">forwardedRef</span><span style="color:#eff1f5;">, </span><span style="color:#c0c5ce;">...</span><span style="color:#bf616a;">rest</span><span style="color:#eff1f5;">} </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.props;
+
+      </span><span style="color:#65737e;">// Assign the custom prop &quot;forwardedRef&quot; as a ref
+      </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">InnerComponent ref</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{</span><span style="color:#bf616a;">forwardedRef</span><span style="color:#eff1f5;">} {</span><span style="color:#c0c5ce;">...</span><span style="color:#bf616a;">rest</span><span style="color:#eff1f5;">} </span><span style="color:#c0c5ce;">/</span><span style="color:#96b5b4;">&gt;;
+    }
+  }
+
+  </span><span style="color:#c0c5ce;">// </span><span style="color:#bf616a;">Note the second param </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">ref</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#bf616a;">provided by </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.forwardRef.
+  </span><span style="color:#65737e;">// We can pass it along to LogProps as a regular prop, e.g. &quot;forwardedRef&quot;
+  // And it can then be attached to the Component.
+  </span><span style="color:#eff1f5;">return </span><span style="color:#ebcb8b;">React</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">forwardRef</span><span style="color:#eff1f5;">((</span><span style="color:#c0c5ce;">props</span><span style="color:#eff1f5;">, </span><span style="color:#c0c5ce;">ref</span><span style="color:#eff1f5;">) </span><span style="color:#b48ead;">=&gt; </span><span style="color:#eff1f5;">{
+    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">LogProps </span><span style="color:#eff1f5;">{</span><span style="color:#c0c5ce;">...</span><span style="color:#bf616a;">props</span><span style="color:#eff1f5;">} </span><span style="color:#bf616a;">forwardedRef</span><span style="color:#c0c5ce;">=</span><span style="color:#eff1f5;">{</span><span style="color:#bf616a;">ref</span><span style="color:#eff1f5;">} </span><span style="color:#c0c5ce;">/&gt;</span><span style="color:#eff1f5;">;
+  });
+}
+</span></pre><h2 id="uncontrolled-component">Uncontrolled Component</h2>
+<p>　<a href="/2019/04/post-009">フォーム</a>の回で説明したようにフォームのデータは一度コンポーネントのstateとして管理しました(Controlled Component). refを使うと同じことができます. このように内部状態で管理しない, refで直接DOM要素とやりとりするコンポーネントをuncontrolled componentと言うようです.</p>
+<p>　またFile APIを使う場合は, uncontrolled componentを使うそうです. これはアップロードするファイルをReact側で制御しているわけではないからです. ユーザーが実DOMとのやり取りでファイルを指定するので, refでDOM要素からアクセする必要が出てきます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">input </span><span style="color:#d08770;">type</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">file</span><span style="color:#c0c5ce;">&quot; /&gt;
+</span></pre><h2 id="matome">まとめ</h2>
+<p>　ref属性を使うと実DOMへの参照を取得できます. ただしこれを子コンポーネントに渡す場合はFowarding Refを使って順送りしてやる必要があります. またHOCsの入力コンポーネントの参照を取得する場合にも使えます.</p>
+<p>+++</p>
+<ol>
+<li><a name="com\-1"></a> <a href="https://reactjs.org/docs/lifting-state-up.html">Lifting State Up</a></li>
+<li><a name="com\-2"></a> <a href="https://gist.github.com/chansiky/d68c58508eda3a78ba7754cebd43cc47">CanvasRefExample.js</a></li>
+<li><a name="com\-3"></a> <a href="https://reactjs.org/docs/higher-order-components.html">Higher-Order Components</a></li>
+<li><a name="com\-4"></a> <a href="https://reactjs.org/docs/higher-order-components.html#convention-maximizing-composability">Convention: Maximizing Composability</a></li>
+</ol>
+<p>+++</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;react&#x2f;">#React</a>
+                    
+                </div>
+            
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>
