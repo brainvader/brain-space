@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test Site - OpenGL</title>
+    <title>Test Site - Learn OpenGL With Rust (2) Triangle</title>
 
     
           
@@ -75,12 +75,27 @@
             <ul>
                 
                 <li>
-                    <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-040/#chi-ben-toqing-ben" class="toc-link">赤本と青本</a>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-040/#opengldesan-jiao-xing-nomiao-hua" class="toc-link">OpenGLで三角形の描画</a>
                     
-                </li>
-                
-                <li>
-                    <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-040/#reference" class="toc-link">Reference</a>
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-040/#graphics-pipline" class="toc-link">Graphics Pipline</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-040/#rusttoopengl" class="toc-link">RustとOpenGL</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-040/#san-jiao-xing-noding-dian-detanoding-yi" class="toc-link">三角形の頂点データの定義</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-040/#reference" class="toc-link">Reference</a>
+                        </li>
+                        
+                    </ul>
                     
                 </li>
                 
@@ -94,20 +109,162 @@
     
 <header class="post__header">
   <h1 class="post__title">
-    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-040&#x2f;">OpenGL</a>
+    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-040&#x2f;">Learn OpenGL With Rust (2) Triangle</a>
   </h1>
   <div class="post__meta">
-    <span class="post__time">2019-05-17</span>
+    <span class="post__time">2019-05-25</span>
     
   </div>
 </header>
 
     <div class="post-content">
-      <p>　あえてRustでOpenGLに入門しようという試みです.</p>
-<h2 id="chi-ben-toqing-ben">赤本と青本</h2>
-<p>　OpenGLの有名な本です.</p>
-<h2 id="reference">Reference</h2>
-<p>　</p>
+      <h1 id="opengldesan-jiao-xing-nomiao-hua">OpenGLで三角形の描画</h1>
+<h2 id="graphics-pipline">Graphics Pipline</h2>
+<p>以下のようなパイプラインを経て画像が出力されるらしい.</p>
+<ul>
+<li>Vertex Shader</li>
+<li>Shape Assembly</li>
+<li>Geometry Shader</li>
+<li>Rasterization</li>
+<li>Fragment Shader</li>
+<li>Tests and Blending</li>
+</ul>
+<p>シェーダは小さなプログラムでGPUで実行される. OpenGLの場合はGLSL(OpenGL Shading Language)が使われる.</p>
+<h3 id="ding-dian-siedatoding-dian-shu-xing">頂点シェーダと頂点属性</h3>
+<p>　頂点シェーダは頂点に付随するデータを入力とします. 中でも座標データは重要です. 他にも頂点カラーや頂点法線など任意の情報を持たせることができます. GLSLでこのデータを保持する変数のようなものを頂点属性(Vertex Attribute)と呼んでいます.</p>
+<h3 id="primitive-assembly">Primitive Assembly</h3>
+<p>　頂点組み立てと日本語でいうらしいです. 頂点をつないで実際の図形を作るステージです.</p>
+<h3 id="geometry-shader">Geometry Shader</h3>
+<p>　いわゆる細分化(Tessellation)が行われるステージです. オプションでOpenGLのサブセットのOpenGL ESやWebGLにはありません.</p>
+<h3 id="rasterization">Rasterization</h3>
+<p>　ベクターデータをラスター化します. この時点ではフラグメント<a href="#ref-1"><sup>1</sup></a>と呼ばれるデータが出力され次のステージへと渡されるようです. またフラグメント・シェーダで処理される前にクリッピングが行われます.</p>
+<h4 id="fragment">Fragment</h4>
+<p>　フラグメントは以下のような情報が含まれているようです(よく分かりませんが・・・).</p>
+<ul>
+<li>それ以前に行われた頂点処理に関する情報</li>
+<li>ウィンドウ空間座標</li>
+<li>ステンシル値</li>
+<li>表面・裏面</li>
+<li>Multisample coverrage masks</li>
+<li>プリミティブの識別子</li>
+<li>ユーザー定義クリッピング距離</li>
+<li>プリミティブ・レイヤー &amp; ビューポート・インデックス</li>
+</ul>
+<h3 id="clipping">Clipping</h3>
+<p>　カメラで見えている範囲(View Frastum)以外のフラグメントを捨てます.</p>
+<h3 id="fragment-shader">Fragment Shader</h3>
+<p>　フラグメントから最終的にピクセルを生成するステージです.  各種テスト(depth, stencil, そしてalphaテスト)やブレンディングも行います.</p>
+<h2 id="rusttoopengl">RustとOpenGL</h2>
+<p>　パイプラインはGPU上で実行されるのでRustからは直接操作できません. ではどうやってOpenGLを利用したアプリケーションを作るのでしょうか? それはOpenGLレンダリング・システムへ依頼する形で行います. OpenGLはそのための公開APIとも言えます.</p>
+<h3 id="openglsisutemu">OpenGLシステム</h3>
+<p>　コンピュータの描画処理は特別なハードウェアが担当しています. 一般にビデオカードと呼ばれるものがそれです. Intelなどは内臓GPUといってCPUの内部にGPUをを統合したIntel HD Graphicsシリーズを出していますが, いずれにしてもGPUという描画専用のハードウェア実装が存在していることに変わりはありません. 前者をdGPU(discrete GPU), 後者をiGPU(integrated GPU)とも呼んだりする. また最近ではeGPU(external GPU)という外付けのグラフィック・アクセラレータも発売されている.</p>
+<p>　さて, 私たちが日頃OpenGLといって触るのはOpenGL APIです. コンピュータのCPUが計算処理の実体であるようにこうした描画処理を担うハードウェアが背後に存在しているわけです. このようなハードウェアも含んだシステム全体をOpenGLレンダリング・システムと呼んだりします. このシステムをコントロールするのがOpenGL APIと呼ばれるものです. そんなわけでOpenGLにせよその他の描画システムにせよ(DirectXとかMetalなど), CPU側から描画システム(GPU)をコントロールするクライアント-サーバー・システムだったりします.</p>
+<p>　ところでOpenGLというライブライをインストールした記憶がある人はいないと思います. これはGPUのドライバーに付属しているからだったりします. このようにGPUを操作するOpenGLというのは従来のプログラムとはだいぶ違うものなのです. 以下少しだけOpenGLの概要を説明します.</p>
+<h3 id="context-state-and-opengl-objects">Context, State, And OpenGL Objects</h3>
+<p>　OpenGLコンテクストは何かは説明しにくいですが, OpenGLを利用するアプリケーションが依存する情報です. この情報に基づいてOpenGLレンダリング・システムは描画を行います. 個々のデータはステートと呼ばることから, OpenGLは巨大なステート・マシーンと言われたりもするようです. ステートはコンテクストに紐づけられたOpenGLオブジェクトによって管理されています. このオブジェクトはOpaque(不透明)なオブジェクトと呼ばれ, アプリケーション側からは見えません. 見えないというのは普通の構造体とかクラスのインスタンスのように生成してそのプロパティにアクセスしてメソッドを利用してと言ったことは自由にはできないということです. オブジェクトの生成とコンテクストへの結合, 削除, そして目的のステートへのデータの送信などをAPIを通じて依頼します. 後はGPU側でブラック・ボックス的に処理されます.</p>
+<h3 id="guan-shu">関数</h3>
+<p>　究極的にはステートに何かするのがOpenGL APIの目的ですからステーへの操作に応じて３つに分類できるようです.</p>
+<ul>
+<li>ステートの設定</li>
+<li>ステートの問い合わせ</li>
+<li>ステートの描画</li>
+</ul>
+<h3 id="siedaru-men">シェーダ入門</h3>
+<p>　ジオメトリ・シェーダはオプションでした. 必須のシェーダとしては以下の２つです.</p>
+<ul>
+<li>頂点シェーダ (gl::VERTEX_SHADER)</li>
+<li>フラグメント・シェーダ (gl::FRAGMENT_SHADER)</li>
+</ul>
+<p>　その後このシェーダをコンパイルしてい, シェーダ・プログラム・オブジェクトを生成します. おおよその流れは以下のようになります.</p>
+<ol>
+<li>シェーダの読み込み</li>
+<li>シェーダのコンパイル</li>
+<li>シェーダのリンク</li>
+<li>プログラム・オブジェクトへのリンク</li>
+</ol>
+<p>　シェーダではプログラマブルなパイプラインで実行される処理を定義するだけです. 後はOpenGLレンダリング・システムが勝手に呼び出してくれます.</p>
+<h2 id="san-jiao-xing-noding-dian-detanoding-yi">三角形の頂点データの定義</h2>
+<p>　三角形の幾何データは単なるRustの配列です.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">let</span><span style="color:#c0c5ce;"> vertices: [</span><span style="color:#b48ead;">f32</span><span style="color:#c0c5ce;">; </span><span style="color:#d08770;">9</span><span style="color:#c0c5ce;">] = [
+    -</span><span style="color:#d08770;">0.5</span><span style="color:#c0c5ce;">, -</span><span style="color:#d08770;">0.5</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">0.0</span><span style="color:#c0c5ce;">,
+     </span><span style="color:#d08770;">0.5</span><span style="color:#c0c5ce;">, -</span><span style="color:#d08770;">0.5</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">0.0</span><span style="color:#c0c5ce;">,
+     </span><span style="color:#d08770;">0.0</span><span style="color:#c0c5ce;">,  </span><span style="color:#d08770;">0.5</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">0.0
+</span><span style="color:#c0c5ce;">];
+</span></pre>
+<p>　ポイントはデータ型は単精度の浮動小数点なところです. これはハード側の制約で一般的に単精度の浮動小数点しか扱えません. 当然高い精度が必要な分野(金融や科学技術計算)では倍精度の浮動小数点演算も必要ですが, ゲームなどのグラフィックスではそこまでの精度は要求されず, むしろ滑らかに動く方が重要視されています. 後価格も安く済ませられます.</p>
+<h3 id="buffer-object">Buffer Object</h3>
+<p>　OpenGLの頂点座標などは非構造化された連続したメモリ領域に保存されます. このメモリ領域を管理するのがバッファ・オブジェクトの役割で, いくつかあるOpenGLオブジェクトの１つらしいです. CPUから頂点データなどを送信するとバッファ・オブジェクトの管理下に置かれるわけです. この方式は一度GPU側に送ってしまうとデータの変更がない場合はそれ以上送信する必要は無くなり効率的です. OpenGLの古いバージョンではそうではなかったようですが, よく分かりません. なお頂点に関するデータを管理する場合に**VBO(Vertex Buffer Object)**と呼ぶようです.</p>
+<h4 id="batuhuaobuziekutonosheng-cheng">バッファ・オブジェクトの生成</h4>
+<p>　genはgenerateの略ですが, バッファ・オブジェクトは直接操作できません. つまりバッファ・オブジェクトの本体はGPU側で勝手に生成されます. 基本的にOpenGLオブジェクトは不透明(Opaqu)なオブジェクトと言われ直接操作することはできないようです. CPU側にはバッファ・オブジェクトの識別子だけが返されます. 以下のようにVBOと名づけられたりしますが, ポインターが実際にはアドレスだけをやりとりしているのと同様にidだけが受け渡しされます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">let mut</span><span style="color:#c0c5ce;"> vbo_id = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">; 
+gl::GenBuffers(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, &amp;</span><span style="color:#b48ead;">mut</span><span style="color:#c0c5ce;"> vbo_id);
+</span></pre><h4 id="baindeingutagetuto">バインディング・ターゲット</h4>
+<p>　頂点バッファ以外にもバッファ・オブジェクトは存在します. この場合どのバッファ・オブジェクト用のデータなのかを指定する必要があります.</p>
+<ul>
+<li>gl::ARRAY_BUFFER</li>
+<li>gl::ELEMENT_ARRAY</li>
+<li>gl::TEXTURE_BUFFER</li>
+</ul>
+<p>　頂点バッファの場合はGL_ARRAY_BUFFERを指定します. もう少し詳しくいうとOpenGLコンテクストは複数のオブジェクトから構成されています. でかい構造体を想像すればいいでしょうか? このコンテクストのどの位置にオブジェクトを結合するのかをバインディング・ターゲットで指定します. なおバインディング・ターゲットはバインディング・ポイントとも呼ばれます.</p>
+<h4 id="ding-dian-zuo-biao-detanozhuan-song">頂点座標データの転送</h4>
+<p>　VBOを直接指定するのではなバインディング・ターゲットを指定します. 非常に迂遠なやり方ですが, 何か意味があるのでしょうか? ドキュメントには</p>
+<blockquote>
+<p>When you're just creating, filling the buffer object with data, or both, the target you use doesn't technically matter.</p>
+</blockquote>
+<p>　とにかくバインディング・ターゲットを介して, データの受け取り側(VBO)とデータの転送元が無事つながりました.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">gl::BufferData(gl::</span><span style="color:#d08770;">ARRAY_BUFFER</span><span style="color:#c0c5ce;">,
+              (vertices.</span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">() * mem::size_of::&lt;GLfloat&gt;()) as GLsizeiptr,
+              &amp;vertices[</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">] as </span><span style="color:#b48ead;">*const f32 </span><span style="color:#c0c5ce;">as </span><span style="color:#b48ead;">*const c_void</span><span style="color:#c0c5ce;">,
+              gl::</span><span style="color:#d08770;">STATIC_DRAW</span><span style="color:#c0c5ce;">);
+</span></pre><h4 id="batuhuaobuziekutonomatome">バッファ・オブジェクトのまとめ</h4>
+<p>　データの&quot;受け皿&quot;としてバッファ・オブジェクトを作成します. 特に頂点データを扱う場合を頂点バッファ・オブジェクト(VBO)と呼ぶのでした. VBOを直接指定してデータを転送してもいいように思いますが, バインディング・ポイントを通じて行うのがOpenGLのやり方のようです. 対してシェーダ・オブジェクトは直接指定します.</p>
+<h4 id="ding-dian-shu-xing">頂点属性</h4>
+<p>　各頂点ごとにデータが存在します. これは頂点シェーダによる処理の対象となります. これを頂点属性(Vertex Attribute)と呼びます. main関数の外側で定義します. よって頂点シェーダにはこのための変数が存在します. 頂点シェーダのインプットなのでinというキーワードを付けて表します. またlayoutで頂点属性の位置(location)を指定することもできます.</p>
+<h4 id="detanohuomatuto">データのフォーマット</h4>
+<p>　頂点の座標データはすでにBufferDataコマンドで転送しています. しかしバッファ・オブジェクト(正確にはVBOが管理するメモリ)は構造を持ちませんので, シェーダがどのようにデータを解釈するかという情報はGPU側にはありません. 別途渡してやる必要があります.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">gl::VertexAttribPointer(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, gl::</span><span style="color:#d08770;">FLOAT</span><span style="color:#c0c5ce;">, gl::</span><span style="color:#d08770;">FALSE</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">3 </span><span style="color:#c0c5ce;">* mem::size_of::&lt;GLfloat&gt;() as GLsizei, ptr::null());
+</span></pre>
+<ul>
+<li>index (location)</li>
+<li>size per vertex</li>
+<li>data type</li>
+<li>normalized</li>
+<li>stride</li>
+<li>pointer</li>
+</ul>
+<p>　さらに頂点属性配列を有効にする必要もあります.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">gl::EnableVertexAttribArray(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">);
+</span></pre>
+<p>　バンディング・ポイントの切り替えや頂点属性配列の有効・無効の切り替えは一見すると無駄な作業に見えますが描画に必要なデータ事前にビデオ・カード上にコピーしておいて, 必要な時に切り替えて使うと考えると効率的と言えそうです.</p>
+<h4 id="vao-vertex-array-object">VAO (Vertex Array Object)</h4>
+<p>　今回は頂点属性は座標だけですが, 頂点カラーや頂点法線など頂点属性のデータの種類に制限はありません<a href="#ref-3"><sup>3</sup></a>. また表示するオブジェクトの数も1個や2個ということはありません. ゲームなどでは非常に多くのオブジェクトを表示する必要があります. こうした設定の組み合わせを保存する方法としてVAOが用意されています.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">let mut </span><span style="color:#d08770;">VAO </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+gl::GenVertexArrays(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, &amp;</span><span style="color:#b48ead;">mut </span><span style="color:#d08770;">VAO</span><span style="color:#c0c5ce;">);
+</span><span style="color:#65737e;">// bind VBO and define vertex attribute array (1)
+</span><span style="color:#c0c5ce;">gl::BindVertexArray(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">);
+</span></pre>
+<p>　(1)でバッファ・オブジェクトの結合や頂点属性の定義などを行うと, 頂点属性の設定をVAOという塊で保存できるそうです. 表示されるのは3Dオブジェクトなので, VBOよりも粒度が大きいです. 対応するのはVAOと考えるとより自然な形で描画処理を記述できそうです.</p>
+<h4 id="miao-hua-komando">描画コマンド</h4>
+<p>　省略</p>
+<h4 id="ebos-element-buffer-objects">EBOs (Element Buffer Objects)</h4>
+<p>　頂点の座標を指定する方法は四角形の場合に無駄が生じます. 頂点が重複するのです. OpenGLは三角形を組み合わせて図形を描画するので四角形の場合２つの三角形を組み合わせます. そうすると２つの三角形の辺が重なる部分が出てきます. 本来は４つのところ６つの頂点を描画する必要が出てきます. その時使うのがEBOです. インデックス・バッファとも呼ばれます. これもVAOでまとめて設定できます.</p>
+<h4 id="waiahuremumodo">ワイアーフレーム・モード</h4>
+<p>　通常は塗りつぶしですが, 線で表示することもできます.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">gl::PolygonMode(gl::</span><span style="color:#d08770;">FRONT_AND_BACK</span><span style="color:#c0c5ce;">, gl::</span><span style="color:#d08770;">FILL</span><span style="color:#c0c5ce;">);
+gl::PolygonMode(gl::</span><span style="color:#d08770;">FRONT_AND_BACK</span><span style="color:#c0c5ce;">, gl::</span><span style="color:#d08770;">LINE</span><span style="color:#c0c5ce;">);
+</span></pre><h2 id="reference">Reference</h2>
+<ol>
+<li><a name="ref-1"></a> <a href="https://www.khronos.org/opengl/wiki/Fragment">Fragment</a></li>
+<li><a name="ref-2"></a> <a href="https://stackoverflow.com/questions/39921879/purpose-of-binding-points-in-opengl">Purpose of binding points in OpenGL?</a></li>
+<li><a name="ref-3"></a> 頂点属性の数にはハードウェアごとに制限があります. GL_MAX_VERTEX_ATTRIBSという定数で定義されています.</li>
+</ol>
 
     </div>
 
@@ -127,7 +284,9 @@
                     
                         <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;opengl&#x2f;">#OpenGL</a>
                     
-                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;cg&#x2f;">#CG</a>
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;computer-graphics&#x2f;">#Computer Graphics</a>
+                    
+                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;rust&#x2f;">#Rust</a>
                     
                 </div>
             
