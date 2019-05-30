@@ -5,7 +5,7 @@ date = 2019-04-24T23:09:26Z
 
 [taxonomies]
 categories = ["programming"]
-tags = ["Rust"]
+tags = ["Rust", "OpenGL"]
 +++
 
 # 第1回 Getting Started

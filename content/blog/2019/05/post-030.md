@@ -5,7 +5,7 @@ date = 2019-05-05T11:40:46Z
 
 [taxonomies]
 categories = ["programming"]
-tags= ["Rust"]
+tags= ["Rust", "OpenGL"]
 +++
 
 # GetStringでバージョンとレンダラ情報を取得して表示する
