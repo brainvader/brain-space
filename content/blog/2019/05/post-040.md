@@ -1,5 +1,5 @@
 +++
-title = "Learn OpenGL With Rust (2) Triangle"
+title = "Learn OpenGL With Rust (3) Triangle"
 description = "三角形の描画"
 date = 2019-05-25T13:05:17Z
 
