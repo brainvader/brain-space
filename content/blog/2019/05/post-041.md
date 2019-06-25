@@ -1,5 +1,5 @@
 +++
-title = "Learn OpenGL With Rust (3) Texture"
+title = "Learn OpenGL With Rust (4) Texture"
 description = "フラグメント・シェーダとテクスチャ座標"
 date = 2019-06-03T10:16:16Z
 
