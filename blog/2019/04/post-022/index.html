@@ -21,7 +21,7 @@
     
 
     
-    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;css&#x2F;base.css">
     
   </head>
 
@@ -29,30 +29,30 @@
     <div class="container">
       <header id="header">
         <!-- TODO:  Use a tags instead of ul -->
-        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <div class="logo"><a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">Brain Space</a></div>
         <nav class="menu">
           <ul>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">
                 Home
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;categories">
                 Categories
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;tags">
                 Tags
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;about">
                 About
               </a>
             </li>
@@ -65,8 +65,8 @@
           
 
 
-<div>blog&#x2f;2019&#x2f;04&#x2f;post-022&#x2f;</div>
-<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-022&#x2f;</div>
+<div>blog&#x2F;2019&#x2F;04&#x2F;post-022&#x2F;</div>
+<div>https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;04&#x2F;post-022&#x2F;</div>
 <div>en</div>
 <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
@@ -108,7 +108,7 @@
                         </li>
                         
                         <li>
-                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-022/#o-rmatupa" class="toc-link">O&#x2f;Rマッパー</a>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/04/post-022/#o-rmatupa" class="toc-link">O&#x2F;Rマッパー</a>
                         </li>
                         
                         <li>
@@ -133,7 +133,7 @@
     
 <header class="post__header">
   <h1 class="post__title">
-    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-022&#x2f;">ソフトウェア設計用語集</a>
+    <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;04&#x2F;post-022&#x2F;">ソフトウェア設計用語集</a>
   </h1>
   <div class="post__meta">
     <span class="post__time">2019-04-27</span>
@@ -158,14 +158,14 @@
 <li>MVC</li>
 </ul>
 <h2 id="daotoripozitori">DAOとリポジトリ</h2>
-<p>　データ・アクセスといってもデータの永続化方法は様々です. 同じRDMSでも微妙に書き方が違ったり利用するバージョンなども関係してきます. これを逐一書くのはおかしいということは誰でも気づくので抽象化します. これにより提供されているドライバーの違いなどを気にせずデータを取得に集中できます. DAOはこのためのものです. リポジトリも同じような役割を果たしますが, コンセプトが微妙に違うようです.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-022/#com-1"><sup>1</a></p>
+<p>　データ・アクセスといってもデータの永続化方法は様々です. 同じRDMSでも微妙に書き方が違ったり利用するバージョンなども関係してきます. これを逐一書くのはおかしいということは誰でも気づくので抽象化します. これにより提供されているドライバーの違いなどを気にせずデータを取得に集中できます. DAOはこのためのものです. リポジトリも同じような役割を果たしますが, コンセプトが微妙に違うようです.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-022/#com-1"><sup>1</sup></a></p>
 <p>　リポジトリの目的はデータ・アクセスの実装を隠すことではなく, ドメイン・オブジェクトを管理することです. よってリポジトリがその内部でDAOを利用することも考えられます. DAOはデザイン・パターンであり, 異種のデータ・ソースに共通のインターフェースを提供するだけです. DAOは取得したレコード(リレーショナル・データベースの場合)をオブジェクトとして返します. 一方リポジトリを介する場合は, ドメイン・オブジェクトとなります. あくまで概念的な話ですが, 依拠しているコンテクストが違ってくるようです.</p>
 <h2 id="dtotodomeinmoderu">DTOとドメイン・モデル</h2>
 <p>　DTOは構造体と思えばいいと思います. つまりデータとそのアクセサだけからなるオブジェクトです. 目的は名前そのままでデータの転送です. 例えばUserのデータをやり取りするときはfirst_name, last_name, address...という感じで別々に引数として渡すのは面倒です. 新しいデータ型を定義してまとめてやるべきです. 一方ドメイン・モデルは振る舞いを持ちます. またデータへ直接アクセスすることは基本的にはできません. OOPがオブジェクト間のメッセージのやりとりで成り立つという原則に立ち返ると, 基本に忠実なオブジェクトとも言えます.</p>
 <h2 id="domeinmoderupin-xie-zheng">ドメイン・モデル貧血症</h2>
-<p>　ドメイン・モデルはそれぞれ担う責務があります. そのために必要なデータと処理を集めたオブジェクとというわけです. しかしDTOや値オブジェクトのようにデータのやり取りを効率化するようなオブジェクトも存在します. これはオブジェクトというよりデータにすぎません. こうしたデータにすぎないオブジェクトをドメイン・モデル貧血症と呼んでいるようです. 問題はこのようなオブジェクトを作ってはいけないということではなく, これをドメイン・モデルとして運用することにあるようです.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-022/#com-2"><sup>2</a></p>
+<p>　ドメイン・モデルはそれぞれ担う責務があります. そのために必要なデータと処理を集めたオブジェクとというわけです. しかしDTOや値オブジェクトのようにデータのやり取りを効率化するようなオブジェクトも存在します. これはオブジェクトというよりデータにすぎません. こうしたデータにすぎないオブジェクトをドメイン・モデル貧血症と呼んでいるようです. 問題はこのようなオブジェクトを作ってはいけないということではなく, これをドメイン・モデルとして運用することにあるようです.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-022/#com-2"><sup>2</sup></a></p>
 <h2 id="toranzakusiyonsukuriputo">トランザクション・スクリプト</h2>
-<p>　ユースケース単位でビジネス・ルールを記述する手法のようです. ドメインが責務に応じてオブジェクトの単位を決めていたのに対して, 処理の流れを意識した書き方と言えるかもしれません.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-022/#com-3"><sup>3</a></p>
+<p>　ユースケース単位でビジネス・ルールを記述する手法のようです. ドメインが責務に応じてオブジェクトの単位を決めていたのに対して, 処理の流れを意識した書き方と言えるかもしれません.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-022/#com-3"><sup>3</sup></a></p>
 <blockquote>
 <p>　たとえば「注文を登録する」「注文を変更する」「注文をキャンセルする」という３つのユースケースを考えてみましょう。この３つのユースケースは「注文」という共通の関心事についての異なるアクションです。「トランザクションスクリプト」では、「注文」に関するビジネスルール、判断・加工・計算のロジックは、３つのユースケースで重複して記述されます。</p>
 </blockquote>
@@ -203,7 +203,7 @@
             
                 <div class="post-tags">
                     
-                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;software-design&#x2f;">#Software Design</a>
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;software-design&#x2F;">#Software Design</a>
                     
                 </div>
             

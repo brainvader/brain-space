@@ -21,7 +21,7 @@
     
 
     
-    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;css&#x2F;base.css">
     
   </head>
 
@@ -29,30 +29,30 @@
     <div class="container">
       <header id="header">
         <!-- TODO:  Use a tags instead of ul -->
-        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <div class="logo"><a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">Brain Space</a></div>
         <nav class="menu">
           <ul>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">
                 Home
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;categories">
                 Categories
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;tags">
                 Tags
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;about">
                 About
               </a>
             </li>
@@ -65,8 +65,8 @@
           
 
 
-<div>blog&#x2f;2019&#x2f;05&#x2f;post-035&#x2f;</div>
-<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-035&#x2f;</div>
+<div>blog&#x2F;2019&#x2F;05&#x2F;post-035&#x2F;</div>
+<div>https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-035&#x2F;</div>
 <div>en</div>
 <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
@@ -105,7 +105,7 @@
     
 <header class="post__header">
   <h1 class="post__title">
-    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-035&#x2f;">Rust入門 (4) CowとDerefについて</a>
+    <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-035&#x2F;">Rust入門 (4) CowとDerefについて</a>
   </h1>
   <div class="post__meta">
     <span class="post__time">2019-05-14</span>
@@ -116,17 +116,17 @@
     <div class="post-content">
       <h1 id="cowtoderef">CowとDeref</h1>
 <h2 id="cowtoha">Cowとは?</h2>
-<p>　CowはClone-on-writeの略らしいです.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#ref-1"><sup>1</a></p>
+<p>　CowはClone-on-writeの略らしいです.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#ref-1"><sup>1</sup></a></p>
 <blockquote>
 <p>The type Cow is a smart pointer providing clone-on-write functionality: it can enclose and provide immutable access to borrowed data, and clone the data lazily when mutation or ownership is required.</p>
 </blockquote>
 <p>　Cowはスマート・ポインタでーで, 書き込み時の複製機能を提供します: 借用されたデータを包み込むか不変なアクセスを提供します. 更に(データの)変更や所有権の取得が必要な時はその時になってからデータを複製できます.</p>
 <blockquote>
-<p>'Cow' ... is a type that allows you to reuse data if it is not modified. <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#ref-2"><sup>2</a></p>
+<p>'Cow' ... is a type that allows you to reuse data if it is not modified. <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#ref-2"><sup>2</sup></a></p>
 </blockquote>
 <p>　Cowは変更されないデータを再利用することができる型です.</p>
 <blockquote>
-<p>Cow is an abbreviation for Clone-on-write (usually Copy on Write, but copy has a different meaning in Rust), a cool idea that means we can use both an owned instance of something or a borrowed instance using the same code.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#ref-3"><sup>3</a></p>
+<p>Cow is an abbreviation for Clone-on-write (usually Copy on Write, but copy has a different meaning in Rust), a cool idea that means we can use both an owned instance of something or a borrowed instance using the same code.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-035/#ref-3"><sup>3</sup></a></p>
 </blockquote>
 <p>　</p>
 <h2 id="dereftoha">Derefとは?</h2>
@@ -153,17 +153,17 @@
             
                 <div class="post-tags">
                     
-                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;rust&#x2f;">#Rust</a>
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;rust&#x2F;">#Rust</a>
                     
                 </div>
             
             
                 <div class="post-nav">
                     
-                        <a class="previous" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-034&#x2f;">‹ Clip Studio Tips (1) 画像の読み込みと編集</a>
+                        <a class="previous" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-034&#x2F;">‹ Clip Studio Tips (1) 画像の読み込みと編集</a>
                     
                     
-                        <a class="next" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-036&#x2f;">Rust入門 (5) 複数のバイナリを持つパッケージの作成 ›</a>
+                        <a class="next" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-036&#x2F;">Rust入門 (5) 複数のバイナリを持つパッケージの作成 ›</a>
                     
                     
                     

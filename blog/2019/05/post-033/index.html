@@ -21,7 +21,7 @@
     
 
     
-    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;css&#x2F;base.css">
     
   </head>
 
@@ -29,30 +29,30 @@
     <div class="container">
       <header id="header">
         <!-- TODO:  Use a tags instead of ul -->
-        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <div class="logo"><a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">Brain Space</a></div>
         <nav class="menu">
           <ul>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">
                 Home
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;categories">
                 Categories
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;tags">
                 Tags
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;about">
                 About
               </a>
             </li>
@@ -65,8 +65,8 @@
           
 
 
-<div>blog&#x2f;2019&#x2f;05&#x2f;post-033&#x2f;</div>
-<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-033&#x2f;</div>
+<div>blog&#x2F;2019&#x2F;05&#x2F;post-033&#x2F;</div>
+<div>https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-033&#x2F;</div>
 <div>en</div>
 <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
@@ -125,7 +125,7 @@
     
 <header class="post__header">
   <h1 class="post__title">
-    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-033&#x2f;">Rust入門 (3) Thread</a>
+    <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-033&#x2F;">Rust入門 (3) Thread</a>
   </h1>
   <div class="post__meta">
     <span class="post__time">2019-05-08</span>
@@ -137,23 +137,23 @@
       <h1 id="rustniokeruping-xing-chu-li">Rustにおける平行処理</h1>
 <h2 id="ping-xing-chu-li-toha">平行処理とは?</h2>
 <blockquote>
-<p>Concurrency is the process of breaking a program down into units that can be executed in any arbitrary order. <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-033/#ref-1"><sup>1</a></p>
+<p>Concurrency is the process of breaking a program down into units that can be executed in any arbitrary order. <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-033/#ref-1"><sup>1</sup></a></p>
 </blockquote>
 <h2 id="suretudotoha">スレッドとは?</h2>
 <p>　対してスレッドは順番に処理しないといけない処理をまとめたものです.</p>
 <blockquote>
-<p>A thread is a block of instructions that must be executed in order. <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-033/#ref-1"><sup>1</a></p>
+<p>A thread is a block of instructions that must be executed in order. <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-033/#ref-1"><sup>1</sup></a></p>
 </blockquote>
 <h2 id="suretudonozhong-lei">スレッドの種類</h2>
 <ul>
 <li>OS thread</li>
 <li>Green Thread</li>
 </ul>
-<p>OSスレッドはOSによって管理されるスレッドです. プログラムは通常１つのプロセスを持ち, このプロセスが複数のスレッドを生成します. Rustは標準ライブラリでOSスレッドに対応している. 一方のグリーン・スレッドは仮想マシン上で管理されるスレッドらしいです.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-033/#ref-4"><sup>4</a> スレッドは平行処理を実現してくれるが, データの競合が発生する. Rustで安全とはこのデータの競合をコンパイラ時に教えてくれることを指します. つまりコンパイル・エラーになるので, データ安全あコード以外はコンパイルできません.</p>
+<p>OSスレッドはOSによって管理されるスレッドです. プログラムは通常１つのプロセスを持ち, このプロセスが複数のスレッドを生成します. Rustは標準ライブラリでOSスレッドに対応している. 一方のグリーン・スレッドは仮想マシン上で管理されるスレッドらしいです.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-033/#ref-4"><sup>4</sup></a> スレッドは平行処理を実現してくれるが, データの競合が発生する. Rustで安全とはこのデータの競合をコンパイラ時に教えてくれることを指します. つまりコンパイル・エラーになるので, データ安全あコード以外はコンパイルできません.</p>
 <h2 id="thread-spawntojoin">thread::spawnとjoin</h2>
 <p>spawnはJoinHandleを返す. joinを呼び出すとスレッドの処理が終わるまで待ってくれる.</p>
 <blockquote>
-<p>The return type of thread::spawn is JoinHandle. A JoinHandle is an owned value that, when we call the join method on it, will wait for its thread to finish. <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-033/#ref-2"><sup>2</a></p>
+<p>The return type of thread::spawn is JoinHandle. A JoinHandle is an owned value that, when we call the join method on it, will wait for its thread to finish. <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-033/#ref-2"><sup>2</sup></a></p>
 </blockquote>
 <h2 id="kiyaputiya">キャプチャ</h2>
 <p>　JavaScriptのアロー関数は独自のスコープを持たないが, その周囲(といっても先に宣言している必要があるが)で定義した変数などをそのまま使える. こういう動きを変数のキャプチャと呼ぶ. 関数ならローカル変数となり, 宣言文が必要になる. Rustのクロージャもこのような性質があるが, 通常は問題にならない. ただし平行処理の場合は, 所有権が問題になる. スレッドはメイン・スレッドとは切り離されて実行される.</p>
@@ -202,7 +202,7 @@
       });
     }
 }
-</span></pre><h2 id="suretudohadonoyounizuo-rareruka-5">スレッドはどのように作られるか. <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-033/#ref-5"><sup>5</a></h2>
+</span></pre><h2 id="suretudohadonoyounizuo-rareruka-5">スレッドはどのように作られるか. <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-033/#ref-5"><sup>5</sup></a></h2>
 <h2 id="reference">Reference</h2>
 <ol>
 <li><a name="ref-1"></a>  <a href="http://squidarth.com/rc/rust/2018/06/04/rust-concurrency.html">Safe Concurrency with Rust</a></li>
@@ -228,17 +228,17 @@
             
                 <div class="post-tags">
                     
-                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;rust&#x2f;">#Rust</a>
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;rust&#x2F;">#Rust</a>
                     
                 </div>
             
             
                 <div class="post-nav">
                     
-                        <a class="previous" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-032&#x2f;">‹ Functional Programming in Rust</a>
+                        <a class="previous" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-032&#x2F;">‹ Functional Programming in Rust</a>
                     
                     
-                        <a class="next" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-034&#x2f;">Clip Studio Tips (1) 画像の読み込みと編集 ›</a>
+                        <a class="next" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-034&#x2F;">Clip Studio Tips (1) 画像の読み込みと編集 ›</a>
                     
                     
                     

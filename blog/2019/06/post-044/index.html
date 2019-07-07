@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - 非同期処理が分からない</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;css&#x2F;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2F;2019&#x2F;06&#x2F;post-044&#x2F;</div>
+<div>https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;06&#x2F;post-044&#x2F;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#fei-tong-qi-chu-li-gafen-karanakunaruyuan-yin" class="toc-link">非同期処理が分からなくなる原因</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#suretudo-thread-of-execution" class="toc-link">スレッド (thread of execution)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#kontekusutosuituti-shi-xing-wen-mo" class="toc-link">コンテクスト・スイッチ(実行文脈)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#singurusuretudo" class="toc-link">シングル・スレッド</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#marutisuretudo" class="toc-link">マルチ・スレッド</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#tong-shi" class="toc-link">同時</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#purosesu" class="toc-link">プロセス</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#bing-xing-chu-li" class="toc-link">並行処理</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#bing-lie-chu-li" class="toc-link">並列処理</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#tong-qi-chu-li" class="toc-link">同期処理</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#fei-tong-qi-chu-li" class="toc-link">非同期処理</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#matome" class="toc-link">まとめ</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#reference" class="toc-link">Reference</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/06/post-044/#notes" class="toc-link">Notes</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;06&#x2F;post-044&#x2F;">非同期処理が分からない</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-06-30</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h2 id="fei-tong-qi-chu-li-gafen-karanakunaruyuan-yin">非同期処理が分からなくなる原因</h2>
+<p>　非同期処理とは同期的ではない処理のことをだが, これが今ひとつ分からなかった. これは非同期処理にも実際にはいくつかの実現方法があることによる. 内容は<a href="https://www.atmarkit.co.jp/ait/articles/0503/12/news025.html#utm_term=share_sp">第1回　マルチスレッドはこんなときに使う (1/2)</a>を主に参考にした.</p>
+<h3 id="suretudo-thread-of-execution">スレッド (thread of execution)</h3>
+<p>　ソフトウェア視点ではプログラムの処理を一本の糸と見立てたものをスレッドと言います. ハードではCPU(物理コア)を仮想化した論理コアのことをスレッドと言ったりします. Nコア/2Nスレッドなんて表記もあります. ややこしいのは物理コアと論理コアが両方とも1つであってもマルチ・スレッドはありえます. シングル・スレッドかマルチ・スレッドかの違いにハード(コア数)は直接関係ありません. とはいえシングル・コアとマルチ・コアでは引き出せる性能が全然違います.</p>
+<h3 id="kontekusutosuituti-shi-xing-wen-mo">コンテクスト・スイッチ(実行文脈)</h3>
+<p>　OSがプロセスやスレッドを切り替える操作のことをこのように呼びます. シングル・コアでマルチ・スレッドを実現しようとした場合, 小刻みにコンテクスト・スイッチでスレッドを切り替えることでマルチ・タスクを実現しているようです.</p>
+<h3 id="singurusuretudo">シングル・スレッド</h3>
+<p>　スレッドが1つしかありません. つまりプログラムは全て一本の線上で起きた出来事として処理されます. このモデルの問題点はスレッドを独占するプログラムが存在した場合, 他の処理は一切できなくなることです. JavaScriptなどはシングル・スレッドと言われます. しかし実際にはブラウザはマルチ・スレッドで処理を実行できるので, データのロードのような処理を行いながらもUI操作を並行して処理できます.</p>
+<h3 id="marutisuretudo">マルチ・スレッド</h3>
+<p>　コア数によって振る舞いが違います. マルチ・コアなら別々のコアにスレッドを割り当てて並列に処理することが可能です. シングル・コアの場合にマルチ・スレッドを実現する場合は, コンテクスト・スイッチでスレッドを強制的に切り替えます. プログレス・バーを考えるとUIの入力を受け付けるスレッドとデータをロードするスレッドを入れ替えれば, データをロードしている間も定期的にUI用のスレッドが処理可能な状態になるためユーザーからは両者が全く同時に実行されているように感じるはずです. 総合的な処理時間を考えると, 別々に処理した方がコンテクスト・スイッチが不要な分高速です. 科学技術計算をさせたいなら計算中はコーヒーでも飲んでいる方がいいかもしれません.　しかしブラウジングしている時にロードが遅いからコーヒーを飲んで休憩しようという利用方法は現代では考えられないでしょう. 当然マルチ・コアなら両方の処理を別々のコアに割り当てると言うこともできます.</p>
+<h3 id="tong-shi">同時</h3>
+<p>　同時と言う言葉は誤解を招きやすい表現です. 特にコンピュータの世界の処理速度は人間が体感できないような速度なので同時と言うニュアンスに幅が生じます. マルチ・コアで並列に処理する場合も同時ですが, コンテクスト・スイッチで並行に処理している場合でも人間には同時と感じます.</p>
+<h3 id="purosesu">プロセス</h3>
+<p>　プロセスとはコンピュータが実行可能なアプリケーションの実体(インスタンス)のことです. 基本的にコア1つで実行できるプロセスは1つです.</p>
+<h3 id="bing-xing-chu-li">並行処理</h3>
+<p>　いわゆるマルチ・タスクのことです. シングル・コアの時代でもブラウザ上で動画を見ながら計算を実行しつつ, プログラムや文章を書くと言うことが可能でした. これは OS が</p>
+<h3 id="bing-lie-chu-li">並列処理</h3>
+<p>　並列処理はマルチ・コア CPUが一般化したことによって可能になった. 実際に処理を並列(別々のコア)で実行できる.</p>
+<h3 id="tong-qi-chu-li">同期処理</h3>
+<p>　書いた順番に実行される処理のことです. スレッドに分割するようなことができないので, スケジューラで処理の順番を工夫する必要があります.</p>
+<h3 id="fei-tong-qi-chu-li">非同期処理</h3>
+<p>　非同期処理がややこしいのは上のような要素が絡み合うからです. 特にJavaScriptはブラウザというアプリの上でWebアプリを実行するためシングル・スレッドでも非同期処理が比較的簡単にできたりします. HTTPリクエストなどの非同期な処理はブラウザに任せて, JavaScriptはユーザー入力とかに集中するわけです. ブラウザのUIスレッドへのフックを書くためのまた近年はWeb Worker並列処理の仕組みも登場しているため, ますますややこしくなっています.</p>
+<h2 id="matome">まとめ</h2>
+<p>　非同期処理は思ったより奥深そうです. 言語によっても抽象化の仕方が違っていますし, 近年はマルチコアに対応したことから別スレッドで並列に処理するとかは割と当たり前のような状況もあるようです. 言語ごとに書き方を見ていく他ありませんが, 低レベルではスレッド作ったりコンテクスト・スイッチしたり色々しているようです. より深いレベルで理解するにはOSやハードのことを知らないといけないみたいです. JavaScriptでもWeb Workerの利用でマルチ・スレッドを並列で実行できる環境が整ったりしているようです. またシングル・スレッドだと言っても実際はブラウザは複数スレッドを使えたりとNode.jsではイベント駆動であるとかややこしいです. PythonもGIL(Global Interpreter Lock)とかの話があってめんどくさそうです(非同期とは直接関係ないですが, スレッドが並列かで使い勝手が違ってくるでしょう).</p>
+<p>　これは他の構文にも言えることですが言語ごとに状況(抽象化の仕方)が違うので非同期処理をするときもドキュメントをちゃんと確認しようということです.</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="http://u-kipedia.hateblo.jp/entry/2014/09/21/102823">プロセス、スレッドとは</a></li>
+<li><a href="https://unix.stackexchange.com/questions/472300/is-a-light-weight-process-attached-to-a-kernel-thread-in-linux">Is a light weight process attached to a kernel thread in Linux?</a></li>
+<li><a href="http://www.it.uu.se/education/course/homepage/os/vt18/">Operating systems</a></li>
+<li><a href="https://milestone-of-se.nesuke.com/sv-basic/architecture/cpu/">図解】CPU のコアとスレッドとプロセスの違い・関係性、同時マルチスレッディング、コンテキストスイッチについて</a></li>
+<li><a href="https://milestone-of-se.nesuke.com/sv-basic/architecture/user-space-kernel-space/">【図解】初心者にも分かるユーザー空間とカーネル空間, MMU/メモリ保護の仕組み</a></li>
+<li><a href="https://www.slideshare.net/ufcpp/ss-34533225">非同期処理の基礎</a></li>
+<li><a href="https://www.slideshare.net/ufcpp/asyncawait-114647813">ややこしいのは物理コアと論理コアが両方とも1つでもマルチ・スレッドはありえます.</a></li>
+<li><a href="https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part1.html">Scheduling In Go : Part I - OS Scheduler</a></li>
+<li><a href="http://ossforum.jp/node/752">コンテキストスイッチの仕組み</a></li>
+<li><a href="https://syuu1228.github.io/process_management_and_process_schedule/process_management_and_process_schedule.html">Linux のしくみを学ぶ - プロセス管理とスケジューリング</a></li>
+<li><a href="https://www.studytonight.com/operating-system/multithreading">What are Threads?</a></li>
+<li><a href="https://luminousmen.com/post/asynchronous-programming-blocking-and-non-blocking">Asynchronous programming. Blocking I/O and non-blocking I/O</a></li>
+<li><a href="https://ascii.jp/elem/000/000/629/629860/">OS の仕事はハードウェアをアプリから「隠す」こと？</a></li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ol>
+<li><a name="ref-1"></a> <a href="https://developers.google.com/web/updates/2018/09/inside-browser-part1">Inside look at modern web browser</a></li>
+</ol>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;low-level-programming&#x2F;">#low-level-programming</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;06&#x2F;post-043&#x2F;">‹ OpenGL (1) レンダリング・パイプライン</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;07&#x2F;post-045&#x2F;">Goならわかるシステムプログラミング ›</a>
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

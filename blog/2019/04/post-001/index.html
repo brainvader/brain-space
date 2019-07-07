@@ -21,7 +21,7 @@
     
 
     
-    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;css&#x2F;base.css">
     
   </head>
 
@@ -29,30 +29,30 @@
     <div class="container">
       <header id="header">
         <!-- TODO:  Use a tags instead of ul -->
-        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <div class="logo"><a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">Brain Space</a></div>
         <nav class="menu">
           <ul>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">
                 Home
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;categories">
                 Categories
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;tags">
                 Tags
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;about">
                 About
               </a>
             </li>
@@ -65,8 +65,8 @@
           
 
 
-<div>blog&#x2f;2019&#x2f;04&#x2f;post-001&#x2f;</div>
-<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-001&#x2f;</div>
+<div>blog&#x2F;2019&#x2F;04&#x2F;post-001&#x2F;</div>
+<div>https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;04&#x2F;post-001&#x2F;</div>
 <div>en</div>
 <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
@@ -145,7 +145,7 @@
     
 <header class="post__header">
   <h1 class="post__title">
-    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-001&#x2f;">GatsbyJSでブログを作った時のメモ</a>
+    <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;04&#x2F;post-001&#x2F;">GatsbyJSでブログを作った時のメモ</a>
   </h1>
   <div class="post__meta">
     <span class="post__time">2019-04-12</span>
@@ -174,7 +174,7 @@
 <li>Contentful</li>
 <li>Markdown</li>
 </ul>
-<p>　これ以外にもいろいろあります<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#ref-1">*<sup>1</a>. WordpressとContentfulはCMS(Content Management System)と呼ばれるアプリケーションです. 特にContentfulはHeadless CMSと呼ばれる必要なものです. 今回はMarkdownを使ってブログのコンテンツを管理する方法を説明しようと思います.</p>
+<p>　これ以外にもいろいろあります<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#ref-1">*<sup>1</sup></a>. WordpressとContentfulはCMS(Content Management System)と呼ばれるアプリケーションです. 特にContentfulはHeadless CMSと呼ばれる必要なものです. 今回はMarkdownを使ってブログのコンテンツを管理する方法を説明しようと思います.</p>
 <h2 id="starter">Starter</h2>
 <p>　GatsbyJSにはいくつかスターター・プロジェクトが用意されています. 今回は0から作るのではなく<a href="https://www.gatsbyjs.org/starters/patricoferris/gatsby-starter-notes/">gatsby-starter-notes</a>を使いました.</p>
 <p>　プロジェクトはgatsby cliを使って生成します. newサブコマンド以下にプロジェクトの名前とスターターを渡せばオッケーです.</p>
@@ -207,7 +207,7 @@
 </span></pre><h3 id="nodotoha">ノードとは?</h3>
 <p>　ノードというのはGraphQLで指定するフィールドのことととりあえず思えばいいです. GraphQLではデータ構造としてグラフを念頭に置いています. しかしデータソースはグラフ構造ではありません. これをGraphQLで扱えるようにグラフ構造へと変換するのがtransfomerの役割です. 変換後のデータにGraphQLでクエリを送りデータを取得するわけです. つまりクエリで指定するフィールドとノードが同じと言う意味です.</p>
 <h2 id="gatsby-node-apis">Gatsby Node APIs</h2>
-<p>　GatsbyJSが提供するAPIsでgatsby-node.jsに記述します. 具体的には<a href="https://www.gatsbyjs.org/docs/node-apis/#onCreateNode">onCreateNode</a>やcreatePagesという関数があります. 要するにフック関数<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#ref-2">*<sup>2</a>と言うやつです.
+<p>　GatsbyJSが提供するAPIsでgatsby-node.jsに記述します. 具体的には<a href="https://www.gatsbyjs.org/docs/node-apis/#onCreateNode">onCreateNode</a>やcreatePagesという関数があります. 要するにフック関数<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-001/#ref-2">*<sup>2</sup></a>と言うやつです.
 　
 　onCreateNodeはノードの作成時に呼び出されます. 今回使ったスターターではslugというノードの追加を行なっています. slugはURLの最後に付加される識別子で個別のページを表すのに使われます. そのためファイル名などから動的に生成する必要があります. createPagesは個別のページが作られるときに呼び出されます. この時点ではノードが生成されているのでクエリでどのようなデータが必要かを指定して, ページのテンプレートに渡します. ここから先はReactのデータ結合と同じです.</p>
 <h2 id="sutairingu">スタイリング</h2>
@@ -298,7 +298,7 @@
             
                 <div class="post-tags">
                     
-                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;gatsbyjs&#x2f;">#GatsbyJS</a>
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;gatsbyjs&#x2F;">#GatsbyJS</a>
                     
                 </div>
             

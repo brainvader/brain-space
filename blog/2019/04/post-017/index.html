@@ -21,7 +21,7 @@
     
 
     
-    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;css&#x2F;base.css">
     
   </head>
 
@@ -29,30 +29,30 @@
     <div class="container">
       <header id="header">
         <!-- TODO:  Use a tags instead of ul -->
-        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <div class="logo"><a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">Brain Space</a></div>
         <nav class="menu">
           <ul>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">
                 Home
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;categories">
                 Categories
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;tags">
                 Tags
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;about">
                 About
               </a>
             </li>
@@ -65,8 +65,8 @@
           
 
 
-<div>blog&#x2f;2019&#x2f;04&#x2f;post-017&#x2f;</div>
-<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-017&#x2f;</div>
+<div>blog&#x2F;2019&#x2F;04&#x2F;post-017&#x2F;</div>
+<div>https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;04&#x2F;post-017&#x2F;</div>
 <div>en</div>
 <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
@@ -133,7 +133,7 @@
     
 <header class="post__header">
   <h1 class="post__title">
-    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-017&#x2f;">Learn OpenGL with Rust (1) Getting Started</a>
+    <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;04&#x2F;post-017&#x2F;">Learn OpenGL with Rust (1) Getting Started</a>
   </h1>
   <div class="post__meta">
     <span class="post__time">2019-04-24</span>
@@ -144,17 +144,17 @@
     <div class="post-content">
       <h1 id="di-1hui-getting-started">第1回 Getting Started</h1>
 <h2 id="learn-opengltoha">Learn OpenGLとは?</h2>
-<p>　C++でOpenGLに入門できるサイトです.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#com-1"><sup>1</a></p>
+<p>　C++でOpenGLに入門できるサイトです.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#com-1"><sup>1</sup></a></p>
 <h2 id="getting-started">Getting Started</h2>
 <p>　オリジナルは色々設定が大変みたいだが, Rustでは新規プロジェクト作ってglfw-rsを導入すればできます. 面倒な人はgit cloneでプロジェクトをローカル環境に持って来てもできるはずです. いずれにしろ下記のglfwの導入は必要です.</p>
 <h2 id="glfw">glfw</h2>
-<p>　glfwだけ少し色々やる必要があります.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#com-2"><sup>2</a> まずglfw3をbrewでインストールします. この時cmakeが必要になります.</p>
+<p>　glfwだけ少し色々やる必要があります.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#com-2"><sup>2</sup></a> まずglfw3をbrewでインストールします. この時cmakeが必要になります.</p>
 <pre style="background-color:#2b303b;">
 <span style="color:#c0c5ce;">brew install glfw cmake
 </span></pre>
 <p>　後は<a href="https://github.com/bwasty/learn-opengl-rs/blob/master/Cargo.toml">Cargo.toml</a>のdependenciesの項をコピーペすればオッケーです. バージョンが更新されているものもは更新しました.</p>
 <h2 id="tiao-jian-fu-konpairu-conditional-compilation">条件付コンパイル (Conditional Compilation)</h2>
-<p>　 cfgマクロを使うと条件付きコンパイルができる.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#com-3"><sup>3</a> Cargo.tomでfeaturesでフラグを設定できる.</p>
+<p>　 cfgマクロを使うと条件付きコンパイルができる.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#com-3"><sup>3</sup></a> Cargo.tomでfeaturesでフラグを設定できる.</p>
 <pre style="background-color:#2b303b;">
 <span style="color:#c0c5ce;">[features]
 </span><span style="color:#bf616a;">default </span><span style="color:#c0c5ce;">=[
@@ -184,7 +184,7 @@
 <p>　とするとgreat_funをそのまま呼び出せる.
 　</p>
 <h2 id="sabumeinguan-shu">サブ・メイン関数</h2>
-<p>　cargo runを--featuresオプション付きで実行すると条件付きコンパイルで章ごとにモジュールが取り込まれてビルドが実行される. しかしこれではいちいちmain.rsの内容を章の内容に合わせて書き直す必要がある. そのため引数でタイプ・キーで章を指定できるようにしている. 該当する章の&quot;サブ・メイン関数&quot;が実行される.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#com-4"><sup>4</a> 1章1節1項なら, 1_1_1を指定する.</p>
+<p>　cargo runを--featuresオプション付きで実行すると条件付きコンパイルで章ごとにモジュールが取り込まれてビルドが実行される. しかしこれではいちいちmain.rsの内容を章の内容に合わせて書き直す必要がある. そのため引数でタイプ・キーで章を指定できるようにしている. 該当する章の&quot;サブ・メイン関数&quot;が実行される.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-017/#com-4"><sup>4</sup></a> 1章1節1項なら, 1_1_1を指定する.</p>
 <pre style="background-color:#2b303b;">
 <span style="color:#bf616a;">cargo</span><span style="color:#c0c5ce;"> run 1_1_1
 </span></pre>
@@ -227,9 +227,9 @@
             
                 <div class="post-tags">
                     
-                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;rust&#x2f;">#Rust</a>
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;rust&#x2F;">#Rust</a>
                     
-                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;opengl&#x2f;">#OpenGL</a>
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;opengl&#x2F;">#OpenGL</a>
                     
                 </div>
             

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - Learn OpenGL With Rust (4) Texture</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;css&#x2F;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2F;2019&#x2F;05&#x2F;post-041&#x2F;</div>
+<div>https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-041&#x2F;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-041/#openglnotekusutiyanoxi-i" class="toc-link">OpenGLのテクスチャの扱い</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-041/#tekusutiyazuo-biao" class="toc-link">テクスチャ座標</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-041/#tekuseru" class="toc-link">テクセル</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-041/#uvzuo-biao" class="toc-link">UV座標</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-041/#texture-wrapping" class="toc-link">Texture Wrapping</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/05/post-041/#reference" class="toc-link">Reference</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-041&#x2F;">Learn OpenGL With Rust (4) Texture</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-06-03</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h1 id="openglnotekusutiyanoxi-i">OpenGLのテクスチャの扱い</h1>
+<h2 id="tekusutiyazuo-biao">テクスチャ座標</h2>
+<p>　OpenGLでは画像をテクスチャと言う形で利用します. 両者は似ていますが通常の画像はピクセルで表現されます. 一方テクスチャ座標は正規化されているので座標は(0.0, 0.0) ~ (1.0, 1.0)の間になります. どちらも画像(色情報を敷き詰めたもの)ですが, テクスチャ座標上ではテクセルと言う単位を使います. OpenGLではテクスチャ座標から色を取得して利用します. このような処理を<strong>サンプリング</strong>と呼びます. この処理は基本的にはシェーダが行うものです.</p>
+<h2 id="tekuseru">テクセル</h2>
+<p>　テクセルはテクスチャ座標上のピクセル領域のことです. 500×500ピクセルなら500×500テクセルになるはずです. 別の言い方をすると同じ色で塗りつぶされた領域です. テクセル内は同じ色であることが保証されています.</p>
+<h2 id="uvzuo-biao">UV座標</h2>
+<p>　UV座標は数学(微分幾何学など)では3次元の場合は, 図形の曲面上に定義される2次元座標になります. この際に\( \bf{x}(u, v) \)のように座標をパラメータuとvで表すことからパラメータ形式とも呼ばれます. CGではUV座標とテクスチャ座標は同一視されます. ただ定義上は違う気もします. テクスチャはあくまで読み込んだ画像を正規化して管理するためのものです. 一方, UV座標は3Dポリゴンの2次元座標上でのパラメトリックな表現です. ただ画像を表示するためには何らかのポリゴンが必要になりますし, 色が頂点カラーで表現できる場合はUV座標は必要ありません. 両者が必要になるのはテクスチャ・マッピングの場合で, その場合両者の定義は相互に変換可能なものなので, 同一視されるのかもしれません.</p>
+<h2 id="texture-wrapping">Texture Wrapping</h2>
+<p>　ややこしいのはテクスチャの値は正規化されているのですが, UV座標はこの範囲外も指定できることなのです. つまり2.0とか-1.0といった値にもアクセスできるのです. しかしサンプリングしてもここには色が存在しません. 存在しない場所からサンプリングを行った場合にどのような挙動をすべきかを定義するのがラッピング・モードです.</p>
+<ol>
+<li>GL_REPEAT: 同じ画像をタイル状に敷き詰める</li>
+<li>GL_MIRRORED_REPEAT: タイルの隣接境界線上で鏡合わせになるように敷き詰める</li>
+<li>GL_CLAMP_TO_EDGE: テクスチャ画像の境界を引き延ばす</li>
+<li>GL_CLAMP_TO_BORDER: テクスチャ画像のボーダーで区切り, 残った領域を指定色で塗りつぶす.</li>
+</ol>
+<p>　gl::TexParameteri関数で指定できるようです.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">gl::TexParameteri(gl::</span><span style="color:#d08770;">TEXTURE_2D</span><span style="color:#c0c5ce;">, gl::</span><span style="color:#d08770;">TEXTURE_WRAP_S</span><span style="color:#c0c5ce;">, gl::</span><span style="color:#d08770;">REPEAT </span><span style="color:#c0c5ce;">as </span><span style="color:#b48ead;">i32</span><span style="color:#c0c5ce;">);
+gl::TexParameteri(gl::</span><span style="color:#d08770;">TEXTURE_2D</span><span style="color:#c0c5ce;">, gl::</span><span style="color:#d08770;">TEXTURE_WRAP_T</span><span style="color:#c0c5ce;">, gl::</span><span style="color:#d08770;">REPEAT </span><span style="color:#c0c5ce;">as </span><span style="color:#b48ead;">i32</span><span style="color:#c0c5ce;">);
+</span></pre>
+<p>　2番目の引数のS/Tというポストフィックスはテクスチャ座標の座標軸を表していると思ってください. 4のGL_CLAMP_TO_BORDERは境界を色で埋めますのでその色も指定する必要があります. その際はfloat vectorのパラメータを渡せるgl::TexParameterfv関数を利用します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">let</span><span style="color:#c0c5ce;"> borderColor: [</span><span style="color:#b48ead;">f32</span><span style="color:#c0c5ce;">; </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">] = [</span><span style="color:#d08770;">1.0</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">1.0 0.0</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">0.0</span><span style="color:#c0c5ce;">];
+gl::TexParameterfv(</span><span style="color:#d08770;">GL_TEXTURE_2D</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">GL_TEXTURE_BORDER_COLOR</span><span style="color:#c0c5ce;">, borderColor);
+</span></pre><h4 id="kuranputoha">クランプとは?</h4>
+<p>　英語のclampはある範囲に限定すると言うような意味があるそうです. プログラムで制限するのは値の範囲です. ラッピング・モードの説明で良くあるのは, 画像を並べて実験結果を見せると言うやつですが, クランプの意味がうまく説明されていません. ドキュメントを読みましょう.<a href="#ref-1"><sup>1</sup></a> ドキュメントではGL_CLAMP_TO_EDGEは</p>
+<blockquote>
+<p>the texture coordinate is clamped to the [0, 1] range.</p>
+</blockquote>
+<p>　と説明されています. 一方, GL_CLAMP_TO_BORDERは, </p>
+<blockquote>
+<p>the texture coordinate is clamped to the [0, 1] range, but the edge texels are blended with a constant border color.</p>
+</blockquote>
+<p>　と前半は同じです. [0, 1]に制限すれば色の未定義領域は存在しなくなります. そのため[0, 1]の範囲を超えた物を強制的に[0, 1]にクランプするわけです. すると1.1も1.5, そして2.0も全て1.0に変換されます. そのためテクスチャ画像の境界の色が伸びるような画像になるわけです. GL_CLAMP_TO_BORDERは一番普通の挙動になります. 色がない場所はユーザー指定の色に</p>
+<!-- TODO: Blendingの意味を考える -->
+<h3 id="huirutaringu">フィルタリング</h3>
+<p>　テクスチャ座標は正規化されていますが浮動小数点で表現できますが, 色はテクセル未満には分解できません. ピクセルもピクセルも単色で塗りつぶされた正方形と思えば良いです. 問題はテクスチャ座標がテクセルの角あたりを指している場合です. もし色が連続的に表現されていたら(解像度が無限大だったら)別の色の可能性もあります. しかしテクセルは離散化されているのでそのような細かな色を表現することはできません. 特に解像度が低い画像を拡大表示するようなケースでブロックノイズとなってテクセルの形が見えてしまいます. こうした作為を低減して色を正確に再現するためにフィルタリングと言うのを行います.
+　フィルタはある成分だけを取り出すもののことです. ここでは特定の色を取り出すために施される処理のことです.</p>
+<ul>
+<li>GL_LINEAR: 一番近いテクセルと取り出す.</li>
+<li>GL_NEAREST: 近傍の色を平均した色を取り出す.</li>
+</ul>
+<p>　GL_NEARESTは近傍平滑化と呼ばれる処理でブロックノイズを低減します. ただしピクセル・アートを平滑化してしまうと台無しなので表現によってフィルタを選ぶことになるようです.</p>
+<h3 id="mipmas">mipmas</h3>
+<p>　</p>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a name="ref-1"></a> []</li>
+</ol>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;opengl&#x2F;">#OpenGL</a>
+                    
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;computer-graphics&#x2F;">#Computer Graphics</a>
+                    
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;rust&#x2F;">#Rust</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-040&#x2F;">‹ Learn OpenGL With Rust (3) Triangle</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-042&#x2F;">OpenGL&#x2F;WebGL資料集 ›</a>
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

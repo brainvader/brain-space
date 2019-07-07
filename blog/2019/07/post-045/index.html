@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - Goならわかるシステムプログラミング</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;css&#x2F;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2F;2019&#x2F;07&#x2F;post-045&#x2F;</div>
+<div>https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;07&#x2F;post-045&#x2F;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-045/#dong-ji" class="toc-link">動機</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-045/#huairudeisukuriputa" class="toc-link">ファイル・ディスクリプタ</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-045/#io-writerintahuesu" class="toc-link">io.Writerインターフェース</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-045/#baitolie" class="toc-link">バイト列</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-045/#std-io-stdoutgou-zao-ti" class="toc-link">std::io::Stdout構造体</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-045/#batuhuaringu" class="toc-link">バッファリング</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-045/#reference" class="toc-link">Reference</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;07&#x2F;post-045&#x2F;">Goならわかるシステムプログラミング</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-07-06</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h2 id="dong-ji">動機</h2>
+<p>　<a href="https://ascii.jp/elem/000/001/235/1235262/">Goならわかるシステムプログラミング</a>を参考にRustで書き直してみる.</p>
+<h2 id="huairudeisukuriputa">ファイル・ディスクリプタ</h2>
+<p>　これでアクセスできるらしい.</p>
+<h2 id="io-writerintahuesu">io.Writerインターフェース</h2>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">io.</span><span style="color:#bf616a;">Writer
+</span></pre>
+<p>　Rustではstd::io::Writeに対応する.</p>
+<h3 id="baitolie">バイト列</h3>
+<p>　Goではバイトを配列として表します.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">byteArray </span><span style="color:#c0c5ce;">:= []</span><span style="color:#b48ead;">byte</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">ASCII</span><span style="color:#c0c5ce;">&quot;)
+</span></pre>
+<p>　Rustではスライス型を使います.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">let</span><span style="color:#c0c5ce;"> s: &amp;</span><span style="color:#b48ead;">str </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">ASCII</span><span style="color:#c0c5ce;">&quot;;
+</span><span style="color:#b48ead;">let</span><span style="color:#c0c5ce;"> bytes: &amp;[</span><span style="color:#b48ead;">u8</span><span style="color:#c0c5ce;">] = s.</span><span style="color:#96b5b4;">as_bytes</span><span style="color:#c0c5ce;">();
+</span></pre>
+<p>　もしくはバイト文字列リテラルを使う方法もある.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">let</span><span style="color:#c0c5ce;"> s: &amp;[</span><span style="color:#b48ead;">u8</span><span style="color:#c0c5ce;">] = </span><span style="color:#b48ead;">b</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">ASCII</span><span style="color:#c0c5ce;">&quot;;
+</span></pre>
+<p>　
+　これもスライス型なので範囲で指定できます.<a href="#ref-1"><sup>1</sup></a></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">use </span><span style="color:#c0c5ce;">std::io::prelude::*;
+</span><span style="color:#b48ead;">use </span><span style="color:#c0c5ce;">std::fs::File;
+
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">() -&gt; std::io::Result&lt;()&gt; {
+    </span><span style="color:#b48ead;">let</span><span style="color:#c0c5ce;"> data = </span><span style="color:#b48ead;">b</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">some bytes</span><span style="color:#c0c5ce;">&quot;;
+
+    </span><span style="color:#b48ead;">let mut</span><span style="color:#c0c5ce;"> pos = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+    </span><span style="color:#b48ead;">let mut</span><span style="color:#c0c5ce;"> buffer = File::create(&quot;</span><span style="color:#a3be8c;">foo.txt</span><span style="color:#c0c5ce;">&quot;)?;
+
+    </span><span style="color:#b48ead;">while</span><span style="color:#c0c5ce;"> pos &lt; data.</span><span style="color:#96b5b4;">len</span><span style="color:#c0c5ce;">() {
+        </span><span style="color:#b48ead;">let</span><span style="color:#c0c5ce;"> bytes_written = buffer.</span><span style="color:#96b5b4;">write</span><span style="color:#c0c5ce;">(&amp;data[pos..])?;
+        pos += bytes_written;
+    }
+    Ok(())
+}
+</span></pre><h3 id="std-io-stdoutgou-zao-ti">std::io::Stdout構造体</h3>
+<p>　GoではWrite関数を使います.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">os.</span><span style="color:#bf616a;">Stdout</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Write</span><span style="color:#c0c5ce;">([]</span><span style="color:#b48ead;">byte</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">os.Stdout example</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;))
+</span></pre>
+<p>　RustではStdout構造体を持ちいいます. この構造体はWriteトレイトを実装しています.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">use </span><span style="color:#c0c5ce;">std::io::{</span><span style="color:#bf616a;">self</span><span style="color:#c0c5ce;">, Write};
+
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">() -&gt; io::Result&lt;()&gt; {
+    io::stdout().</span><span style="color:#96b5b4;">write</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">b</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">os.Stdout example</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;)?;
+
+    Ok(())
+}
+</span></pre><h3 id="batuhuaringu">バッファリング</h3>
+<p>　そもそもバッファリングとはどういう手法を指すのでしょうか?</p>
+<blockquote>
+<p>バッファは処理速度や転送速度の差がある複数の情報機器やソフトウェアの間でデータをやり取りするときに、データを一時的に保存して差を速度差を埋めるための記憶装置や記憶領域のことです。<a href="#ref-2"><sup>2</sup></a></p>
+</blockquote>
+<p>　例えばストリーミングなどでも遅延をなくすために一定量のフレームデータがメモリ上にバッファとして蓄えられます. GoではBuffer構造体のWrite関数にバイト列を指定するだけでメモリ上にバッファリングできるようです. Rustにはそれに対応するデータ構造はないようです. BufWriter(Buffer Writer)なる構造体はあるが以下のような記述がある.</p>
+<blockquote>
+<p>... It also provides no advantage when writing to a destination that is in memory, like a Vec&lt;u8&gt;. <a href="#ref-3"><sup>3</sup></a></p>
+</blockquote>
+<p>　つまり例題程度ならBufWriterとVec&lt;u8&gt;に性能差は無いようなので, Vec&lt;u8&gt;を使ってみることにする.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">use </span><span style="color:#c0c5ce;">std::io::{Write, BufWriter};
+
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">() {
+    </span><span style="color:#b48ead;">let</span><span style="color:#c0c5ce;"> bytes: &amp;[</span><span style="color:#b48ead;">u8</span><span style="color:#c0c5ce;">] = </span><span style="color:#b48ead;">b</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">ASCII</span><span style="color:#c0c5ce;">&quot;;
+    {
+        </span><span style="color:#b48ead;">let mut</span><span style="color:#c0c5ce;"> buffer: Vec&lt;</span><span style="color:#b48ead;">u8</span><span style="color:#c0c5ce;">&gt; = Vec::new();
+        buffer.</span><span style="color:#96b5b4;">write</span><span style="color:#c0c5ce;">(bytes).</span><span style="color:#96b5b4;">unwrap</span><span style="color:#c0c5ce;">();
+        buffer.</span><span style="color:#96b5b4;">write</span><span style="color:#c0c5ce;">(bytes).</span><span style="color:#96b5b4;">unwrap</span><span style="color:#c0c5ce;">();
+        println!(&quot;</span><span style="color:#a3be8c;">buffer: </span><span style="color:#d08770;">{:?}</span><span style="color:#c0c5ce;">&quot;, buffer);
+    }
+    
+    </span><span style="color:#b48ead;">let mut</span><span style="color:#c0c5ce;"> buffer = Vec::new();
+    {
+        </span><span style="color:#b48ead;">let mut</span><span style="color:#c0c5ce;"> buffer_writer = BufWriter::new(&amp;</span><span style="color:#b48ead;">mut</span><span style="color:#c0c5ce;"> buffer);
+        buffer_writer.</span><span style="color:#96b5b4;">write</span><span style="color:#c0c5ce;">(bytes).</span><span style="color:#96b5b4;">unwrap</span><span style="color:#c0c5ce;">();
+        buffer_writer.</span><span style="color:#96b5b4;">write</span><span style="color:#c0c5ce;">(bytes).</span><span style="color:#96b5b4;">unwrap</span><span style="color:#c0c5ce;">();
+    }
+    println!(&quot;</span><span style="color:#a3be8c;">buffer2: </span><span style="color:#d08770;">{:?}</span><span style="color:#c0c5ce;">&quot;, buffer);
+}
+
+</span></pre><h2 id="reference">Reference</h2>
+<ol>
+<li><a name="ref-1"></a> <a href="https://doc.rust-lang.org/std/io/trait.Write.html#examples">Trait std::io::Write Examples</a></li>
+<li><a name="ref-2"></a> <a href="https://dictionary.goo.ne.jp/leaf/strmg/%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%252F%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E3%83%AA%E3%83%B3%E3%82%B0/m0u/">バッファ/バッファリング</a></li>
+<li><a name="ref-3"></a> <a href="https://doc.rust-lang.org/std/io/struct.BufWriter.html#method.with_capacity">Struct std::io::BufWriter</a></li>
+</ol>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;go&#x2F;">#Go</a>
+                    
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;rust&#x2F;">#Rust</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;06&#x2F;post-044&#x2F;">‹ 非同期処理が分からない</a>
+                    
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

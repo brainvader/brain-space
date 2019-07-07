@@ -21,7 +21,7 @@
     
 
     
-    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;css&#x2F;base.css">
     
   </head>
 
@@ -29,30 +29,30 @@
     <div class="container">
       <header id="header">
         <!-- TODO:  Use a tags instead of ul -->
-        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <div class="logo"><a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">Brain Space</a></div>
         <nav class="menu">
           <ul>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">
                 Home
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;categories">
                 Categories
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;tags">
                 Tags
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;about">
                 About
               </a>
             </li>
@@ -65,8 +65,8 @@
           
 
 
-<div>blog&#x2f;2019&#x2f;05&#x2f;post-030&#x2f;</div>
-<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-030&#x2f;</div>
+<div>blog&#x2F;2019&#x2F;05&#x2F;post-030&#x2F;</div>
+<div>https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-030&#x2F;</div>
 <div>en</div>
 <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
@@ -101,7 +101,7 @@
     
 <header class="post__header">
   <h1 class="post__title">
-    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-030&#x2f;">Learn OpenGL With Rust (2) GetString</a>
+    <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-030&#x2F;">Learn OpenGL With Rust (2) GetString</a>
   </h1>
   <div class="post__meta">
     <span class="post__time">2019-05-05</span>
@@ -112,7 +112,7 @@
     <div class="post-content">
       <h1 id="getstringdebaziyontorendaraqing-bao-woqu-de-sitebiao-shi-suru">GetStringでバージョンとレンダラ情報を取得して表示する</h1>
 <h2 id="bei-jing">背景</h2>
-<p>　Learn OpenGL with Rust<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-030/#ref-1"><sup>1</a>で画面だけ表示しても面白みがないので, メタ情報へのアクセスを試みてみた. C++では<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glGetString.xhtml">glGetString</a>に以下のGLenumを渡すと文字列を返してくれる.</p>
+<p>　Learn OpenGL with Rust<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-030/#ref-1"><sup>1</sup></a>で画面だけ表示しても面白みがないので, メタ情報へのアクセスを試みてみた. C++では<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glGetString.xhtml">glGetString</a>に以下のGLenumを渡すと文字列を返してくれる.</p>
 <ul>
 <li>GL_VENDER</li>
 <li>GL_VERSION</li>
@@ -143,7 +143,7 @@
 };
 </span></pre>
 <p>　<a href="https://doc.rust-lang.org/1.30.0/book/2018-edition/ch19-01-unsafe-rust.html#dereferencing-a-raw-pointer">Dereferencing a Raw Pointer
-</a>を見るとそのままいけそうだが, 実は中身はC ABI(C Application Binary Interface)とかいうやつが返すUTF-8文字列らしいのです. OpenGLがCインタフェースへのラッパーなのだからある意味当然だが, これをRust側で安全に使うにはCStrというモジュールが必要になる.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-030/#ref-2"><sup>2</a></p>
+</a>を見るとそのままいけそうだが, 実は中身はC ABI(C Application Binary Interface)とかいうやつが返すUTF-8文字列らしいのです. OpenGLがCインタフェースへのラッパーなのだからある意味当然だが, これをRust側で安全に使うにはCStrというモジュールが必要になる.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-030/#ref-2"><sup>2</sup></a></p>
 <p>　CStrモジュールの<a href="https://doc.rust-lang.org/std/ffi/struct.CStr.html#method.from_ptr">from_ptr</a>を使うと,</p>
 <blockquote>
 <p>Wraps a raw C string with a safe C string wrapper.</p>
@@ -160,7 +160,7 @@
 };
 println!(&quot;</span><span style="color:#d08770;">{:?}</span><span style="color:#c0c5ce;">&quot;, version);
 </span></pre>
-<p>　参考にしたQiitaの記事では<a href="https://doc.rust-lang.org/std/ffi/struct.CStr.html#method.to_string_lossy">to_string_lossy</a>使ってる. これは文字列が有効なものでない場合に適当な無効を表す文字列に置き換えてくれるらしい.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-030/#ref-3"><sup>3</a></p>
+<p>　参考にしたQiitaの記事では<a href="https://doc.rust-lang.org/std/ffi/struct.CStr.html#method.to_string_lossy">to_string_lossy</a>使ってる. これは文字列が有効なものでない場合に適当な無効を表す文字列に置き換えてくれるらしい.<a href="https://brainvader.github.io/brain-space/blog/2019/05/post-030/#ref-3"><sup>3</sup></a></p>
 <h3 id="matome">まとめ</h3>
 <p>　CStrはよくわからないこともあるが(COW型とか), C++とのやりとりのやり方として勉強になった. 後最初GetIntegervに渡すべきgl::MAJORとかgl::MINORを渡してSegment Faultをくらってたのは内緒です.</p>
 <h2 id="reference">Reference</h2>
@@ -186,19 +186,19 @@ println!(&quot;</span><span style="color:#d08770;">{:?}</span><span style="color
             
                 <div class="post-tags">
                     
-                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;rust&#x2f;">#Rust</a>
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;rust&#x2F;">#Rust</a>
                     
-                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;opengl&#x2f;">#OpenGL</a>
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;opengl&#x2F;">#OpenGL</a>
                     
                 </div>
             
             
                 <div class="post-nav">
                     
-                        <a class="previous" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-029&#x2f;">‹ Unity入門 (3) Lighting</a>
+                        <a class="previous" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-029&#x2F;">‹ Unity入門 (3) Lighting</a>
                     
                     
-                        <a class="next" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;05&#x2f;post-031&#x2f;">Unity入門 (3) 3D Game Kit ›</a>
+                        <a class="next" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;05&#x2F;post-031&#x2F;">Unity入門 (3) 3D Game Kit ›</a>
                     
                     
                     

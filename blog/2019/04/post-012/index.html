@@ -21,7 +21,7 @@
     
 
     
-    <link rel="stylesheet" href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;css&#x2f;base.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;css&#x2F;base.css">
     
   </head>
 
@@ -29,30 +29,30 @@
     <div class="container">
       <header id="header">
         <!-- TODO:  Use a tags instead of ul -->
-        <div class="logo"><a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;">Brain Space</a></div>
+        <div class="logo"><a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">Brain Space</a></div>
         <nav class="menu">
           <ul>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">
                 Home
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;categories">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;categories">
                 Categories
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;tags">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;tags">
                 Tags
               </a>
             </li>
             
             <li>
-              <a href="https://brainvader.github.io/brain-space/&#x2f;about">
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;about">
                 About
               </a>
             </li>
@@ -65,8 +65,8 @@
           
 
 
-<div>blog&#x2f;2019&#x2f;04&#x2f;post-012&#x2f;</div>
-<div>https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-012&#x2f;</div>
+<div>blog&#x2F;2019&#x2F;04&#x2F;post-012&#x2F;</div>
+<div>https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;04&#x2F;post-012&#x2F;</div>
 <div>en</div>
 <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
@@ -117,7 +117,7 @@
     
 <header class="post__header">
   <h1 class="post__title">
-    <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;blog&#x2f;2019&#x2f;04&#x2f;post-012&#x2f;">React入門 (9) ポータルとモーダル</a>
+    <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;04&#x2F;post-012&#x2F;">React入門 (9) ポータルとモーダル</a>
   </h1>
   <div class="post__meta">
     <span class="post__time">2019-04-17</span>
@@ -129,7 +129,7 @@
       <h1 id="potarutomodaru">ポータルとモーダル</h1>
 <h2 id="potarutoha">ポータルとは?</h2>
 <blockquote>
-<p>Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-1"><sup>1</a></p>
+<p>Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-1"><sup>1</sup></a></p>
 </blockquote>
 <p>　正直この説明では良く分からない. 通常DOMノードは親子関係を構築する. つまり子は親の下にぶら下がる親から子へと辿っていける構造になっている. しかしモーダルなどのいくつかのUIsでは動的に生成される必要がある.</p>
 <h2 id="yusukesu">ユースケース</h2>
@@ -140,11 +140,11 @@
 <li>Tooltips</li>
 </ul>
 <h2 id="gou-wen">構文</h2>
-<p>　createPortal<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-2"><sup>2</a>と言うメソッドを使う.</p>
+<p>　createPortal<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-2"><sup>2</sup></a>と言うメソッドを使う.</p>
 <pre style="background-color:#2b303b;">
 <span style="color:#ebcb8b;">ReactDOM</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">createPortal</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">child</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">container</span><span style="color:#c0c5ce;">);
 </span></pre>
-<p>　render<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-3"><sup>3</a>と比較してみよう.</p>
+<p>　render<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-3"><sup>3</sup></a>と比較してみよう.</p>
 <pre style="background-color:#2b303b;">
 <span style="color:#ebcb8b;">ReactDOM</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">render</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">element</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">container</span><span style="color:#c0c5ce;">[, </span><span style="color:#bf616a;">callback</span><span style="color:#c0c5ce;">])
 </span></pre>
@@ -156,7 +156,7 @@
 </span></pre>
 <p>　とかz-indexなどが指定されている場合です. この場合普通に子要素を付け足すと, 隠れて見えなくなってしまいます. これでは具合が悪いので指定したDOM要素に追加できるのがポータルです. 言い換えると子要素が親を選べると言うことでもあります.</p>
 <h2 id="modarunoshi-zhuang">モーダルの実装</h2>
-<p>　公式の例をそのままパクってきました.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-3"><sup>3</a> 通常モーダル・コンポーネントはAppコンポーネントの子要素となりますが, ポータルとして指定した要素の子要素になるように指定しています. 子が親を選べるとはこう言うことです. またモーダル・ビューということで要素も動的に生成・削除されています.</p>
+<p>　公式の例をそのままパクってきました.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-3"><sup>3</sup></a> 通常モーダル・コンポーネントはAppコンポーネントの子要素となりますが, ポータルとして指定した要素の子要素になるように指定しています. 子が親を選べるとはこう言うことです. またモーダル・ビューということで要素も動的に生成・削除されています.</p>
 <pre style="background-color:#2b303b;">
 <span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">div </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">app-root</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
 &lt;</span><span style="color:#bf616a;">div </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">modal-root</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
@@ -244,7 +244,7 @@
 
 </span><span style="color:#ebcb8b;">ReactDOM</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">render</span><span style="color:#c0c5ce;">(&lt;</span><span style="color:#bf616a;">App </span><span style="color:#c0c5ce;">/&gt;, </span><span style="color:#bf616a;">appRoot</span><span style="color:#c0c5ce;">);
 </span></pre><h2 id="event-bubbling">Event Bubbling</h2>
-<p>　親子関係が壊れるわけですがイベント・バブリングはどうなるのでしょうか? ドキュメントではモーダル・ビューで表示したボタンを押すと実際の親ではない, Appコンポーネントに反映されると言う例を示しています.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-4"><sup>4</a> 状態自体は仮想DOMが管理していますが, イベント・バブリングはReactツリー上で伝達されるそうです.</p>
+<p>　親子関係が壊れるわけですがイベント・バブリングはどうなるのでしょうか? ドキュメントではモーダル・ビューで表示したボタンを押すと実際の親ではない, Appコンポーネントに反映されると言う例を示しています.<a href="https://brainvader.github.io/brain-space/blog/2019/04/post-012/#com-4"><sup>4</sup></a> 状態自体は仮想DOMが管理していますが, イベント・バブリングはReactツリー上で伝達されるそうです.</p>
 <h2 id="matome">まとめ</h2>
 <p>　Reactは仮想DOMを利用するライブラリで, 一般的な使い方なら実DOMを操作する必要はありません. しかし一部の特殊用途(子要素が親を選ぶ必要が出てくる場合)ではポータルを使って別の親の子要素とすることもできます. 一方この場合(実DOM上で親子関係が存在しない)でもイベントは仮想DOM(Reactツリー)上での親子関係が維持されて, 子要素のイベントが親へと伝達されます.</p>
 <p>+++</p>
@@ -272,7 +272,7 @@
             
                 <div class="post-tags">
                     
-                        <a href="https:&#x2f;&#x2f;brainvader.github.io&#x2f;brain-space&#x2f;tags&#x2f;react&#x2f;">#React</a>
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;react&#x2F;">#React</a>
                     
                 </div>
             
