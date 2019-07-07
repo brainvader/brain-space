@@ -8,6 +8,10 @@ categories = ["programming"]
 tags = ["Go", "Rust"]
 +++
 
+## 動機
+
+　[Goならわかるシステムプログラミング](https://ascii.jp/elem/000/001/235/1235262/)を参考にRustで書き直してみる.
+
 ## ファイル・ディスクリプタ
 
 　これでアクセスできるらしい.
@@ -83,24 +87,37 @@ fn main() -> io::Result<()> {
 
 ### バッファリング
 
+　そもそもバッファリングとはどういう手法を指すのでしょうか?
+
 > バッファは処理速度や転送速度の差がある複数の情報機器やソフトウェアの間でデータをやり取りするときに、データを一時的に保存して差を速度差を埋めるための記憶装置や記憶領域のことです。{{ref(id=2)}}
 
-　ストリーミングなどでも遅延をなくすために一定量のフレームデータがメモリ上にバッファとして蓄えられます. GoではBuffer構造体のWrite関数にバイト列を指定するだけでメモリ上にバッファリングできるようです. Rustにはそれに対応するものはないようです.
+　例えばストリーミングなどでも遅延をなくすために一定量のフレームデータがメモリ上にバッファとして蓄えられます. GoではBuffer構造体のWrite関数にバイト列を指定するだけでメモリ上にバッファリングできるようです. Rustにはそれに対応するデータ構造はないようです. BufWriter(Buffer Writer)なる構造体はあるが以下のような記述がある.
 
 > ... It also provides no advantage when writing to a destination that is in memory, like a Vec\<u8\>. {{ ref(id=3)}}
 
-　BufWriterとVec\<u8\>に性能差は無いようなので, Vec\<u8\>を使ってみることにする.
+　つまり例題程度ならBufWriterとVec\<u8\>に性能差は無いようなので, Vec\<u8\>を使ってみることにする.
 
 ```rust
-use std::io::Write;
+use std::io::{Write, BufWriter};
 
 fn main() {
-    let mut buffer: Vec<u8> = Vec::new();
-    let data: &[u8] = b"ASCII";
-    buffer.write(data).unwrap();
-    buffer.write(data).unwrap();
-    println!("buffer: {:?}", buffer);
+    let bytes: &[u8] = b"ASCII";
+    {
+        let mut buffer: Vec<u8> = Vec::new();
+        buffer.write(bytes).unwrap();
+        buffer.write(bytes).unwrap();
+        println!("buffer: {:?}", buffer);
+    }
+    
+    let mut buffer = Vec::new();
+    {
+        let mut buffer_writer = BufWriter::new(&mut buffer);
+        buffer_writer.write(bytes).unwrap();
+        buffer_writer.write(bytes).unwrap();
+    }
+    println!("buffer2: {:?}", buffer);
 }
+
 ```
 
 ## Reference
