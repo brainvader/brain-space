@@ -10,5 +10,5 @@ You can access my blog from [here](https://brainvader.github.io/brain-space/).
 git clone https://github.com/brainvader/brain-space.git
 cd brain-space
 zola build
-npm install -g gh-pages
+gh-pages -d public
 ```
