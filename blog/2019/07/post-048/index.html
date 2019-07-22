@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - Unity入門 (5) Blenderからのモデルの読み込み</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;css&#x2F;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2F;2019&#x2F;07&#x2F;post-048&#x2F;</div>
+<div>https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;07&#x2F;post-048&#x2F;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-048/#motibesiyon" class="toc-link">モチベーション</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-048/#qian-zhun-bei" class="toc-link">前準備</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-048/#shu-kichu-sitodu-miip-mi" class="toc-link">書き出しと読み込み</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-048/#blenderniyorushu-kichu-si-fbx" class="toc-link">Blenderによる書き出し(FBX)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-048/#blenderniyorushu-kichu-si-obj" class="toc-link">Blenderによる書き出し(.obj)</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-048/#unity" class="toc-link">Unity</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-048/#materiarusisutemutoha" class="toc-link">マテリアル・システムとは？</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-048/#footnote" class="toc-link">Footnote</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-048/#reference" class="toc-link">Reference</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;07&#x2F;post-048&#x2F;">Unity入門 (5) Blenderからのモデルの読み込み</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-07-21</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h2 id="motibesiyon">モチベーション</h2>
+<p>　Blenderで作成したモデルの読み込みが思ったよりも面倒だったのでメモしておく. 今回はUV展開後にテクスチャ・ペイントで色をつけてテクスチャを作った. アセットを作るときのよくあるワークフローだと思う.</p>
+<h2 id="qian-zhun-bei">前準備</h2>
+<ol>
+<li>テクスチャの作成</li>
+<li>ペインティング</li>
+<li>画像として保存</li>
+<li>モデルの出力(fbx/obj)</li>
+</ol>
+<p>　以上のような処理が必要になります. 大きく分けてメッシュデータとテクスチャ用の画像が必要になるわけです. 今回はBlender側でマテリアルを指定する必要は無いです.</p>
+<h2 id="shu-kichu-sitodu-miip-mi">書き出しと読み込み</h2>
+<h3 id="blenderniyorushu-kichu-si-fbx">Blenderによる書き出し(FBX)</h3>
+<p>　FBX形式は割と簡単です. 出力したいオブジェクトを選択してアプリケーション・メニューバーのFileからExport -&gt; FBX(.fbx)を選択します. この際Selected Objectsにチェックを入れないとシーン全体が読み込まれてしまいます. 今回は特定のオブジェクトだけを読み込みたいのでこのこのオプションにチェックを入れます.</p>
+<p><img src="./2019-07-21-18.06.25.png" alt="Selected Objectsにチェック" /></p>
+<p>　テクスチャ画像の方は簡単で, WorkspaceタブのTexture Paintを選択します. メニューからimageを選択してSave As...を選択するかShift + Sで画像を保存します.</p>
+<p><img src="./2019-07-21-18.12.49.png" alt="画像の保存" /></p>
+<h3 id="blenderniyorushu-kichu-si-obj">Blenderによる書き出し(.obj)</h3>
+<p>　FBXの場合と同じでSelected Objectsだけを有効にしておけば, 後はデフォルトで良いと思います.</p>
+<h3 id="unity">Unity</h3>
+<p>　Unity側で読み込むにはエディタ上にドラッグ・ドロップするだけで良いです. オブジェクトはPrefabのような形式で読み込まれます. そしてインスペクタには読み込んだオブジェクトの設定が表示されているのがわかると思います. 　とりあえずModel, Rig, Animationは無視します. </p>
+<p><img src="./2019-07-22-19.30.12.png" alt="読み込んだオブジェクトのUnityインスペクタでの表示" /></p>
+<p>　普通にインポートするとマテリアルは埋め込まれた状態になっています. Unity 2017.2からの仕様らしいです. 要するにBlenderなどのマテリアルがそのまま表示されます. 通常これで問題はないと思いますが今回はこれを一度抜き出して, テクスチャを個別に指定しようと思います. 画像にあるExtract Materialsを押すとマテリアルの保存先フォルダを指定するファイル・ブラウザが表示されます. 適当なフォルダを選択し, 別個に出力したテクスチャ画像をAlbedoスロットに指定します. これで自動的にテクスチャがオブジェクトに適用されます. 分離してもこの方法の利点はUnity側でマテリアルを制御できるということです. 反面オリジナルのモデルに変更が出た時に, 差分をきちんとUnity側で指定する必要が出てきそうな気がします.</p>
+<h3 id="materiarusisutemutoha">マテリアル・システムとは？</h3>
+<p>　マテリアル・システムはシェーダへの入力をまとめたパラメータ・セットのことです.<a href="#ref-1"><sup>1</sup></a> ここに指定した値や画像はシェーダの中で利用されます. 物理ベースマテリアルの場合はシェーダによるレンダリングが物理ベースのモデルが利用されていることからこのように呼ばれるようです. </p>
+<blockquote>
+<p>シェーダがレンダリングするときに必要なパラメータで質感などオブジェクトに由来するものをまとめたもの</p>
+</blockquote>
+<p>　マテリアルに指定したパラメータを調節することで比較的簡単に見た目を整えることができます. 特にPBR(Physically Based Rendering)ならリアルな表現を比較的簡単に再現できます.</p>
+<h2 id="footnote">Footnote</h2>
+<ol>
+<li><a name="ref-1"></a> ただし光源や変換行列などの情報は別個に取得します.</li>
+</ol>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/ImportingAssets.html">Importing</a></li>
+<li><a href="http://bandsite.raindrop.jp/2019/03/16/blender%E3%81%8B%E3%82%89unity%E3%81%AB%E3%83%9E%E3%83%86%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%82%E4%BB%98%E3%81%91%E3%81%A6%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B/">blenderからUnityにマテリアルも付けてエクスポートする方法！</a></li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;unity&#x2F;">#Unity</a>
+                    
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;blender&#x2F;">#Blender</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;07&#x2F;post-047&#x2F;">‹ 崩壊3rdの研究 (2) Physically Based Refraction</a>
+                    
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Site - 崩壊3rdの研究 (2) Physically Based Refraction</title>
+
+    
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+              <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+    
+
+    
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;css&#x2F;base.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header">
+        <!-- TODO:  Use a tags instead of ul -->
+        <div class="logo"><a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">Brain Space</a></div>
+        <nav class="menu">
+          <ul>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;">
+                Home
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;categories">
+                Categories
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;tags">
+                Tags
+              </a>
+            </li>
+            
+            <li>
+              <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;&#x2F;about">
+                About
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="content">
+          
+
+
+<div>blog&#x2F;2019&#x2F;07&#x2F;post-047&#x2F;</div>
+<div>https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;07&#x2F;post-047&#x2F;</div>
+<div>en</div>
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-047/#shi-chai-matupingu" class="toc-link">視差マッピング</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-047/#physically-based-refraction" class="toc-link">Physically Based Refraction</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-047/#beng-huai-3rdnochang-he" class="toc-link">崩壊3rdの場合</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-047/#footnote" class="toc-link">Footnote</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://brainvader.github.io/brain-space/blog/2019/07/post-047/#reference" class="toc-link">Reference</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+<header class="post__header">
+  <h1 class="post__title">
+    <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;07&#x2F;post-047&#x2F;">崩壊3rdの研究 (2) Physically Based Refraction</a>
+  </h1>
+  <div class="post__meta">
+    <span class="post__time">2019-07-18</span>
+    
+  </div>
+</header>
+
+    <div class="post-content">
+      <h2 id="shi-chai-matupingu">視差マッピング</h2>
+<p>　PBR(Phusically Based Refraction)のもう少し簡単な例を考えましょう. 何らかの計算でテクスチャを移動させるというのが視差マッピングと呼ばれます.<a href="#ref-1"><sup>1</sup></a> 計算方法はそれほど難しくはないです. 基本は<script type="math/tex">k\cdot\mathbf{v}</script>という感じで, あるUV座標を視線ベクトルに沿ってk倍の位置までずらします. と言ってもUV座標は2次元ですのでxとyの値しかありません. これらの計算はフラグメント・シェーダで行われるのでラスタライズされた後です. 深度値は持っていますが, これはZテストでレンダリングしないピクセルを省くためです. 当然頂点の前後関係は変わらないので不自然な部分は生じますが, 逆にこれだけでそれっぽい絵が簡単に表現できるということでもあります. 実際に頂点を変更する場合は頂点シェーダかジオメトリ・シェーダを使えばいいのだと思います. <a href="#ref-2"><sup>2</sup></a></p>
+<p>　なぜではそれっぽい画面が生成できるのだろうか? これはUVがポリゴンに貼り付けられているのではなく, 実際にはテクスチャから対応する色をサンプリングしていることに原因がある.<a href="#ref-3"><sup>3</sup></a></p>
+<p><img src="https://news.mynavi.jp/article/graphics-17/images/005.jpg" alt="バンプ・マッピングの概略図" /></p>
+<p>　視差マッピングには法線情報を提供するテクスチャとは別に高さ情報を提供するバンプ・マップ(高さマップ)を使う. このマップでマスクされた領域には高さの情報が加わる. 図でカメラか伸びる二つの視線がそれぞれ違う高さマップと交わって, その直下にあるテクスチャをサンプリングすることになっている. 一方視差マッピングでは(局面)で屈折して直進した場合とは違うテクスチャの色情報を採取しているのが見えると思う.</p>
+<p><img src="https://news.mynavi.jp/article/graphics-17/images/006.jpg" alt="視差マッピングの概略図" /></p>
+<p>　実際にはこの図からも誤差があることが分かるが&quot;生々しさ&quot;とリアルタイム性を両立するにはこで十分な表現力を持つわけです.</p>
+<h2 id="physically-based-refraction">Physically Based Refraction</h2>
+<p>　以上の視差マッピングの内容を踏まえると物理ベースの瞳での屈折の理解が進むと思います.</p>
+<p><img src="https://i.stack.imgur.com/a08kE.png" alt="Parallax Refraction" /></p>
+<p>　上の図とよく似ていることがわかると思います. ただしハイト・マップの代わりに頂点の座標を使います. 平面を浮かび上がらせるのとは逆で, 角度によってレンズの位置を奥に引っ込ませる処理が必要になるわけです. このポリゴンとレンズ(水晶体)までの空間をanterior chamber(前眼房)と呼ぶらしいです. 計算はややこしいですが公式化されていますので機械的に計算できます.</p>
+<p>　具体的な計算方法などは<a href="http://popupasylum.co.uk/?p=1109">PHYSICALLY BASED PLANAR REFRACTION SHADER</a>が詳しかったです. この記事でも紹介されているがGLSLにはrefractという組み込み関数が存在し, これを使っています.<a href="#ref-4"><sup>4</sup></a> ただUnityにはrefract関数がないので自分で実装する必要があります.</p>
+<p>　Stack Exchangeにも<a href="https://gamedev.stackexchange.com/questions/131619/eye-parallax-refraction-shader">Eye Parallax Refraction Shader</a>という質問が投稿されている. これも詳しい説明はないです.</p>
+<p>　最後が<a href="https://forum.unity.com/threads/eye-shader-physically-based-refraction-source-code.441270/">Eye shader: Physically based Refraction +[Source code]</a>でこれはUnityのスクリプトの実装があります. ここで紹介されている屈折のアルゴリズムはGLSLのビルトイン関数であるrefract関数やStack Exchangeで紹介されているアルゴリズムと同じようです. 実際に動くしこれが一番分かりやすいのです. おそらくこれでもそれらしく見せることはできそうですが, 問題は崩壊3rdの公演で紹介されている式とは全然違うということです.</p>
+<h2 id="beng-huai-3rdnochang-he">崩壊3rdの場合</h2>
+<p>　崩壊3rdは方向余弦を計算しているように見えます.</p>
+<script type="math/tex;mode=display">\begin{aligned}
+  &half3\,V = normalize(\_WorldSpaceCameraPos.xyz - o.objPos); \\
+  &float3\,offset = float3(dot(V, uWorld), dot(V, vWorld), dot(V, eyeForward));
+\end{aligned}</script>
+<p>　この解釈が難しいのですが, 瞳の部分(黒目に相当)は平坦で角度によって膨らませる方法では無いかなぁと思いました. そしてその方法として視差マッピングが使えそうです.<a href="#ref-3"><sup>3</sup></a> 今黒目は平としているのでuWorldとvWorldはこの平面を構成するベクトルと考えられます. つまり接ベクトルと従法線ベクトルです.<a href="#ref-5"><sup>5</sup></a> それを視差マッピングの要領で視線ベクトル方向に持ち上げます. 前眼房の高さを考慮する必要もあるかもしれません.</p>
+<h2 id="footnote">Footnote</h2>
+<ol>
+<li><a name="ref-1"></a> <a href="http://light11.hatenadiary.com/entry/2018/02/14/205444">【Unity】視差マッピング</a></li>
+<li><a name="ref-2"></a> <a href="https://jayjingyuliu.wordpress.com/2018/01/24/unity3d-intro-to-geometry-shader/">[Unity3D] Intro to Geometry Shader</a></li>
+<li><a name="ref-3"></a>  <a href="https://news.mynavi.jp/article/graphics-17/">バンプマッピングの先にあるもの(1)～視差マッピング</a></li>
+<li><a name="ref-4"></a> <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/refract.xhtml">refract</a></li>
+<li><a name="ref-5"></a> <a href="http://esprog.hatenablog.com/entry/2016/05/01/025634">法線マップと接空間</a></li>
+</ol>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://ch.nicovideo.jp/wachi/blomaga/ar538057">瞳の作り方メイキング</a></li>
+<li><a href="https://cgworld.jp/feature/201809-cgw241hs-houkai3rd01.html">細部まで徹底的にこだわったキャラクター造形～中国と日本が連携して挑んだ最先端CGアニメ『崩壊3rd』PV『女王降臨』Vol.1</a></li>
+<li><a href="https://lindenreid.wordpress.com/2018/02/25/texture-mask-shader-unity-tutorial/">Texture Mask Shader in Unity Tutorial</a></li>
+<li><a href="https://www.febucci.com/2018/10/vertex-shader/">Vertex shader</a></li>
+<li><a href="https://learnopengl.com/Advanced-Lighting/Parallax-Mapping">Lean OpenGL Parallax Mapping</a></li>
+<li><a href="https://www.habrador.com/tutorials/shaders/3-parallax-mapping/">3.Parallax mapping in Advanced shaders in Unity</a></li>
+<li><a href="https://www.gamedev.net/articles/programming/graphics/a-closer-look-at-parallax-occlusion-mapping-r3262/">A Closer Look At Parallax Occlusion Mapping</a></li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+        
+          key: kind, value [object]<br>
+        
+          key: items, value [[object], [object], [object], [object]]<br>
+        
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;tags&#x2F;unity&#x2F;">#Unity</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;07&#x2F;post-046&#x2F;">‹ 崩壊3rdの研究</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;brainvader.github.io&#x2F;brain-space&#x2F;blog&#x2F;2019&#x2F;07&#x2F;post-048&#x2F;">Unity入門 (5) Blenderからのモデルの読み込み ›</a>
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+        </div>
+      </main>
+      <footer>
+        
+        <nav class="pagination">
+          
+          
+        </nav>
+        
+      </footer>
+    </div>
+  </body>
+
+</html>
