@@ -115,7 +115,7 @@ fn main() {
         buffer_writer.write(bytes).unwrap();
         buffer_writer.write(bytes).unwrap();
     }
-    println!("buffer2: {:?}", buffer);
+    println!("buffer2: {:?}", buffer);
 }
 
 ```
